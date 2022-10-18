@@ -1,0 +1,11 @@
+@import 'src/css/app.variables.scss';
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  height: $fFieldHeight;
+  border: none;
+  border-bottom: 0.1rem solid $fBorderColor;
+}
