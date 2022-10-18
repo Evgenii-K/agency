@@ -13,26 +13,12 @@
   </q-layout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+  import { onMounted } from 'vue'
+  import Loader from 'components/loader/Loader.vue'
+  import useController from './controller'
 
-import { defineComponent, onMounted } from 'vue'
-import Loader from 'components/loader/Loader.vue'
-import useController from './controller'
+  const { IsGeneralLoading, onMountedCallback } = useController()
 
-export default defineComponent({
-  name: 'MainLayout',
-  components: { Loader },
-  setup () {
-    const {
-      IsGeneralLoading,
-      onMountedCallback
-    } = useController()
-
-    onMounted(onMountedCallback)
-
-    return {
-      IsGeneralLoading
-    }
-  }
-})
+  onMounted(onMountedCallback)
 </script>

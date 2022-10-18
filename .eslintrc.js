@@ -23,7 +23,6 @@ module.exports = {
   env: {
     browser: true
   },
-
   // Rules order is important, please avoid shuffling them
   extends: [
     // Base ESLint recommended rules
@@ -43,8 +42,8 @@ module.exports = {
     // 'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
     'eslint:recommended',
     'plugin:vue/recommended',
-    'standard'
-
+    'standard',
+    'prettier',
   ],
   plugins: [
     // required to apply rules which need type information
@@ -53,7 +52,7 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-files
     // required to lint *.vue files
     'vue',
-
+    'prettier',
   ],
 
   globals: {
@@ -94,6 +93,43 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
 
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // упорядочивание атрибутов компонентов
+    "vue/attributes-order": ["error", {
+      "order": [
+        "DEFINITION",
+        "LIST_RENDERING",
+        "CONDITIONALS",
+        "RENDER_MODIFIERS",
+        "GLOBAL",
+        ["UNIQUE", "SLOT"],
+        "TWO_WAY_BINDING",
+        "OTHER_DIRECTIVES",
+        "OTHER_ATTR",
+        "EVENTS",
+        "CONTENT"
+      ],
+      "alphabetical": false
+    }],
+    // использование одиночных тегов для vue компонентов и пустых одиночных компонентов html
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "always",
+        "component": "always"
+      },
+      "svg": "always",
+      "math": "always"
+    }],
+    // проверка на совпадение имени компонента и имени файла
+    "vue/match-component-file-name": ["error", {
+      "extensions": ["vue"],
+      "shouldMatchCase": false
+     }],
+    // проверка на дубликат свойств
+    "vue/no-dupe-keys": ["error", {
+      "groups": []
+    }]
   }
 }

@@ -8,4 +8,8 @@
   height: $fFieldHeight;
   border: none;
   border-bottom: 0.1rem solid $fBorderColor;
+
+  &--errored {
+    border: 1px solid red;
+  }
 }

@@ -1,7 +1,8 @@
 import { ref, reactive, watch } from 'vue'
-import { FieldForm, ErrorForm } from '../../components/models'
+import { FieldForm, ErrorForm, UseField } from '../../components/models'
 
-export function useField (field: FieldForm) {
+export function useField(field: FieldForm): UseField {
+
   const valid = ref(true)
   const value = ref(field.value)
 
@@ -9,11 +10,10 @@ export function useField (field: FieldForm) {
 
   const reassign = (val: string) => {
     valid.value = true
-    Object.keys(field.validators ?? {}).map(name => {
+    Object.keys(field.validators ?? {}).forEach(name => {
       const isValid = field.validators[name](val)
       errors[name] = !isValid
       if (!isValid) valid.value = false
-      return name
     })
   }
 

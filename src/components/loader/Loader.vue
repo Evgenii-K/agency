@@ -1,21 +1,9 @@
 <template>
   <div class="loader">
-    <div class="loader__text">
-      Я загружаюсь ....
-    </div>
+    <div class="loader__text">Я загружаюсь ....</div>
   </div>
 </template>
 
-<script lang="ts">
-
-import { defineComponent } from 'vue'
-import './style.scss'
-
-export default defineComponent({
-  name: 'Loader',
-  setup () {
-    return {
-    }
-  }
-})
+<script setup lang="ts">
+  import './style.scss'
 </script>

@@ -7,19 +7,6 @@
   </div>
 </template>
 
-<script lang="ts">
-
-import { defineComponent } from 'vue'
-import './style.scss'
-
-export default defineComponent({
-  name: 'Modal',
-  props: {
-
-  },
-  setup () {
-    return {
-    }
-  }
-})
+<script setup lang="ts">
+  import './style.scss'
 </script>

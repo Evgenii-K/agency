@@ -1,22 +1,20 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <div class="page">
-      <p class="text-center">
-        I am Demo.vue
-      </p>
-      <Button
+      <p class="text-center">I am Demo.vue</p>
+      <base-button
         :click-handler="changeModalState"
         text="Click me to Open"
       />
       <Modal v-if="isOpenModal">
-        <p>  I am modal window!</p>
-        <Field
+        <p>I am modal window!</p>
+        <base-field
           v-model="form.email.value"
           label="Test label"
           placeholder="Type smth, please"
           :is-errored="!form.email.valid"
         />
-        <Button
+        <base-button
           :click-handler="changeModalState"
           text="Click me to Close"
         />
@@ -25,40 +23,34 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-import Modal from '../components/modal/Modal.vue'
-import Button from '../components/ui/button/Button.vue'
-import Field from '../components/ui/field/Field.vue'
-import { useForm } from '../hooks/form/form'
-import checkIsRequired from '../helpers/validators/checkIsRequired'
-import checkMinLength from '../helpers/validators/checkMinLength'
-import { Form } from '../components/models'
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import Modal from '../components/modal/Modal.vue'
+  import BaseButton from '../components/ui/baseButton/BaseButton.vue'
+  import BaseField from '../components/ui/baseField/BaseField.vue'
+  import { useForm } from '../hooks/form/form'
+  import checkIsRequired from '../helpers/validators/checkIsRequired'
+  import checkMinLength from '../helpers/validators/checkMinLength'
+  import { UseForm } from '../components/models'
 
-export default defineComponent({
-  name: 'PageIndex',
-  components: { Modal, Button, Field },
-  setup () {
-    const isOpenModal = ref(false)
-    const changeModalState = () => {
-      isOpenModal.value = !isOpenModal.value
-    }
-    const PASSWORD_MIN_LENGTH = 8
-    const form: Form = useForm({
-      email: {
-        value: '12',
-        validators: {
-          checkIsRequired
-        }
-      },
-      password: {
-        value: '',
-        validators: {
-          checkIsRequired, minLength: checkMinLength(PASSWORD_MIN_LENGTH)
-        }
-      }
-    })
-    return { changeModalState, isOpenModal, form }
+  const isOpenModal = ref(false)
+  const changeModalState = () => {
+    isOpenModal.value = !isOpenModal.value
   }
-})
+  const PASSWORD_MIN_LENGTH = 8
+  const form: UseForm = useForm({
+    email: {
+      value: '12',
+      validators: {
+        checkIsRequired,
+      },
+    },
+    password: {
+      value: '',
+      validators: {
+        checkIsRequired,
+        minLength: checkMinLength(PASSWORD_MIN_LENGTH),
+      },
+    },
+  })
 </script>

@@ -1,3 +1,5 @@
+import { Ref } from 'vue';
+
 export interface ResponseType {
   [k: string]: any; //eslint-disable-line
 }
@@ -17,3 +19,14 @@ export interface FieldForm {
 export interface Form {
   [k: string]: FieldForm
 }
+
+export interface UseField {
+  value: Ref<string>,
+  valid: Ref<boolean>,
+  errors: ErrorForm,
+}
+
+export interface UseForm {
+  [k: string]: UseField
+}
+

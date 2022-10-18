@@ -3,26 +3,33 @@
     <label
       v-if="label"
       class="form-field__label"
-    >{{ label }}</label>
+    >
+      {{ label }}
+    </label>
     <input
       ref="userNameRef"
-      :class="['form-field__input form-input', {'form-input--disabled': isDisabled, 'form-input--errored': isErrored}]"
+      :class="[
+        'form-field__input form-input',
+        {
+          'form-input--disabled': isDisabled,
+          'form-input--errored': isErrored,
+        },
+      ]"
       type="text"
       :placeholder="placeholder"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-    >
+      @input="
+        emits('update:modelValue', ($event.target as HTMLInputElement).value)
+      "
+    />
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+  import { defineProps, defineEmits } from 'vue'
+  import './style.scss'
 
-import { defineComponent } from 'vue'
-import './style.scss'
-
-export default defineComponent({
-  name: 'Field',
-  props: {
+  defineProps({
     modelValue: { type: String, required: true },
     label: { type: String, default: '' },
     placeholder: { type: String, default: '' },
@@ -30,12 +37,8 @@ export default defineComponent({
     isErrored: { type: Boolean, default: false },
     onBlur: { type: Function, default: null },
     onInput: { type: Function, default: null },
-    onFocus: { type: Function, default: null }
-  },
-  emits: ['update:modelValue'],
-  setup () {
-    return {
-    }
-  }
-})
+    onFocus: { type: Function, default: null },
+  })
+
+  const emits = defineEmits(['update:modelValue'])
 </script>
