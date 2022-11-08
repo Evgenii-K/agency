@@ -1,6 +1,6 @@
 <template>
   <q-btn
-    :class="['form-btn', { 'form-btn--disabled': isDisabled }]"
+    :class="['form-btn', { 'form-btn--disabled': isDisabled, 'form-btn--outline': outline }]"
     @click="clickHandlerInit"
   >
     {{ text }}
@@ -15,6 +15,7 @@
     text: { type: String, required: true },
     clickHandler: { type: Function, required: true },
     isDisabled: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false },
   })
 
   const clickHandlerInit = () => {
