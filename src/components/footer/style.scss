@@ -1,0 +1,21 @@
+@import '/src/css/app.variables.scss';
+
+.header {
+  background-color: $fBackgroundColor;
+  width: 100%;
+
+  &__wrapper {
+    padding: 40px 25px;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 91px;
+    height: 33px;
+    border-radius: unset;
+  }
+
+  & > .q-layout__shadow {
+    display: none;
+  }
+}

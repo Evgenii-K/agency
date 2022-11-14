@@ -2,6 +2,7 @@ import { RouteRecordRaw } from 'vue-router'
 
 import MainLayout from 'src/layouts/mainLayout/MainLayout.vue'
 import Demo from '../pages/Demo.vue'
+import Main from '../pages/MainPage/Main.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -13,6 +14,11 @@ const routes: RouteRecordRaw[] = [
     path: '/demo',
     component: MainLayout,
     children: [{ path: '', component: Demo }]
+  },
+  {
+    path: '/main',
+    component: MainLayout,
+    children: [{ path: '', component: Main }]
   },
   // Always leave this as last one,
   // but you can also remove it

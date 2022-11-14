@@ -1,0 +1,43 @@
+@import 'src/css/app.variables.scss';
+.portfolio {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Quicksand';
+    font-style: normal;
+    color: #464646;
+    padding: 50px 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0.003em;
+    color: $tBlack;
+    text-align: center;
+    padding-bottom: 35px;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #377DFF;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  &__article {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    padding-bottom: 10px;
+  }
+}

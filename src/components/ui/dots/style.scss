@@ -1,0 +1,16 @@
+@import '/src/css/app.variables.scss';
+
+.dots {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__point {
+    border-radius: 50%;
+  }
+}
