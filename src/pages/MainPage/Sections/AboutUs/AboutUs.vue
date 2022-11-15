@@ -21,8 +21,6 @@
         <q-icon
           name="play_circle_outline"
         />
-          <!-- name="far fa-play-circle" -->
-        <!-- <img src="../../../../assets/img/MainPage/play-circle.svg" alt="" /> -->
       </base-button>
     </div>
     <div class="about-us__image about-us-image">

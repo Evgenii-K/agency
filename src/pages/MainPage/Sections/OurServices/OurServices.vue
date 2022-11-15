@@ -5,11 +5,57 @@
     <div class="services__article">
       We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business
     </div>
+    <dir class="services__more">
+      Read more
+      <q-icon
+        name="arrow_forward"
+        class="services__arrow"
+      />
+    </dir>
+    <div class="services__buttons">
+      <services-button
+        text="Social Media Management"
+        color="#377DFF"
+      >
+        <q-icon
+          name="desktop_windows"
+          style="font-size: 42px;"
+        />
+      </services-button>
+      <services-button
+        text="Search Engine Opimization"
+        color="#FF2D2D"
+      >
+        <q-icon
+          name="settings"
+          style="font-size: 42px;"
+        />
+      </services-button>
+      <services-button
+        text="Design"
+        color="#7CE761"
+      >
+        <q-icon
+          name="desktop_windows"
+          style="font-size: 42px;"
+        />
+      </services-button>
+      <services-button
+        text="Ads"
+        color="#FFA800"
+      >
+        <q-icon
+          name="live_tv"
+          style="font-size: 42px;"
+        />
+      </services-button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import './style.scss'
+import ServicesButton from '../../../../components/ui/servicesButton/ServicesButton.vue'
 
 
 </script>
