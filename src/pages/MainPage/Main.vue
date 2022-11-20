@@ -6,6 +6,7 @@
       <about-us />
       <our-services />
       <our-portfolio />
+      <testimonial />
     </div>
   </q-page>
 </template>
@@ -17,5 +18,6 @@ import Start from './Sections/Start/Start.vue'
 import AboutUs from './Sections/AboutUs/AboutUs.vue'
 import OurServices from './Sections/OurServices/OurServices.vue'
 import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
+import Testimonial from './Sections/Testimonial/Testimonial.vue'
 
 </script>

@@ -10,7 +10,6 @@
         v-for="work in works"
         :key="work.text"
         class="portfolio__work"
-        :style="work.background"
       >
         {{ work.text }}
       </div>
@@ -28,10 +27,9 @@ import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 
 const works = [
-  { text: 'Design Furniture App', background: { backgroundImage: "url('../../../../assets/img/MainPage/work_cloud.png')"}},
-  { text: 'Cloud App', background: '../../../../assets/img/MainPage/work_cloud.png'},
-  { text: 'Design Byte App', background: '../../../../assets/img/MainPage/work_byte.png'},
-
+  { text: 'Design Furniture App'},
+  { text: 'Cloud App'},
+  { text: 'Design Byte App'},
 ]
 
 const clickHandler = () => {

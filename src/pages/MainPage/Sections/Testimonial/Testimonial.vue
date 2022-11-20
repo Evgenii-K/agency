@@ -1,38 +1,46 @@
 <template>
-  <div class="start__wrapper">
-    <h1 class="start__header">Make your dream business goal come true</h1>
-    <div class="start__content">
-      when you need us for improve your business, then come with us to help your business have reach it, you just sit and feel that goal.
-    </div>
-    <base-button
-      :click-handler="clickHandler"
-      text="Start Project"
-    />
-    <div class="start__image start-image">
-      <img src="../../../../assets/img/MainPage/Start.png" alt="Start project" />
-      <div class="start-image__done">
-        <ul>
-          <li>
-            <q-icon
-              name="fa fa-star"
-              class="start-image__star"
-            />
-            &nbsp;Great Project
-          </li>
-          <li>
-            800+&nbsp;<span>Done</span>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="testimonial__wrapper">
+    <h3 class="testimonial__subtitle">Testimonial</h3>
+    <h2 class="testimonial__title">People Talk about us</h2>
+    <!-- <div class="testimonial__feedbacks"> -->
+      <q-carousel
+        v-model="slide"
+        animated
+        infinite
+        :autoplay="true"
+        class="testimonial__feedbacks"
+      >
+        <q-carousel-slide
+          v-for="feedback, idx in feedbacks"
+          :key="idx"
+          :name="idx + 1"
+          class="testimonial__feedback feedback"
+        >
+          <div class="feedback__title">
+            <img class="feedback__avatar" :src="feedback.avatar"/>
+            <div class="feedback__contacts">
+              <div class="feedback__name">{{ feedback.name }}</div>
+              <div class="feedback__role">{{ feedback.role }}</div>
+            </div>
+          </div>
+          <div class="feedback__content">
+            {{ feedback.text }}
+          </div>
+        </q-carousel-slide>
+      </q-carousel>
+    <!-- </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import './style.scss'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+import { ref } from 'vue'
 
-const clickHandler = () => {
-  console.log('Start Project');
-}
+const slide = ref(1);
+
+const feedbacks = [
+  { name: 'Angel Rose', role: 'Creative Manager', text: '“ First Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”', avatar: require('src/assets/img/MainPage/avatar.png')}, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  { name: 'Angel Rose', role: 'Creative Manager', text: '“ Second Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”', avatar: require('src/assets/img/MainPage/avatar.png')}, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  { name: 'Angel Rose', role: 'Creative Manager', text: '“ Third Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”', avatar: require('src/assets/img/MainPage/avatar.png')}, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+]
 </script>
