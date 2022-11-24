@@ -34,6 +34,9 @@
       @mouseover="isInputHover = !isInputHover"
       @mouseleave="isInputHover = !isInputHover"
     />
+    <div v-if="isErrored" class="form-field__error-message">
+      {{ errorMessage }}
+    </div>
   </div>
 </template>
 
@@ -47,6 +50,7 @@
     placeholder: { type: String, default: '' },
     isDisabled: { type: Boolean, default: false },
     isErrored: { type: Boolean, default: false },
+    errorMessage: { type: String, default: '' },
   })
 
   const emits = defineEmits(['update:modelValue'])
