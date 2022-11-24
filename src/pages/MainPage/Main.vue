@@ -9,6 +9,7 @@
       <testimonial />
       <collaboration />
     </div>
+    <Footer />
   </q-page>
 </template>
 
@@ -21,5 +22,6 @@ import OurServices from './Sections/OurServices/OurServices.vue'
 import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
 import Testimonial from './Sections/Testimonial/Testimonial.vue'
 import Collaboration from './Sections/Collaboration/Collaboration.vue'
+import Footer from 'src/components/footer/Footer.vue'
 
 </script>
