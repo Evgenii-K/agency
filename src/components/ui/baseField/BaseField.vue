@@ -1,21 +1,24 @@
 <template>
   <div class="form-field">
-    <div
+    <label
       :class="[
         'form-field__placeholder',
         'form-placeholder',
         {
           'form-placeholder--fill': modelValue,
           'form-placeholder--focus': isInputFocus,
-          'form-placeholder--hover': isInputHover && !isInputFocus,
+          'form-placeholder--hover': (isInputHover || isLabelHover) && !isInputFocus,
           'form-placeholder--error': isErrored && !isInputFocus,
         }
       ]"
+      :for="uniqueId"
+      @mouseover="isLabelHover = !isLabelHover"
+      @mouseleave="isLabelHover = !isLabelHover"
     >
       {{ placeholder }}
-    </div>
+    </label>
     <input
-      ref="userNameRef"
+      :id="uniqueId"
       :class="[
         'form-field__input form-input',
         {
@@ -39,27 +42,25 @@
   import './style.scss'
 
   defineProps({
+    uniqueId: { type: String, required: true },
     modelValue: { type: String, required: true },
     placeholder: { type: String, default: '' },
     isDisabled: { type: Boolean, default: false },
     isErrored: { type: Boolean, default: false },
-    onBlur: { type: Function, default: null },
-    onInput: { type: Function, default: null },
-    onFocus: { type: Function, default: null },
   })
 
   const emits = defineEmits(['update:modelValue'])
 
   const isInputFocus = ref(false)
   const isInputHover = ref(false)
+  const isLabelHover = ref(false)
 
   const onInputFocus = () => {
     isInputFocus.value = true
-    console.log('focus');
   }
 
   const onInputBlur = () => {
     isInputFocus.value = false
-    console.log('blur');
   }
+
 </script>

@@ -10,9 +10,15 @@
         <p>I am modal window!</p>
         <base-field
           v-model="form.email.value"
-          label="Test label"
           placeholder="Type smth, please"
           :is-errored="!form.email.valid"
+          unique-id="email"
+        />
+        <base-field
+          v-model="form.password.value"
+          placeholder="Type smth, please"
+          :is-errored="!form.password.valid"
+          unique-id="password"
         />
         <base-button
           :click-handler="changeModalState"
