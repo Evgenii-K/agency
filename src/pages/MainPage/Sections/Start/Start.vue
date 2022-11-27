@@ -47,10 +47,14 @@
 
 <script setup lang="ts">
 import './style.scss'
+import { defineEmits } from 'vue'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import Dots from 'src/components/ui/dots/Dots.vue'
 
+const emit = defineEmits(['on-send-click'])
+
 const clickHandler = () => {
-  console.log('Start Project');
+  console.log('start');
+  emit('on-send-click')
 }
 </script>

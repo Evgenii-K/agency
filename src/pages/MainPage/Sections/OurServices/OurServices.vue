@@ -5,13 +5,13 @@
     <div class="services__article">
       We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business
     </div>
-    <dir class="services__more">
+    <div class="services__more">
       Read more
       <q-icon
         name="arrow_forward"
         class="services__arrow"
       />
-    </dir>
+    </div>
     <div class="services__buttons">
       <services-button
         text="Social Media Management"

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- <p class="text-center">I am Index.vue</p> -->
-    <!-- <a href="/demo">Demo page</a> -->
     <a href="/main">Main page</a>
   </div>
 </template>

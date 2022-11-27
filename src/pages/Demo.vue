@@ -36,10 +36,10 @@
   import Modal from '../components/modal/Modal.vue'
   import BaseButton from '../components/ui/baseButton/BaseButton.vue'
   import BaseField from '../components/ui/baseField/BaseField.vue'
-  import { useForm } from '../hooks/form/form'
   import checkIsRequired from '../helpers/validators/checkIsRequired'
   import checkMinLength from '../helpers/validators/checkMinLength'
   import { UseForm } from '../components/models'
+  import { useForm } from '../hooks/form/form'
 
   const isOpenModal = ref(false)
   const changeModalState = () => {

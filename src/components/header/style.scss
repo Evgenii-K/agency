@@ -3,6 +3,9 @@
 .header {
   background-color: $fBackgroundColor;
   width: 100%;
+  position: relative;
+  z-index: 1000;
+  padding: 0 25px;
 
   &__wrapper {
     padding: 40px 0px;
