@@ -1,6 +1,47 @@
 @import 'src/css/app.variables.scss';
 .form-btn {
-  border: 0.1rem solid $cGreen;
-  color: $cGreen;
-  background: $cWhite;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  border: 1px solid $cBlue;
+  color: $cWhite;
+  background: $cBlue;
+  padding: 12px 35px;
+  border-radius: 24px;
+  box-shadow: 0px 4px 8px rgba(55, 125, 255, 0.5);
+
+  &--reverse {
+    & > .q-btn__content {
+      flex-direction: row-reverse;
+    }
+  }
+  & > .q-btn__content {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &:hover {
+    border: 1px solid $cLightBlue;
+    background: $cLightBlue;
+  }
+
+  &--outline {
+    background: none;
+    color: $cBlue;
+    box-shadow: none;
+
+    &:hover {
+      border: 1px solid $cLightBlue;
+      background: rgba(255, 255, 255, 0);
+      color: $cLightBlue;
+
+      & > .q-focus-helper {
+        background: none !important;
+      }
+    }
+  }
 }

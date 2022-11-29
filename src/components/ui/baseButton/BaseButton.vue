@@ -1,8 +1,9 @@
 <template>
   <q-btn
-    :class="['form-btn', { 'form-btn--disabled': isDisabled }]"
+    :class="['form-btn', { 'form-btn--disabled': isDisabled, 'form-btn--outline': outline, 'form-btn--reverse': rightIcon }]"
     @click="clickHandlerInit"
   >
+    <slot/>
     {{ text }}
   </q-btn>
 </template>
@@ -15,6 +16,8 @@
     text: { type: String, required: true },
     clickHandler: { type: Function, required: true },
     isDisabled: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false },
+    rightIcon: { type: Boolean, default: false },
   })
 
   const clickHandlerInit = () => {

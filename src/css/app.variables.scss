@@ -17,19 +17,25 @@ $cBlack: #1D1D1D;
 $cGray: #EBEBF2;
 $cRed: #FF3B30;
 $cGreen: #39e8a5;
+$cBlue: #377DFF;
+$cLightBlue: #37DBFF;
+$cFooter: #383638;
 
 /*   Form variables   */
-$fBorderColor: #E5E3EE;
-$fBackgroundColor: #F7F7FA;
-$fActiveColor: #39e8a5;
-$fBorderRadius: 4px;
+$fBorderColor: #377DFF;
+$fBackgroundColor: #fff;
+$fActiveColor: #464646;
+$fBorderRadius: 24px;
 $fFieldHeight: 48px;
-$fFieldFontSize: 14px;
+$fFieldFontSize: 16px;
 $fFieldTextColor: #9A99A2;
+$fFieldErrorColor: #FF3737;
+$fFieldHoverColor: #37DBFF;
 
 /*   Text variables   */
 $tGray: #9A99A2;
 $tBlack: #1D1D1D;
+$tContent: #464646;
 
 /*   Background variables   */
 $bgBlack: rgba(29, 29, 29, 0.84);

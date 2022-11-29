@@ -1,0 +1,20 @@
+@import 'src/css/app.variables.scss';
+.social {
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background-color: $cWhite;
+
+  &__icon {
+    color: $cFooter;
+
+    &:hover {
+      color: $cLightBlue;
+    }
+  }
+}

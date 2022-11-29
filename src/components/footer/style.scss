@@ -1,0 +1,70 @@
+@import '/src/css/app.variables.scss';
+
+.footer {
+  background-color: $cFooter;
+  width: 100%;
+
+  &__wrapper {
+    padding: 0px 0px 60px;
+  }
+
+  &__main {
+    padding: 45px 34px 90px 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 45px;
+  }
+
+  &__logo-wrapper {
+    border-radius: 20px;
+    padding: 19px 25px;
+    background-color: $cWhite;
+    display: inline-flex;
+    margin-bottom: 35px;
+  }
+
+  &__logo {
+    width: 136px;
+    height: 50px;
+  }
+
+  &__contact {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 130%;
+    color: $cWhite;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    & a {
+      text-decoration: none;
+      color: $cWhite;
+      cursor: pointer;
+    }
+  }
+
+  &__contact-content {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  & > .q-layout__shadow {
+    display: none;
+  }
+
+  &__copyright {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: $cWhite;
+    padding: 20px 0 0;
+    border-top: 1px solid $cWhite;
+    text-align: center;
+  }
+}

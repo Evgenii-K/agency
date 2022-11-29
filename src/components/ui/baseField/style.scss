@@ -2,14 +2,86 @@
 .form-field {
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-bottom: 22px;
+
+  &__error-message {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: $fFieldErrorColor;
+    position: absolute;
+    bottom: 5px;
+    left: 24px;
+  }
 }
 
 .form-input {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: $fFieldFontSize;
+  line-height: 24px;
+  color: $fActiveColor;
   height: $fFieldHeight;
-  border: none;
-  border-bottom: 0.1rem solid $fBorderColor;
+  border: 1px solid $fBorderColor;
+  border-radius: $fBorderRadius;
+  padding: 12px 24px;
+
+  &:hover {
+    border: 1px solid $fFieldHoverColor;
+  }
+
+  &:focus-visible {
+    border: 1px solid $fActiveColor;
+    color: $fActiveColor;
+  }
 
   &--errored {
-    border: 1px solid red;
+    border: 1px solid $fFieldErrorColor;
+  }
+}
+
+.form-placeholder {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: $fFieldFontSize;;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: $fBorderColor;
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0 4px;
+  transition: font-size .5s, top .5s, background-color .5s;
+  border-radius: 16px;
+  cursor: text;
+
+  &--error {
+    color: $fFieldErrorColor;
+  }
+
+  &--fill {
+    font-size: 12px;
+    line-height: 18px;
+    top: -9px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  &--focus {
+    color: $fActiveColor;
+    font-size: 12px;
+    line-height: 18px;
+    top: -9px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  &--hover {
+    color: $cLightBlue;
   }
 }

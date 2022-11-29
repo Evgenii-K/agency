@@ -10,9 +10,17 @@
         <p>I am modal window!</p>
         <base-field
           v-model="form.email.value"
-          label="Test label"
           placeholder="Type smth, please"
           :is-errored="!form.email.valid"
+          unique-id="email"
+          error-message="Error message"
+        />
+        <base-field
+          v-model="form.password.value"
+          placeholder="Type smth, please"
+          :is-errored="!form.password.valid"
+          unique-id="password"
+          error-message="Обязательно для заполнения"
         />
         <base-button
           :click-handler="changeModalState"
