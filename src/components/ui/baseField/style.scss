@@ -17,6 +17,10 @@
     bottom: 5px;
     left: 24px;
   }
+
+  &--fullSize {
+    width: 100%;
+  }
 }
 
 .form-input {
@@ -42,6 +46,10 @@
 
   &--errored {
     border: 1px solid $fFieldErrorColor;
+  }
+
+  &--noneResize {
+    resize: none;
   }
 }
 

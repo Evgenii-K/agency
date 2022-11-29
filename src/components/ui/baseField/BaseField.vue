@@ -1,5 +1,7 @@
 <template>
-  <div class="form-field">
+  <div
+    :class="['form-field', {'form-field--fullSize': fullSize}]"
+  >
     <label
       :class="[
         'form-field__placeholder',
@@ -18,6 +20,7 @@
       {{ placeholder }}
     </label>
     <input
+      v-if="!isTextarea"
       :id="uniqueId"
       :class="[
         'form-field__input form-input',
@@ -27,6 +30,25 @@
         },
       ]"
       type="text"
+      :value="modelValue"
+      @input="emits('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @focus="onInputFocus"
+      @blur="onInputBlur"
+      @mouseover="isInputHover = !isInputHover"
+      @mouseleave="isInputHover = !isInputHover"
+    />
+    <textarea
+      v-else
+      :id="uniqueId"
+      :class="[
+        'form-field__input form-input form-input--noneResize',
+        {
+          'form-input--disabled': isDisabled,
+          'form-input--errored': isErrored,
+        },
+      ]"
+      type="text"
+      :style="{ height: `${height}px` }"
       :value="modelValue"
       @input="emits('update:modelValue', ($event.target as HTMLInputElement).value)"
       @focus="onInputFocus"
@@ -51,6 +73,9 @@
     isDisabled: { type: Boolean, default: false },
     isErrored: { type: Boolean, default: false },
     errorMessage: { type: String, default: '' },
+    fullSize: { type: Boolean, default: false },
+    isTextarea: { type: Boolean, default: false },
+    height: { type: Number, default: 120},
   })
 
   const emits = defineEmits(['update:modelValue'])

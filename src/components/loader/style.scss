@@ -6,15 +6,98 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
   z-index: 50000;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   align-content: center;
-  &__text {
-    text-align: center;
+  transition: top 1s;
+
+  &--hidden {
+    top: -100vh;
+  }
+
+  &__babble {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    &--blue {
+      background: linear-gradient(180deg, rgba(68, 133, 255, 0.8) 0%, #377DFF 100%);
+      box-shadow: 0px 2.03226px 13.5484px rgba(0, 0, 0, 0.05);
+    }
+    &--red {
+      background: linear-gradient(180deg, #FF8E8E 0%, #F62424 100%);
+      box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    &:nth-child(even) {
+      left: 59px;
+      top: 188px;
+    }
+
+    &:nth-child(odd) {
+      left: -8px;
+      bottom: 142px;
+    }
+
+    &:first-child {
+      right: 64px;
+      top: 88px;
+      left: auto;
+      bottom: auto;
+    }
+
+    &:last-child {
+      right: 42px;
+      bottom: 67px;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  &__title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 22px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.01em;
+    color: $cBlack;
+
+    & > span {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+
+  &__logo {
+    height: 101px;
+  }
+
+  &__subtitle {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: $tContent;
+    padding-top: 23px;
   }
 }
 

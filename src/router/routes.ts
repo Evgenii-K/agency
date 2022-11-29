@@ -6,7 +6,7 @@ import Main from '../pages/MainPage/Main.vue'
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/',
+    path: '/index',
     component: MainLayout,
     children: [{ path: '', component: () => import('pages/Index.vue') }]
   },
@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: '', component: Demo }]
   },
   {
-    path: '/main',
+    path: '/',
     component: MainLayout,
     children: [{ path: '', component: Main }]
   },

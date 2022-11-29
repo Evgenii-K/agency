@@ -1,0 +1,91 @@
+@import '/src/css/app.variables.scss';
+
+.send-us {
+  max-height: 100vh;
+  min-height: 100vh;
+  max-width: 100%;
+  background-color: red;
+  position: fixed;
+  top: -100vh;
+  transition: top 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow: hidden;
+
+  background-color: $cWhite;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  letter-spacing: 0.01em;
+
+  &--open {
+    top: 0;
+  }
+
+  &__wrapper {
+    padding: 123px 25px 85px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  &__wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__title {
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  &__header {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 38px;
+    color: $cBlack;
+    margin: 0;
+    padding-bottom: 8px;
+  }
+
+  &__article {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: $fActiveColor;
+  }
+
+  &__fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__file {
+    padding: 8px 0 40px;
+    width: 100%;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: $fBorderColor;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & > span {
+      padding-left: 6px;
+    }
+
+    &:hover {
+      color: $cLightBlue;
+    }
+  }
+}

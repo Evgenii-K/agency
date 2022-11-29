@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
 module.exports = {
   // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
   // This option interrupts the configuration hierarchy at this file
@@ -17,11 +17,11 @@ module.exports = {
     project: resolve(__dirname, './tsconfig.json'),
     tsconfigRootDir: __dirname,
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module' // Allows for the use of imports
+    sourceType: 'module', // Allows for the use of imports
   },
 
   env: {
-    browser: true
+    browser: true,
   },
   // Rules order is important, please avoid shuffling them
   extends: [
@@ -65,7 +65,7 @@ module.exports = {
     __QUASAR_SSR_PWA__: 'readonly',
     process: 'readonly',
     Capacitor: 'readonly',
-    chrome: 'readonly'
+    chrome: 'readonly',
   },
 
   // add your custom rules here
@@ -77,7 +77,7 @@ module.exports = {
     'one-var': 'off',
     'no-void': 'off',
     'multiline-ternary': 'off',
-
+    'vue/no-multiple-template-root': 'off',
     'import/first': 'off',
     'import/namespace': 'error',
     'import/default': 'error',
@@ -96,40 +96,52 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // упорядочивание атрибутов компонентов
-    "vue/attributes-order": ["error", {
-      "order": [
-        "DEFINITION",
-        "LIST_RENDERING",
-        "CONDITIONALS",
-        "RENDER_MODIFIERS",
-        "GLOBAL",
-        ["UNIQUE", "SLOT"],
-        "TWO_WAY_BINDING",
-        "OTHER_DIRECTIVES",
-        "OTHER_ATTR",
-        "EVENTS",
-        "CONTENT"
-      ],
-      "alphabetical": false
-    }],
-    // использование одиночных тегов для vue компонентов и пустых одиночных компонентов html
-    "vue/html-self-closing": ["error", {
-      "html": {
-        "void": "always",
-        "normal": "always",
-        "component": "always"
+    'vue/attributes-order': [
+      'error',
+      {
+        order: [
+          'DEFINITION',
+          'LIST_RENDERING',
+          'CONDITIONALS',
+          'RENDER_MODIFIERS',
+          'GLOBAL',
+          ['UNIQUE', 'SLOT'],
+          'TWO_WAY_BINDING',
+          'OTHER_DIRECTIVES',
+          'OTHER_ATTR',
+          'EVENTS',
+          'CONTENT',
+        ],
+        alphabetical: false,
       },
-      "svg": "always",
-      "math": "always"
-    }],
+    ],
+    // использование одиночных тегов для vue компонентов и пустых одиночных компонентов html
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
+      },
+    ],
     // проверка на совпадение имени компонента и имени файла
-    "vue/match-component-file-name": ["error", {
-      "extensions": ["vue"],
-      "shouldMatchCase": false
-     }],
+    'vue/match-component-file-name': [
+      'error',
+      {
+        extensions: ['vue'],
+        shouldMatchCase: false,
+      },
+    ],
     // проверка на дубликат свойств
-    "vue/no-dupe-keys": ["error", {
-      "groups": []
-    }]
-  }
+    'vue/no-dupe-keys': [
+      'error',
+      {
+        groups: [],
+      },
+    ],
+  },
 }

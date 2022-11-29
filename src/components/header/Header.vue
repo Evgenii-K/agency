@@ -4,7 +4,7 @@
       <q-avatar class="header__logo">
         <img src="../../assets/img/Logo.png"/>
       </q-avatar>
-      <burger-button />
+      <burger-button @click="$emit('on-menu-click')" />
     </q-toolbar>
   </div>
 </template>

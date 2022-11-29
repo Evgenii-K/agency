@@ -30,3 +30,10 @@ export interface UseForm {
   [k: string]: UseField
 }
 
+export enum EventButton {
+  // eslint-disable-next-line no-unused-vars
+  MENU = 'menu',
+  // eslint-disable-next-line no-unused-vars
+  SEND = 'send',
+}
+

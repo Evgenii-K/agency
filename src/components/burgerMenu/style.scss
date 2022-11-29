@@ -1,0 +1,63 @@
+@import '/src/css/app.variables.scss';
+
+.burger-menu {
+  max-height: 100vh;
+  min-height: 100vh;
+  max-width: 100%;
+  background-color: red;
+  position: fixed;
+  top: -100vh;
+  transition: top 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow: hidden;
+  padding: 123px 25px 20px;
+
+  background-color: $cWhite;
+
+  &--open {
+    top: 0;
+  }
+
+  &__links {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    width: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+
+  &__nav-item {
+    &--select {
+      font-weight: 700;
+    }
+  }
+
+  &__languages {
+    display: flex;
+    gap: 16px;
+    text-transform: uppercase;
+    padding-top: 50px;
+  }
+
+  &__language {
+    &--select {
+      font-weight: 700;
+    }
+  }
+}
