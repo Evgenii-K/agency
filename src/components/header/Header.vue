@@ -1,15 +1,34 @@
 <template>
-  <div class="header">
+  <div :class="['header', {'header--hidden': isHidden}]">
     <q-toolbar class="header__wrapper">
       <q-avatar class="header__logo">
         <img src="../../assets/img/Logo.png"/>
       </q-avatar>
-      <burger-button @click="$emit('on-menu-click')" />
+      <div class="header__nav"/>
+      <burger-button @click="clickHandler" />
     </q-toolbar>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { defineProps } from 'vue'
   import './style.scss'
   import BurgerButton from '../ui/burgerButton/BurgerButton.vue';
+  import { useStore } from 'src/store'
+  import { computed } from '@vue/reactivity'
+
+  defineProps({
+    isHidden: { type: Boolean, default: false },
+  })
+
+  const state = useStore()
+
+  const isMenuOpen = computed(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return (state.getters['general/getIsMenuOpen'] as boolean)
+  })
+
+  const clickHandler = () => {
+    state.commit('general/mutateIsMenuOpen', !isMenuOpen.value)
+  }
 </script>

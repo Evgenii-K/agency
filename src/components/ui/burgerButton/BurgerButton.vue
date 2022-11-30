@@ -16,16 +16,41 @@
 
 <script setup lang="ts">
   import './style.scss'
-  import { ref } from 'vue';
+  import { ref, watch } from 'vue';
+  import { useStore } from 'src/store'
+  import { computed } from '@vue/reactivity'
+
+  const state = useStore()
+
+  const isSendOpen = computed(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return (state.getters['general/getIsSendOpen'] as boolean)
+  })
+
+  const isMenuOpen = computed(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return (state.getters['general/getIsMenuOpen'] as boolean)
+  })
+
+  watch(isSendOpen, () => {
+    onButtonClick()
+  })
+
+  watch(isMenuOpen, () => {
+    onButtonClick()
+  })
 
   const buttonRef = ref<HTMLElement>()
 
   const  onButtonClick = () => {
     if (!buttonRef.value) return
 
-    const currentState = buttonRef.value.getAttribute('data-state');
+    console.log('isMenuOpen: ', isMenuOpen.value, 'isSendOpen: ', isSendOpen.value);
 
-    if (!currentState || currentState === 'closed') {
+    // const currentState = buttonRef.value.getAttribute('data-state');
+
+    // if (!currentState || currentState === 'closed') {
+    if (isSendOpen.value || isMenuOpen.value) {
       buttonRef.value.setAttribute('data-state', 'opened');
       buttonRef.value.setAttribute('aria-expanded', 'true');
     } else {

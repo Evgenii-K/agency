@@ -6,6 +6,9 @@
   position: relative;
   z-index: 1000;
   padding: 0 25px;
+  opacity: 1;
+  transition: opacity .3s;
+  transition-delay: .8s;
 
   &__wrapper {
     padding: 40px 0px;
@@ -20,5 +23,28 @@
 
   & > .q-layout__shadow {
     display: none;
+  }
+
+  &--hidden {
+    opacity: 0;
+    transition: opacity .3s;
+    transition-delay: 0s;
+  }
+
+  @media screen and ($mediaDesktop) {
+    padding: 0 100px;
+
+    &__wrapper {
+      padding: 70px 0px;
+    }
+
+    &__logo {
+      width: 136px;
+      height: 50px;
+    }
+
+    &--hidden {
+      opacity: 1;
+    }
   }
 }

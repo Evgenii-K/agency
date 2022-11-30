@@ -46,15 +46,20 @@
 </template>
 
 <script setup lang="ts">
-import './style.scss'
-import { defineEmits } from 'vue'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-import Dots from 'src/components/ui/dots/Dots.vue'
+  import './style.scss'
+  import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+  import Dots from 'src/components/ui/dots/Dots.vue'
+  import { useStore } from 'src/store'
+  import { computed } from '@vue/reactivity'
 
-const emit = defineEmits(['on-send-click'])
+  const state = useStore()
 
-const clickHandler = () => {
-  console.log('start');
-  emit('on-send-click')
-}
+  const isSendOpen = computed(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return (state.getters['general/getIsSendOpen'] as boolean)
+  })
+
+  const clickHandler = () => {
+    state.commit('general/mutateIsSendOpen', !isSendOpen.value)
+  }
 </script>

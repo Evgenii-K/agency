@@ -2,8 +2,14 @@ import { GetterTree } from 'vuex'
 import { StateInterface } from '../index'
 import { GeneralStateInterface } from './state'
 const getters: GetterTree<GeneralStateInterface, StateInterface> = {
-  getIsGeneralLoading (context): boolean {
-    return context.isGeneralLoading // eslint-disable-line
+  getIsGeneralLoading (state): boolean {
+    return state.isGeneralLoading
+  },
+  getIsSendOpen (state): boolean {
+    return state.isSendOpen
+  },
+  getIsMenuOpen (state): boolean {
+    return state.isMenuOpen
   }
 
 }
