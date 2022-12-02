@@ -4,7 +4,7 @@
       <q-avatar class="header__logo">
         <img src="../../assets/img/Logo.png"/>
       </q-avatar>
-      <div class="header__nav"/>
+      <nav-block />
       <burger-button @click="clickHandler" />
     </q-toolbar>
   </div>
@@ -14,6 +14,7 @@
   import { defineProps } from 'vue'
   import './style.scss'
   import BurgerButton from '../ui/burgerButton/BurgerButton.vue';
+  import NavBlock from '../navBlock/NavBlock.vue';
   import { useStore } from 'src/store'
   import { computed } from '@vue/reactivity'
 

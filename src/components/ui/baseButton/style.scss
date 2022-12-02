@@ -48,4 +48,10 @@
   &--fullSize {
     width: 100%;
   }
+
+  @media screen and ($mediaDesktop) {
+    padding: 12px 50px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }

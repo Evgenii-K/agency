@@ -9,6 +9,10 @@
   &__hamburger {
     fill: $cBlack;
   }
+
+  @media screen and ($mediaDesktop) {
+    display: none;
+  }
 }
 
 .burger-button .line {

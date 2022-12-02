@@ -1,21 +1,20 @@
 <template>
-  <div class="burger-menu__links">
-    <nav class="burger-menu__nav">
-      <div class="burger-menu__nav-item burger-menu__nav-item--select">Home</div>
-      <div class="burger-menu__nav-item">About</div>
-      <div class="burger-menu__nav-item">Services</div>
-      <div class="burger-menu__nav-item">Projects</div>
+  <div class="nav-block__links">
+    <nav class="nav-block__nav">
+      <div class="nav-block__nav-item nav-block__nav-item--select">Home</div>
+      <div class="nav-block__nav-item">About</div>
+      <div class="nav-block__nav-item">Services</div>
+      <div class="nav-block__nav-item">Projects</div>
     </nav>
-    <div class="burger-menu__languages">
-      <div class="burger-menu__language burger-menu__language--select">EN</div>
-      <div class="burger-menu__language">RU</div>
+    <div class="nav-block__languages">
+      <div class="nav-block__language nav-block__language--select">EN</div>
+      <div class="nav-block__language">RU</div>
     </div>
   </div>
   <base-button
     :click-handler="clickHandler"
     text="Contact us"
     outline
-    full-size
   />
 </template>
 

@@ -30,6 +30,28 @@
     opacity: 0.6;
     padding: 20px 0;
   }
+
+  @media screen and ($mediaDesktop) {
+    &__wrapper {
+      padding: 0;
+    }
+
+    &__header {
+      font-size: 64px;
+      line-height: 87px;
+      max-width: 760px;
+    }
+
+    &__content {
+      font-size: 20px;
+      line-height: 150%;
+      padding: 24px 0 32px;
+      max-width: 780px;
+      & span {
+        display: block;
+      }
+    }
+  }
 }
 
 .start-image {
@@ -39,6 +61,7 @@
   & img {
     position: relative;
     z-index: 20;
+    width: 330px;
   }
 
   &__done {
@@ -107,6 +130,51 @@
       left: -5px;
     }
   }
+
+  @media screen and ($mediaDesktop) {
+    padding: 100px 0px;
+
+    & img {
+      width: 739px;
+    }
+
+    &__done {
+      border-radius: 16px;
+      padding: 16px 21px;
+      top: 124px;
+      left: -98px;
+
+      & ul {
+        & li {
+          font-size: 12px;
+          line-height: 15px;
+          padding-bottom: 10px;
+          text-align: start;
+        }
+
+        & li:last-child {
+          font-size: 24px;
+          line-height: 33px;
+        }
+      }
+    }
+
+    &__star {
+      font-size: 20px;
+    }
+
+    &__dots {
+      &--red {
+        top: 544px;
+        left: 140px;
+      }
+
+      &--blue {
+        top: 86px;
+        left: 140px;
+      }
+    }
+  }
 }
 
 .start-review {
@@ -148,5 +216,34 @@
     font-size: 3px;
     line-height: 4px;
     opacity: 0.5;
+  }
+
+  @media screen and ($mediaDesktop) {
+    font-size: 10px;
+    line-height: 14px;
+    width: 166px;
+    padding: 24px 20px;
+    border-radius: 16px;
+    bottom: 99px;
+    right: -106px;
+
+    & img {
+      width: 32px;
+    }
+
+    &__header {
+      gap: 10px;
+      padding-bottom: 12px;
+    }
+
+    &__title {
+      font-size: 10px;
+      line-height: 12px;
+    }
+
+    &__subtitle {
+      font-size: 6px;
+      line-height: 8px;
+    }
   }
 }

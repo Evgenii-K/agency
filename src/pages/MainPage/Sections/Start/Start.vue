@@ -2,7 +2,8 @@
   <div class="start__wrapper">
     <h1 class="start__header">Make your dream business goal come true</h1>
     <div class="start__content">
-      when you need us for improve your business, then come with us to help your business have reach it, you just sit and feel that goal.
+      <span>when you need us for improve your business,</span>
+      <span>then come with us to help your business have reach it, you just sit and feel that goal.</span>
     </div>
     <base-button
       :click-handler="clickHandler"

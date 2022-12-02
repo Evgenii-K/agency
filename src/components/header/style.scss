@@ -13,6 +13,10 @@
   &__wrapper {
     padding: 40px 0px;
     justify-content: space-between;
+
+    & > .form-btn {
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -36,6 +40,10 @@
 
     &__wrapper {
       padding: 70px 0px;
+
+      & > .form-btn {
+        width: auto;
+      }
     }
 
     &__logo {
