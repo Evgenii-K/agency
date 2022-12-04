@@ -69,4 +69,48 @@
     flex-direction: column;
     gap: 35px;
   }
+
+  @media screen and ($mediaDesktop) {
+    &__wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 155px;
+      padding: 59px 0 30px;
+    }
+
+    &__content {
+      padding-top: 65px;
+    }
+
+    &__title {
+      font-size: 55px;
+      line-height: 130%;
+      padding-bottom: 32px;
+      text-align: start;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      line-height: 24px;
+      padding-bottom: 18px;
+      text-align: start;
+    }
+
+    &__article {
+      font-size: 20px;
+      line-height: 32px;
+      padding-bottom: 36px;
+      text-align: start;
+    }
+
+    &__more {
+      text-align: end;
+    }
+
+    &__buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
 }
