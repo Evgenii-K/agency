@@ -1,5 +1,5 @@
 <template>
-  <div class="services__wrapper">
+  <section class="services__wrapper">
     <div class="services__content">
       <h3 class="services__subtitle">Our Services</h3>
       <h2 class="services__title">Perfect and Fast Movement</h2>
@@ -52,7 +52,7 @@
         />
       </services-button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

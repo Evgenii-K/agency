@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us__wrapper">
+  <section class="about-us__wrapper">
     <h3 class="about-us__subtitle">About Us</h3>
     <h2 class="about-us__title">Our Teammate</h2>
     <div class="about-us__content">
@@ -38,7 +38,7 @@
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

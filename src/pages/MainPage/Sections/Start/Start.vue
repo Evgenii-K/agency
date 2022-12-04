@@ -1,5 +1,5 @@
 <template>
-  <div class="start__wrapper">
+  <section class="start__wrapper">
     <h1 class="start__header">Make your dream business goal come true</h1>
     <div class="start__content">
       <span>when you need us for improve your business,</span>
@@ -43,7 +43,7 @@
         “ This team is really the best in its field,I don't regret working with them, and will come back again thanks “
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

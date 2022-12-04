@@ -1,5 +1,5 @@
 <template>
-  <div class="collaboration__wrapper">
+  <section class="collaboration__wrapper">
     <div class="collaboration__photo-block photo-block">
       <div class="photo-block__images">
         <div class="photo-block__image" />
@@ -14,7 +14,7 @@
       :click-handler="clickHandler"
       text="Get Started"
     />
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
