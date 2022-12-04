@@ -12,6 +12,7 @@
     </div>
   </div>
   <base-button
+    class="nav-block__button"
     :click-handler="clickHandler"
     text="Contact us"
     outline

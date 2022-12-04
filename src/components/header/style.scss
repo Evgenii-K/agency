@@ -35,6 +35,10 @@
     transition-delay: 0s;
   }
 
+  &__nav {
+    display: none;
+  }
+
   @media screen and ($mediaDesktop) {
     padding: 0 100px;
 
@@ -53,6 +57,12 @@
 
     &--hidden {
       opacity: 1;
+    }
+
+    &__nav {
+      display: flex;
+      width: 100%;
+      align-items: center;
     }
   }
 }

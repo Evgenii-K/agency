@@ -47,6 +47,43 @@
     display: flex;
     justify-content: space-between;
   }
+
+  @media screen and ($mediaDesktop) {
+
+    &__wrapper {
+      padding: 100px 0;
+    }
+
+    &__title {
+      font-size: 55px;
+      line-height: 75px;
+      padding-bottom: 20px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      line-height: 24px;
+      padding-bottom: 20px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 65px;
+    }
+
+    &__article {
+      font-size: 20px;
+      line-height: 32px;
+      padding-bottom: 24px;
+    }
+
+    &__buttons {
+      padding: 0;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+  }
 }
 
 .about-us-image {
@@ -55,6 +92,7 @@
   & img {
     position: relative;
     z-index: 20;
+    width: auto;
   }
 
   &__dots {
@@ -62,5 +100,29 @@
     z-index: 10;
     top: -16px;
     left: 2px;
+
+    &--red {
+      opacity: 0;
+    }
+  }
+
+  @media screen and ($mediaDesktop) {
+    & img {
+      width: 565px;
+    }
+
+    &__dots {
+      &--red {
+        opacity: 1;
+        left: -30px;
+      }
+
+      &--pink {
+        right: -30px;
+        left: auto;
+        top: auto;
+        bottom: -3px;
+      }
+    }
   }
 }

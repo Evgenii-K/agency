@@ -4,7 +4,9 @@
       <q-avatar class="header__logo">
         <img src="../../assets/img/Logo.png"/>
       </q-avatar>
-      <nav-block />
+      <div class="header__nav">
+        <nav-block />
+      </div>
       <burger-button @click="clickHandler" />
     </q-toolbar>
   </div>
