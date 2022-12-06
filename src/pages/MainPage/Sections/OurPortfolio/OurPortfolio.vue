@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio__wrapper">
+  <section class="portfolio__wrapper">
     <h3 class="portfolio__subtitle">Our Portfolio</h3>
     <h2 class="portfolio__title">What do we do</h2>
     <div class="portfolio__article">
@@ -19,12 +19,21 @@
       outline
       text="See All Portfolio"
     />
-  </div>
+    <dots
+      class="portfolio__dots portfolio__dots--first"
+      color="#EB00FF"
+    />
+    <dots
+      class="portfolio__dots portfolio__dots--second"
+      color="#EB00FF"
+    />
+  </section>
 </template>
 
 <script setup lang="ts">
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+import Dots from 'src/components/ui/dots/Dots.vue'
 
 const works = [
   { text: 'Design Furniture App'},

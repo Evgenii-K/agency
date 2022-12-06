@@ -1,8 +1,9 @@
 <template>
-  <div class="start__wrapper">
+  <section class="start__wrapper">
     <h1 class="start__header">Make your dream business goal come true</h1>
     <div class="start__content">
-      when you need us for improve your business, then come with us to help your business have reach it, you just sit and feel that goal.
+      <span>when you need us for improve your business,</span>
+      <span>then come with us to help your business have reach it, you just sit and feel that goal.</span>
     </div>
     <base-button
       :click-handler="clickHandler"
@@ -42,19 +43,24 @@
         “ This team is really the best in its field,I don't regret working with them, and will come back again thanks “
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import './style.scss'
-import { defineEmits } from 'vue'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-import Dots from 'src/components/ui/dots/Dots.vue'
+  import './style.scss'
+  import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+  import Dots from 'src/components/ui/dots/Dots.vue'
+  import { useStore } from 'src/store'
+  import { computed } from '@vue/reactivity'
 
-const emit = defineEmits(['on-send-click'])
+  const state = useStore()
 
-const clickHandler = () => {
-  console.log('start');
-  emit('on-send-click')
-}
+  const isSendOpen = computed(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return (state.getters['general/getIsSendOpen'] as boolean)
+  })
+
+  const clickHandler = () => {
+    state.commit('general/mutateIsSendOpen', !isSendOpen.value)
+  }
 </script>

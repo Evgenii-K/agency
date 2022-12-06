@@ -8,6 +8,7 @@
     font-style: normal;
     color: #464646;
     padding: 50px 0;
+    position: relative;
   }
 
   &__title {
@@ -17,7 +18,7 @@
     font-size: 24px;
     line-height: 33px;
     letter-spacing: 0.003em;
-    color: $tBlack;
+    color: var(--c-font);
     text-align: center;
     padding-bottom: 35px;
   }
@@ -28,7 +29,7 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.01em;
-    color: $cBlue;
+    color: var(--c-blue);
     text-align: center;
     padding-bottom: 10px;
   }
@@ -40,6 +41,7 @@
     letter-spacing: 0.01em;
     padding-bottom: 10px;
     text-align: center;
+    color: var(--c-content);
   }
 
   &__works {
@@ -69,7 +71,7 @@
   &__work:nth-child(2n+1) {
     width: 300px;
     height: 300px;
-    background-image: url('src/assets/img/MainPage/work_cloud.png');
+    background-image: url('src/assets/img/MainPage/work_byte.png');
     background-size: cover;
   }
 
@@ -80,7 +82,66 @@
   &__work:nth-child(2n) {
     width: 340px;
     height: 338px;
-    background-image: url('src/assets/img/MainPage/work_byte.png');
+    background-image: url('src/assets/img/MainPage/work_cloud.png');
     background-size: cover;
+  }
+
+  &__dots {
+    opacity: 0;
+  }
+
+  @media screen and ($mediaDesktop) {
+    &__wrapper {
+      padding: 100px 0;
+    }
+
+    &__title {
+      font-size: 55px;
+      line-height: 75px;
+      padding-bottom: 28px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      line-height: 24px;
+      padding-bottom: 20px;
+    }
+
+    &__article {
+      font-size: 20px;
+      line-height: 34px;
+      padding-bottom: 48px;
+      max-width: 680px;
+    }
+
+    &__works {
+      flex-direction: row;
+      gap: 69px;
+      z-index: 100;
+    }
+
+    &__work:nth-child(2n+1) {
+      width: 350px;
+      height: 350px;
+    }
+
+    &__work:nth-child(2n) {
+      width: 400px;
+      height: 400px;
+    }
+
+    &__dots {
+      opacity: 1;
+      position: absolute;
+      z-index: 10;
+
+      &--first {
+        transform: translate(580px, 200px) rotate(-20deg);
+      }
+
+      &--second {
+        transform: translate(-186px, 390px) rotate(20deg);
+      }
+    }
   }
 }

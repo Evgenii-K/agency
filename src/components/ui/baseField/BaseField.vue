@@ -48,7 +48,6 @@
         },
       ]"
       type="text"
-      :style="{ height: `${height}px` }"
       :value="modelValue"
       @input="emits('update:modelValue', ($event.target as HTMLInputElement).value)"
       @focus="onInputFocus"
@@ -56,7 +55,7 @@
       @mouseover="isInputHover = !isInputHover"
       @mouseleave="isInputHover = !isInputHover"
     />
-    <div v-if="isErrored" class="form-field__error-message">
+    <div v-if="(isErrored && !isInputFocus)" class="form-field__error-message">
       {{ errorMessage }}
     </div>
   </div>
@@ -75,7 +74,6 @@
     errorMessage: { type: String, default: '' },
     fullSize: { type: Boolean, default: false },
     isTextarea: { type: Boolean, default: false },
-    height: { type: Number, default: 120},
   })
 
   const emits = defineEmits(['update:modelValue'])

@@ -17,7 +17,7 @@
     font-size: 24px;
     line-height: 33px;
     letter-spacing: 0.003em;
-    color: $tBlack;
+    color: var(--c-font);
     text-align: center;
     padding-bottom: 35px;
   }
@@ -28,7 +28,7 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.01em;
-    color: #377DFF;
+    color: var(--c-blue);
     text-align: center;
     padding-bottom: 10px;
   }
@@ -39,6 +39,7 @@
     line-height: 24px;
     letter-spacing: 0.01em;
     padding-bottom: 10px;
+    color: var(--c-content);
   }
 
   &__buttons {
@@ -46,6 +47,43 @@
     padding: 25px 15px 60px;
     display: flex;
     justify-content: space-between;
+  }
+
+  @media screen and ($mediaDesktop) {
+
+    &__wrapper {
+      padding: 100px 0;
+    }
+
+    &__title {
+      font-size: 55px;
+      line-height: 75px;
+      padding-bottom: 20px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      line-height: 24px;
+      padding-bottom: 20px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 65px;
+    }
+
+    &__article {
+      font-size: 20px;
+      line-height: 32px;
+      padding-bottom: 24px;
+    }
+
+    &__buttons {
+      padding: 0;
+      justify-content: flex-start;
+      gap: 24px;
+    }
   }
 }
 
@@ -55,6 +93,7 @@
   & img {
     position: relative;
     z-index: 20;
+    width: auto;
   }
 
   &__dots {
@@ -62,5 +101,29 @@
     z-index: 10;
     top: -16px;
     left: 2px;
+
+    &--red {
+      opacity: 0;
+    }
+  }
+
+  @media screen and ($mediaDesktop) {
+    & img {
+      width: 565px;
+    }
+
+    &__dots {
+      &--red {
+        opacity: 1;
+        left: -30px;
+      }
+
+      &--pink {
+        right: -30px;
+        left: auto;
+        top: auto;
+        bottom: -3px;
+      }
+    }
   }
 }

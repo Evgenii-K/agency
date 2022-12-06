@@ -6,12 +6,12 @@
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  border: 1px solid $cBlue;
-  color: $cWhite;
-  background: $cBlue;
+  border: 1px solid var(--c-blue);
+  color: var(--c-background);
+  background: var(--c-blue);
   padding: 12px 35px;
   border-radius: 24px;
-  box-shadow: 0px 4px 8px rgba(55, 125, 255, 0.5);
+  box-shadow: 0px 4px 8px var(--c-shadow);
 
   &--reverse {
     & > .q-btn__content {
@@ -31,7 +31,7 @@
 
   &--outline {
     background: none;
-    color: $cBlue;
+    color: var(--c-blue);
     box-shadow: none;
 
     &:hover {
@@ -47,5 +47,11 @@
 
   &--fullSize {
     width: 100%;
+  }
+
+  @media screen and ($mediaDesktop) {
+    padding: 12px 50px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }

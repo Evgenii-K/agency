@@ -13,6 +13,7 @@ $layout: 100px;
 
 /*   Color variables   */
 $cWhite: #fff;
+$cDarkThemWhite: #E2E2E2;
 $cBlack: #1D1D1D;
 $cGray: #EBEBF2;
 $cRed: #FF3B30;
@@ -41,13 +42,36 @@ $tContent: #464646;
 $bgBlack: rgba(29, 29, 29, 0.84);
 $bgWhite: rgba(255, 255, 255, 0.5);
 $bgError: rgba(255, 58, 68, 0.1);
+$bgModal: rgba(0, 0, 0, 0.6);
 
 /*  BREAKPOINTS */
 $mobileBreakpoint: 360;
 $tabletBreakpoint: 768;
-$desktopBreakpoint: 1024;
+$desktopBreakpoint: 1440;
 $wideDesktopBreakpoint: 1920;
 
-$mediaTablet: '(min-width: #{ $tabletBreakpoint })';
-$mediaDesktop: '(min-width: #{ $desktopBreakpoint })';
-$mediaWideDesktop: '(min-width: #{ $wideDesktopBreakpoint })';
+$mediaTablet: 'min-width: #{ $tabletBreakpoint }px';
+$mediaDesktop: 'min-width: #{ $desktopBreakpoint }px';
+$mediaWideDesktop: 'min-width: #{ $wideDesktopBreakpoint }px';
+
+:root {
+  --c-blue: #377DFF;
+  --c-shadow: rgba(55, 125, 255, 0.5);
+  --c-font:  #1D1D1D;
+  --c-content: #464646;
+  --c-background: #fff;
+  --c-logo: #fff;
+  --c-border-color: rgba(0, 0, 0, 0.1);
+  --c-card-background: #fff;
+}
+
+[data-theme="dark"] {
+  --c-blue: #E2E2E2;
+  --c-shadow: rgba(226, 226, 226, 0.5);
+  --c-font: #E2E2E2;
+  --c-content: #E2E2E2;
+  --c-background: #0D0D0D;
+  --c-logo: #E2E2E2;
+  --c-border-color: rgba(255, 255, 255, 0.1);
+  --c-card-background: #0B0F15;
+}

@@ -1,5 +1,11 @@
+@import 'src/css/app.variables.scss';
 .main {
   &__wrapper {
     padding: 0 25px;
+
+    @media screen and ($mediaDesktop) {
+      padding: 0 100px;
+      width: 100%;
+    }
   }
 }

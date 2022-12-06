@@ -17,7 +17,7 @@
     font-size: 24px;
     line-height: 33px;
     letter-spacing: 0.003em;
-    color: $tBlack;
+    color: var(--c-font);
     text-align: center;
     padding-bottom: 35px;
   }
@@ -28,7 +28,7 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.01em;
-    color: #377DFF;
+    color: var(--c-blue);
     text-align: center;
     padding-bottom: 10px;
   }
@@ -39,6 +39,7 @@
     line-height: 24px;
     letter-spacing: 0.01em;
     text-align: center;
+    color: var(--c-content);
   }
 
   &__more {
@@ -49,7 +50,7 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.01em;
-    color: $cBlue;
+    color: var(--c-blue);
     padding: 4px 0 23px 0;
     margin: 0;
     align-self: flex-start;
@@ -68,5 +69,49 @@
     display: flex;
     flex-direction: column;
     gap: 35px;
+  }
+
+  @media screen and ($mediaDesktop) {
+    &__wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 155px;
+      padding: 59px 0 30px;
+    }
+
+    &__content {
+      padding-top: 65px;
+    }
+
+    &__title {
+      font-size: 55px;
+      line-height: 130%;
+      padding-bottom: 32px;
+      text-align: start;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      line-height: 24px;
+      padding-bottom: 18px;
+      text-align: start;
+    }
+
+    &__article {
+      font-size: 20px;
+      line-height: 32px;
+      padding-bottom: 36px;
+      text-align: start;
+    }
+
+    &__more {
+      text-align: end;
+    }
+
+    &__buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
   }
 }
