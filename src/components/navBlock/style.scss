@@ -10,6 +10,7 @@
     letter-spacing: 0.01em;
     text-transform: capitalize;
     width: 100%;
+    color: var(--c-font);
   }
 
   &__button {
@@ -24,6 +25,12 @@
   }
 
   &__nav-item {
+    cursor: pointer;
+
+    &:hover {
+      color: $cLightBlue;
+    }
+
     &--select {
       font-weight: 700;
     }

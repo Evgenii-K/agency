@@ -16,7 +16,7 @@
     font-size: 28px;
     line-height: 38px;
     letter-spacing: 0.01em;
-    color: $tBlack;
+    color: var(--c-font);
     text-align: center;
   }
 
@@ -26,7 +26,7 @@
     line-height: 24px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: $tContent;
+    color: var(--c-content);
     opacity: 0.6;
     padding: 20px 0;
   }
@@ -78,7 +78,7 @@
       list-style-type: none;
       padding: 0;
       margin: 0;
-      color: $tBlack;
+      color: var(--c-font);
       font-style: normal;
       letter-spacing: 0.01em;
       text-align: center;
@@ -193,7 +193,7 @@
   font-size: 5px;
   line-height: 7px;
   letter-spacing: 0.01em;
-  color: $cBlack;
+  color: var(--c-font);
 
   &__header {
     display: flex;
@@ -209,7 +209,7 @@
     font-size: 5px;
     line-height: 6px;
     letter-spacing: 0.01em;
-    color: $cBlack;
+    color: var(--c-font);
   }
 
   &__subtitle {

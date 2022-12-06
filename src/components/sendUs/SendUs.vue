@@ -4,8 +4,11 @@
       <burger-button @click="clickHandler" />
     </div>
     <div class="send-us__wrapper">
-      <div class="send-us__title">
-        <h2 class="send-us__header">Send us a message</h2>
+      <div class="send-us__close-button">
+        <burger-button @click="clickHandler" />
+      </div>
+      <div class="send-us__content">
+        <h2 class="send-us__title">Send us a message</h2>
         <div class="send-us__article">
           We move with make a Creative Strategy for help your business goal
         </div>
@@ -14,7 +17,7 @@
         <base-field
           v-model="form.name.value"
           placeholder="Your name"
-          :is-errored="!form.name.valid"
+          :is-errored="(!form.name.valid && form.name.value.length)"
           unique-id="name"
           error-message="Введите имя"
           full-size
@@ -29,13 +32,13 @@
         />
         <base-field
           v-model="form.message.value"
+          class="send-us__textarea"
           placeholder="Your Message"
-          :is-errored="!form.message.valid"
+          :is-errored="(!form.message.valid  && form.email.value.length)"
           unique-id="message"
           error-message="Добавьте сообщение"
           full-size
           :is-textarea="true"
-          :height="188"
         />
       </div>
       <div class="send-us__file">
@@ -45,11 +48,13 @@
         />
         <span>Attach file</span>
       </div>
-      <base-button
-        :click-handler="contactUs"
-        text="Send message"
-        full-size
-      />
+      <div class="send-us__button-block">
+        <base-button
+          class="send-us__button"
+          :click-handler="contactUs"
+          text="Send message"
+        />
+      </div>
     </div>
   </div>
 </template>

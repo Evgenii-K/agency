@@ -7,7 +7,7 @@
       <div class="header__nav">
         <nav-block />
       </div>
-      <burger-button @click="clickHandler" />
+      <burger-button class="header__button" @click="clickHandler" />
     </q-toolbar>
   </div>
 </template>

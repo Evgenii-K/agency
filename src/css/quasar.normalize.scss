@@ -4,11 +4,12 @@
 html body {
   font-family: $Roboto;
   font-size: 1.4rem;
-  color: $cBlack;
+  color: var(--c-font);
   overflow-x: hidden;
   overflow-y: auto;
   user-select: none;
   min-width: $minContentWidth;
+  background-color: var(--c-background);
 
   &.__hidden {
     overflow: hidden;
@@ -54,7 +55,7 @@ a {
 
 .q-field--filled .q-field__control {
   border-radius: $fBorderRadius;
-  background: $fBackgroundColor;
+  background: var(--c-background)
 }
 .q-field__control {
   height: $fFieldHeight;

@@ -7,11 +7,7 @@
   height: 25px;
 
   &__hamburger {
-    fill: $cBlack;
-  }
-
-  @media screen and ($mediaDesktop) {
-    display: none;
+    fill: var(--c-font);
   }
 }
 

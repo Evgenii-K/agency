@@ -18,7 +18,7 @@
     font-size: 24px;
     line-height: 33px;
     letter-spacing: 0.003em;
-    color: $tBlack;
+    color: var(--c-font);
     text-align: center;
     padding-bottom: 35px;
   }
@@ -29,7 +29,7 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.01em;
-    color: $cBlue;
+    color: var(--c-blue);
     text-align: center;
     padding-bottom: 10px;
   }
@@ -41,6 +41,7 @@
     letter-spacing: 0.01em;
     padding-bottom: 10px;
     text-align: center;
+    color: var(--c-content);
   }
 
   &__works {

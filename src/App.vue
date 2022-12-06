@@ -24,7 +24,7 @@
     return (state.getters['general/getIsSendOpen'] as boolean)
   })
 
-  const loaderTimeout = ref<typeof setTimeout | null | undefined>()
+  const loaderTimeout = ref<typeof setTimeout | undefined>()
   const isLoaderHidden = ref(false)
 
   onMounted(() => {
@@ -35,5 +35,11 @@
     loaderTimeout.value = setTimeout(() => {
       isLoaderHidden.value = true
     }, 1000)
+
+    const hour = new Date().getHours()
+
+    if (hour > 22 || hour < 8) {
+      document.body.dataset.theme = 'dark'
+    }
   })
 </script>
