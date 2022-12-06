@@ -60,7 +60,9 @@ $mediaWideDesktop: 'min-width: #{ $wideDesktopBreakpoint }px';
   --c-font:  #1D1D1D;
   --c-content: #464646;
   --c-background: #fff;
+  --c-logo: #fff;
   --c-border-color: rgba(0, 0, 0, 0.1);
+  --c-card-background: #fff;
 }
 
 [data-theme="dark"] {
@@ -69,5 +71,7 @@ $mediaWideDesktop: 'min-width: #{ $wideDesktopBreakpoint }px';
   --c-font: #E2E2E2;
   --c-content: #E2E2E2;
   --c-background: #0D0D0D;
+  --c-logo: #E2E2E2;
   --c-border-color: rgba(255, 255, 255, 0.1);
+  --c-card-background: #0B0F15;
 }

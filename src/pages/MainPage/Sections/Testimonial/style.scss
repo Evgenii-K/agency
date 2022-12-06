@@ -40,6 +40,10 @@
   }
 
   @media screen and ($mediaDesktop) {
+    &__wrapper {
+      padding: 100px 0;
+    }
+
     &__title {
       font-size: 55px;
       line-height: 75px;
@@ -55,7 +59,7 @@
 }
 
 .feedback {
-  background: $cWhite;
+  background: var(--c-card-background);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   padding: 40px;
@@ -96,12 +100,14 @@
     font-size: 11px;
     line-height: 14px;
     opacity: 0.5;
+    color: var(--c-font);
   }
 
   &__content {
     font-size: 14px;
     line-height: 24px;
     opacity: 0.8;
+    color: var(--c-font);
   }
 
   @media screen and ($mediaDesktop) {

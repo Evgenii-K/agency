@@ -19,7 +19,7 @@
   &__logo-wrapper {
     border-radius: 20px;
     padding: 19px 25px;
-    background-color: $cWhite;
+    background-color: var(--c-logo);
     display: inline-flex;
     margin-bottom: 35px;
   }
@@ -64,7 +64,23 @@
     line-height: 18px;
     color: $cWhite;
     padding: 20px 0 0;
-    border-top: 1px solid $cWhite;
+    border-top: 1px solid var(--c-logo);
     text-align: center;
+  }
+
+  @media screen and ($mediaDesktop) {
+    &__logo-wrapper {
+      height: 88px;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__copyright {
+      width: 500px;
+    }
   }
 }

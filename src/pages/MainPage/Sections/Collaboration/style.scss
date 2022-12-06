@@ -27,6 +27,37 @@
     line-height: 34px;
     letter-spacing: 0.01em;
     color: $fActiveColor;
+    padding-bottom: 25px;
+  }
+
+  &__content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and ($mediaDesktop) {
+    &__wrapper {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    &__content-block {
+      width: 490px;
+      align-items: flex-start;
+    }
+
+    &__header {
+      font-size: 55px;
+      line-height: 75px;
+      text-align: start;
+      margin: 25px 0;
+    }
+
+    &__content {
+      font-size: 20px;
+      line-height: 34px;
+    }
   }
 }
 
@@ -34,7 +65,6 @@
   &__images {
     position: relative;
     height: 274px;
-    width: calc(100vw - 50px);
   }
 
   &__image {
@@ -45,7 +75,8 @@
 
   &__image:first-child {
     top: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-6%);
     width: 180px;
     height: 177px;
     background-image: url('src/assets/img/MainPage/collab_second.png');
@@ -57,7 +88,52 @@
     width: 221px;
     height: 196px;
     bottom: 0;
-    left: 0;
+    right: 50%;
+    transform: translateX(23%);
     background-image: url('src/assets/img/MainPage/collab_first.png');
+  }
+
+  &__dots {
+    opacity: 0;
+  }
+
+  @media screen and ($mediaDesktop) {
+    position: relative;
+
+    &__image:first-child {
+      width: 294px;
+      height: 288px;
+      position: relative;
+      transform: translate(0, -37px);
+      left: 0;
+
+    }
+
+    &__image:last-child {
+      width: 325px;
+      height: 288px;
+      transform: translate(-262px, 65px);
+      right: 0;
+    }
+
+    &__dots {
+      opacity: 1;
+      position: absolute;
+
+      &--red-first {
+        bottom: -40px;
+        left: 0;
+      }
+
+      &--red-second {
+        bottom: -40px;
+        right: 80px;
+      }
+
+      &--blue {
+        top: 16px;
+        left: -310px;
+      }
+    }
   }
 }
