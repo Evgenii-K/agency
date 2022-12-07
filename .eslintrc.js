@@ -22,6 +22,7 @@ module.exports = {
 
   env: {
     browser: true,
+    node: true,
   },
   // Rules order is important, please avoid shuffling them
   extends: [
@@ -46,6 +47,7 @@ module.exports = {
     'prettier',
   ],
   plugins: [
+    'custom',
     // required to apply rules which need type information
     '@typescript-eslint',
 
@@ -70,6 +72,8 @@ module.exports = {
 
   // add your custom rules here
   rules: {
+    'custom/getter-name': 'warn',
+    'custom/mutation-name': 'warn',
     // allow async-await
     'generator-star-spacing': 'off',
     // allow paren-less arrow functions
@@ -144,4 +148,20 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['*.*'],
+      excludedFiles: ['getters.ts'],
+      rules: {
+        'custom/getter-name': 'off',
+      },
+    },
+    {
+      files: ['*.*'],
+      excludedFiles: ['mutations.ts'],
+      rules: {
+        'custom/mutation-name': 'off',
+      },
+    },
+  ],
 }

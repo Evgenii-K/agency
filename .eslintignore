@@ -8,3 +8,4 @@
 .prettierrc.js
 babel.config.js
 /src-ssr
+/linter-rules

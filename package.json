@@ -36,6 +36,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.20.0",
+    "eslint-plugin-custom": "file:./linter-rules/eslint-plugin-custom",
     "prettier": "2.7.1"
   },
   "browserslist": [
