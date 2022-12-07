@@ -17,7 +17,7 @@
         <base-field
           v-model="form.name.value"
           placeholder="Your name"
-          :is-errored="(!form.name.valid && form.name.value.length)"
+          :is-errored="!!(!form.name.valid && form.name.value.length)"
           unique-id="name"
           error-message="Введите имя"
           full-size
@@ -34,7 +34,7 @@
           v-model="form.message.value"
           class="send-us__textarea"
           placeholder="Your Message"
-          :is-errored="(!form.message.valid  && form.email.value.length)"
+          :is-errored="!!(!form.message.valid  && form.email.value.length)"
           unique-id="message"
           error-message="Добавьте сообщение"
           full-size

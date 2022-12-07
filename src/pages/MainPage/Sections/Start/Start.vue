@@ -1,13 +1,13 @@
 <template>
   <section class="start__wrapper">
-    <h1 class="start__header">Make your dream business goal come true</h1>
+    <h1 class="start__header">{{ $t('mainPage.start.title') }}</h1>
     <div class="start__content">
-      <span>when you need us for improve your business,</span>
-      <span>then come with us to help your business have reach it, you just sit and feel that goal.</span>
+      <span>{{ $t('mainPage.start.contentFirst') }}</span>
+      <span>{{ $t('mainPage.start.contentSecond') }}</span>
     </div>
     <base-button
       :click-handler="clickHandler"
-      text="Start Project"
+      :text="$t('mainPage.start.startProject')"
     />
     <div class="start__image start-image">
       <img src="../../../../assets/img/MainPage/Start.png" alt="Start project" />
@@ -18,10 +18,10 @@
               name="fa fa-star"
               class="start-image__star"
             />
-            &nbsp;Great Project
+            &nbsp;{{ $t('mainPage.start.greatProject') }}
           </li>
           <li>
-            800+&nbsp;<span>Done</span>
+            800+&nbsp;<span>{{ $t('mainPage.start.done') }}</span>
           </li>
         </ul>
       </div>
@@ -34,13 +34,13 @@
         <div class="start-review__header">
           <img src="../../../../assets/img/MainPage/Bill.png" class="review__logo"/>
           <div class="start-review__title">
-            Bill Adams
+            {{ $t('mainPage.start.billAdams') }}
             <div class="start-review__subtitle">
-              CEO UpTech
+              {{ $t('mainPage.start.CEOUpTech') }}
             </div>
           </div>
         </div>
-        “ This team is really the best in its field,I don't regret working with them, and will come back again thanks “
+        {{ $t('mainPage.start.ceoComment') }}
       </div>
     </div>
   </section>
