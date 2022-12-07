@@ -45,11 +45,6 @@
   const  onButtonClick = () => {
     if (!buttonRef.value) return
 
-    console.log('isMenuOpen: ', isMenuOpen.value, 'isSendOpen: ', isSendOpen.value);
-
-    // const currentState = buttonRef.value.getAttribute('data-state');
-
-    // if (!currentState || currentState === 'closed') {
     if (isSendOpen.value || isMenuOpen.value) {
       buttonRef.value.setAttribute('data-state', 'opened');
       buttonRef.value.setAttribute('aria-expanded', 'true');

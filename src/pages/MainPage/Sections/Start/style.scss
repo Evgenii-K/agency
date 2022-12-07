@@ -39,7 +39,7 @@
     &__header {
       font-size: 64px;
       line-height: 87px;
-      max-width: 760px;
+      max-width: 1000px;
     }
 
     &__content {
@@ -99,6 +99,7 @@
         font-weight: 700;
         font-size: 12px;
         line-height: 16px;
+        text-transform: none;
         padding-bottom: 0;
         opacity: 1;
 
