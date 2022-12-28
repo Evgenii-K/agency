@@ -41,5 +41,9 @@
     if (hour > 22 || hour < 8) {
       document.body.dataset.theme = 'dark'
     }
+
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+      console.log('window: ', window.matchMedia('(prefers-color-scheme)'));
+    }
   })
 </script>

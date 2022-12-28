@@ -7,7 +7,7 @@
     font-family: 'Quicksand';
     font-style: normal;
     color: #464646;
-    padding: 50px 0;
+    padding: 5rem 0;
     position: relative;
   }
 
@@ -15,31 +15,31 @@
     margin: 0;
     font-family: 'Nunito';
     font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
     letter-spacing: 0.003em;
     color: var(--c-font);
     text-align: center;
-    padding-bottom: 35px;
+    padding-bottom: 3.5rem;
   }
 
   &__subtitle {
     margin: 0;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     letter-spacing: 0.01em;
     color: var(--c-blue);
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
   }
 
   &__article {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
     letter-spacing: 0.01em;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
     text-align: center;
     color: var(--c-content);
   }
@@ -48,29 +48,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 54px;
-    padding: 34px 0 50px;
+    gap: 5.4rem;
+    padding: 3.4rem 0 5rem;
   }
 
   &__work {
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 100%;
     letter-spacing: 0.003em;
     color: $cWhite;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-    padding: 24px;
-    border-radius: 30px;
+    padding: 2.4rem;
+    border-radius: 3rem;
     background-color: #464646;
   }
 
   &__work:nth-child(2n+1) {
-    width: 300px;
-    height: 300px;
+    width: 30rem;
+    height: 30rem;
     background-image: url('src/assets/img/MainPage/work_byte.png');
     background-size: cover;
   }
@@ -80,8 +80,8 @@
   }
 
   &__work:nth-child(2n) {
-    width: 340px;
-    height: 338px;
+    width: 34rem;
+    height: 33.8rem;
     background-image: url('src/assets/img/MainPage/work_cloud.png');
     background-size: cover;
   }
@@ -92,42 +92,42 @@
 
   @media screen and ($mediaDesktop) {
     &__wrapper {
-      padding: 100px 0;
+      padding: 10rem 0;
     }
 
     &__title {
-      font-size: 55px;
-      line-height: 75px;
-      padding-bottom: 28px;
+      font-size: 5.5rem;
+      line-height: 7.5rem;
+      padding-bottom: 2.8rem;
     }
 
     &__subtitle {
-      font-size: 24px;
-      line-height: 24px;
-      padding-bottom: 20px;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      padding-bottom: 2rem;
     }
 
     &__article {
-      font-size: 20px;
-      line-height: 34px;
-      padding-bottom: 48px;
-      max-width: 680px;
+      font-size: 2rem;
+      line-height: 3.4rem;
+      padding-bottom: 4.8rem;
+      max-width: 68rem;
     }
 
     &__works {
       flex-direction: row;
-      gap: 69px;
+      gap: 6.9rem;
       z-index: 100;
     }
 
     &__work:nth-child(2n+1) {
-      width: 350px;
-      height: 350px;
+      width: 35rem;
+      height: 35rem;
     }
 
     &__work:nth-child(2n) {
-      width: 400px;
-      height: 400px;
+      width: 40rem;
+      height: 40rem;
     }
 
     &__dots {
@@ -136,11 +136,11 @@
       z-index: 10;
 
       &--first {
-        transform: translate(580px, 200px) rotate(-20deg);
+        transform: translate(58rem, 20rem) rotate(-20deg);
       }
 
       &--second {
-        transform: translate(-186px, 390px) rotate(20deg);
+        transform: translate(-18.6rem, 39rem) rotate(20deg);
       }
     }
   }
