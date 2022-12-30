@@ -21,7 +21,7 @@
       >
         <q-icon
           name="desktop_windows"
-          style="font-size: 42px;"
+          style="font-size: 4.2rem;"
         />
       </services-button>
       <services-button
@@ -30,7 +30,7 @@
       >
         <q-icon
           name="settings"
-          style="font-size: 42px;"
+          style="font-size: 4.2rem;"
         />
       </services-button>
       <services-button
@@ -39,7 +39,7 @@
       >
         <q-icon
           name="desktop_windows"
-          style="font-size: 42px;"
+          style="font-size: 4.2rem;"
         />
       </services-button>
       <services-button
@@ -48,7 +48,7 @@
       >
         <q-icon
           name="live_tv"
-          style="font-size: 42px;"
+          style="font-size: 4.2rem;"
         />
       </services-button>
     </div>

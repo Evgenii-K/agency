@@ -44,7 +44,7 @@
       <div class="send-us__file">
         <q-icon
           name="eva-attach-outline"
-          style="font-size: 18px;"
+          style="font-size: 1.8rem;"
         />
         <span>Attach file</span>
       </div>

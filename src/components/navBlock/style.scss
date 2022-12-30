@@ -5,8 +5,8 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
     letter-spacing: 0.01em;
     text-transform: capitalize;
     width: 100%;
@@ -20,7 +20,7 @@
   &__nav {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 2.5rem;
     align-items: flex-start;
   }
 
@@ -38,9 +38,9 @@
 
   &__languages {
     display: flex;
-    gap: 16px;
+    gap: 1.6rem;
     text-transform: uppercase;
-    padding-top: 50px;
+    padding-top: 5rem;
   }
 
   &__language {
@@ -60,7 +60,7 @@
     &__links {
       display: flex;
       justify-content: space-between;
-      padding: 0 80px;
+      padding: 0 8rem;
     }
 
     &__button {
@@ -69,12 +69,12 @@
 
     &__nav {
       flex-direction: row;
-      gap: 50px;
+      gap: 5rem;
     }
 
     &__languages {
       padding: 0;
-      gap: 8px;
+      gap: 0.8rem;
     }
   }
 }

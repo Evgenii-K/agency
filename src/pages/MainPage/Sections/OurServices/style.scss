@@ -7,36 +7,36 @@
     font-family: 'Quicksand';
     font-style: normal;
     color: #464646;
-    padding: 50px 0 26px;
+    padding: 5rem 0 2.6rem;
   }
 
   &__title {
     margin: 0;
     font-family: 'Nunito';
     font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
     letter-spacing: 0.003em;
     color: var(--c-font);
     text-align: center;
-    padding-bottom: 35px;
+    padding-bottom: 3.5rem;
   }
 
   &__subtitle {
     margin: 0;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     letter-spacing: 0.01em;
     color: var(--c-blue);
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
   }
 
   &__article {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
     letter-spacing: 0.01em;
     text-align: center;
     color: var(--c-content);
@@ -47,11 +47,11 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     letter-spacing: 0.01em;
     color: var(--c-blue);
-    padding: 4px 0 23px 0;
+    padding: 0.4rem 0 2.3rem 0;
     margin: 0;
     align-self: flex-start;
 
@@ -60,47 +60,47 @@
     }
 
     & .q-icon {
-      font-size: 20px;
-      padding-left: 4px;
+      font-size: 2rem;
+      padding-left: 0.4rem;
     }
   }
 
   &__buttons {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 3.5rem;
   }
 
   @media screen and ($mediaDesktop) {
     &__wrapper {
       flex-direction: row;
       align-items: flex-start;
-      gap: 155px;
-      padding: 59px 0 30px;
+      gap: 15.5rem;
+      padding: 5.9rem 0 3rem;
     }
 
     &__content {
-      padding-top: 65px;
+      padding-top: 6.5rem;
     }
 
     &__title {
-      font-size: 55px;
+      font-size: 5.5rem;
       line-height: 130%;
-      padding-bottom: 32px;
+      padding-bottom: 3.2rem;
       text-align: start;
     }
 
     &__subtitle {
-      font-size: 24px;
-      line-height: 24px;
-      padding-bottom: 18px;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      padding-bottom: 1.8rem;
       text-align: start;
     }
 
     &__article {
-      font-size: 20px;
-      line-height: 32px;
-      padding-bottom: 36px;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      padding-bottom: 3.6rem;
       text-align: start;
     }
 
@@ -111,7 +111,7 @@
     &__buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 4rem;
     }
   }
 }

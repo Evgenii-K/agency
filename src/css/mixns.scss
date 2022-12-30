@@ -1,25 +1,25 @@
 @import "app.variables";
 
 @mixin minMediaMobile {
-  @media (min-width: $mobileBreakpoint + px) {
+  @media (min-width: '#{$mobileBreakpoint} + px') {
     @content
   }
 };
 
 @mixin minMediaTablet {
-  @media (min-width: $tabletBreakpoint + px) {
+  @media (min-width: '#{$tabletBreakpoint} + px') {
     @content
   }
 };
 
 @mixin minMediaDesktop {
-  @media (min-width: $desktopBreakpoint + px) {
+  @media (min-width: '#{$desktopBreakpoint} + px') {
     @content
   }
 };
 
 @mixin minMediaMaxDesktop {
-  @media (min-width: $wideDesktopBreakpoint + px) {
+  @media (min-width: '#{$wideDesktopBreakpoint} + px') {
     @content
   }
 };

@@ -30,12 +30,12 @@
     justify-content: flex-end;
     text-align: center;
     width: 100%;
-    padding: 50px 25px 18px;
-    max-width: 500px;
+    padding: 5rem 2.5rem 1.8rem;
+    max-width: 50rem;
   }
 
   &__wrapper {
-    padding: 0px 25px 85px;
+    padding: 0 2.5rem 8.5rem;
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE и Edge */
     scrollbar-width: none;  /* Firefox */
@@ -51,23 +51,23 @@
 
   &__content {
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 4rem;
   }
 
   &__title {
     font-weight: 800;
-    font-size: 28px;
-    line-height: 38px;
+    font-size: 2.8rem;
+    line-height: 3.8rem;
     color: var(--c-font);
     margin: 0;
-    padding-bottom: 8px;
+    padding-bottom: 0.8rem;
     text-align: center;
   }
 
   &__article {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
     color: $fActiveColor;
   }
 
@@ -75,23 +75,23 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1.6rem;
   }
 
   &__textarea {
     & textarea {
-      height: 180px;
+      height: 18rem;
     }
   }
 
   &__file {
-    margin: 8px 0 40px;
+    margin: 0.8rem 0 4rem;
     width: 100%;
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     letter-spacing: 0.01em;
     color: $fBorderColor;
     display: flex;
@@ -99,7 +99,7 @@
     cursor: pointer;
 
     & > span {
-      padding-left: 6px;
+      padding-left: 0.6rem;
     }
 
     &:hover {
@@ -134,24 +134,24 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: var(--c-background);
-      width: 640px;
-      padding: 40px;
-      border-radius: 30px;
+      width: 64rem;
+      padding: 4rem;
+      border-radius: 3rem;
     }
 
     &__title {
-      font-size: 55px;
-      line-height: 75px;
+      font-size: 5.5rem;
+      line-height: 7.5rem;
     }
 
     &__article {
-      font-size: 20px;
-      line-height: 32px;
+      font-size: 2rem;
+      line-height: 3.2rem;
     }
 
     &__textarea {
       & textarea {
-        height: 120px;
+        height: 12rem;
       }
     }
 

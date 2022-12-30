@@ -32,13 +32,13 @@
   })
 
   const pointStyle = {
-    width: `${props.size}px`,
-    height: `${props.size}px`,
+    width: `${props.size/10}rem`,
+    height: `${props.size/10}rem`,
     backgroundColor: `${props.color}`
   }
 
   const dotsStyle = {
-    width: `${props.width}px`,
-    height: `${props.height}px`,
+    width: `${props.width/10}rem`,
+    height: `${props.height/10}rem`,
   }
 </script>
