@@ -1,5 +1,5 @@
 /*   General variables   */
-$minContentWidth: 320px;
+$minContentWidth: 32rem;
 
 /*   Font variables   */
 $fontpostfix: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
@@ -7,9 +7,9 @@ $Roboto: $fontpostfix;
 $Rub: 'Rub', $fontpostfix;
 
 /*   Mobile variables   */
-$footer: 56px;
-$header: 44px;
-$layout: 100px;
+$footer: 5.6rem;
+$header: 4.4rem;
+$layout: 10rem;
 
 /*   Color variables   */
 $cWhite: #fff;
@@ -26,9 +26,9 @@ $cFooter: #383638;
 $fBorderColor: #377DFF;
 $fBackgroundColor: #fff;
 $fActiveColor: #464646;
-$fBorderRadius: 24px;
-$fFieldHeight: 48px;
-$fFieldFontSize: 16px;
+$fBorderRadius: 2.4rem;
+$fFieldHeight: 4.8rem;
+$fFieldFontSize: 1.6rem;
 $fFieldTextColor: #9A99A2;
 $fFieldErrorColor: #FF3737;
 $fFieldHoverColor: #37DBFF;

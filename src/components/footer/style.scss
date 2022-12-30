@@ -5,40 +5,40 @@
   width: 100%;
 
   &__wrapper {
-    padding: 0px 0px 60px;
+    padding: 0 0 6rem;
   }
 
   &__main {
-    padding: 45px 34px 90px 25px;
+    padding: 4.5rem 3.4rem 9rem 2.5rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 45px;
+    gap: 4.5rem;
   }
 
   &__logo-wrapper {
-    border-radius: 20px;
-    padding: 19px 25px;
+    border-radius: 2rem;
+    padding: 1.9rem 2.5rem;
     background-color: var(--c-logo);
     display: inline-flex;
-    margin-bottom: 35px;
+    margin-bottom: 3.5rem;
   }
 
   &__logo {
-    width: 136px;
-    height: 50px;
+    width: 13.6rem;
+    height: 5rem;
   }
 
   &__contact {
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 130%;
     color: $cWhite;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 2.2rem;
     & a {
       text-decoration: none;
       color: $cWhite;
@@ -48,7 +48,7 @@
 
   &__contact-content {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 130%;
   }
 
@@ -60,17 +60,17 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     color: $cWhite;
-    padding: 20px 0 0;
-    border-top: 1px solid var(--c-logo);
+    padding: 2rem 0 0;
+    border-top: 0.1rem solid var(--c-logo);
     text-align: center;
   }
 
   @media screen and ($mediaDesktop) {
     &__logo-wrapper {
-      height: 88px;
+      height: 8.8rem;
     }
 
     &__bottom {
@@ -80,7 +80,7 @@
     }
 
     &__copyright {
-      width: 500px;
+      width: 50rem;
     }
   }
 }

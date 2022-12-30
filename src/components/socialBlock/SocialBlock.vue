@@ -7,7 +7,7 @@
       >
         <q-icon
           :name="icon"
-          style="font-size: 24px;"
+          style="font-size: 2.4rem;"
         />
       </social-icon>
     </div>
