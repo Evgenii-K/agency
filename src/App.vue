@@ -36,14 +36,10 @@
       isLoaderHidden.value = true
     }, 1000)
 
-    const hour = new Date().getHours()
-
-    if (hour > 22 || hour < 8) {
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.body.dataset.theme = 'dark'
-    }
-
-    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-      console.log('window: ', window.matchMedia('(prefers-color-scheme)'));
+    } else {
+      document.body.dataset.theme = ''
     }
   })
 </script>
