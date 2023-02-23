@@ -90,7 +90,7 @@
     opacity: 0;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__wrapper {
       padding: 10rem 0;
     }

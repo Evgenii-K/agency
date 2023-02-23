@@ -122,7 +122,7 @@
     overflow: hidden;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__logo {
       height: 17.5rem;
       padding-right: 3.8rem;

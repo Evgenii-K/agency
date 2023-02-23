@@ -22,6 +22,7 @@
     background-color: var(--c-logo);
     display: inline-flex;
     margin-bottom: 3.5rem;
+    height: fit-content;
   }
 
   &__logo {
@@ -68,7 +69,7 @@
     text-align: center;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__logo-wrapper {
       height: 8.8rem;
     }

@@ -7,53 +7,125 @@
       <div class="send-us__close-button">
         <burger-button @click="clickHandler" />
       </div>
-      <div class="send-us__content">
-        <h2 class="send-us__title">Send us a message</h2>
-        <div class="send-us__article">
-          We move with make a Creative Strategy for help your business goal
+      <div class="send-us__content-wrapper">
+        <div class="send-us__content">
+          <h2 class="send-us__title">Send us a message</h2>
+          <div class="send-us__article">
+            We move with make a Creative Strategy for help your business goal
+          </div>
         </div>
-      </div>
-      <div class="send-us__fields">
-        <base-field
-          v-model="form.name.value"
-          placeholder="Your name"
-          :is-errored="!!(!form.name.valid && form.name.value.length)"
-          unique-id="name"
-          error-message="Введите имя"
-          full-size
-        />
-        <base-field
-          v-model="form.email.value"
-          placeholder="Email"
-          :is-errored="!form.email.valid"
-          unique-id="email"
-          error-message="Введите email"
-          full-size
-        />
-        <base-field
-          v-model="form.message.value"
-          class="send-us__textarea"
-          placeholder="Your Message"
-          :is-errored="!!(!form.message.valid  && form.email.value.length)"
-          unique-id="message"
-          error-message="Добавьте сообщение"
-          full-size
-          :is-textarea="true"
-        />
-      </div>
-      <div class="send-us__file">
-        <q-icon
-          name="eva-attach-outline"
-          style="font-size: 1.8rem;"
-        />
-        <span>Attach file</span>
-      </div>
-      <div class="send-us__button-block">
-        <base-button
-          class="send-us__button"
-          :click-handler="contactUs"
-          text="Send message"
-        />
+        <div class="send-us__fields">
+          <base-field
+            v-model="form.name.value"
+            placeholder="Your name"
+            :is-errored="!!(!form.name.valid && form.name.value.length)"
+            unique-id="name"
+            error-message="Введите имя"
+            full-size
+          />
+          <base-field
+            v-model="form.email.value"
+            placeholder="Email"
+            :is-errored="!form.email.valid"
+            unique-id="email"
+            error-message="Введите email"
+            full-size
+          />
+          <base-field
+            v-model="form.message.value"
+            class="send-us__textarea"
+            placeholder="Your Message"
+            :is-errored="!!(!form.message.valid  && form.email.value.length)"
+            unique-id="message"
+            error-message="Добавьте сообщение"
+            full-size
+            :is-textarea="true"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
+        <div class="send-us__file">
+          <q-icon
+            name="eva-attach-outline"
+            style="font-size: 1.8rem;"
+          />
+          <span>Attach file</span>
+        </div>
+        <div class="send-us__button-block">
+          <base-button
+            class="send-us__button"
+            :click-handler="contactUs"
+            text="Send message"
+          />
+        </div>
       </div>
     </div>
   </div>

@@ -1,15 +1,20 @@
 @import 'src/css/app.variables.scss';
+@import 'src/css/mixns.scss';
+
 .form-btn {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  @include calc-value-min("font-size", 1.2, 1.6, 390, 1440);
+  line-height: 150%;
   letter-spacing: 0.01em;
   border: 0.1rem solid var(--c-blue);
   color: var(--c-background);
   background: var(--c-blue);
-  padding: 1.2rem 3.5rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  @include calc-value-min("padding-left", 3.5, 5, 390, 1440);
+  @include calc-value-min("padding-right", 3.5, 5, 390, 1440);
   border-radius: 2.4rem;
   box-shadow: 0 0.4rem 0.8rem var(--c-shadow);
 
@@ -47,11 +52,5 @@
 
   &--fullSize {
     width: 100%;
-  }
-
-  @media screen and ($mediaDesktop) {
-    padding: 1.2rem 5rem;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
   }
 }

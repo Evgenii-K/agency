@@ -1,11 +1,14 @@
 @import '/src/css/app.variables.scss';
+@import 'src/css/mixns.scss';
 
 .header {
   background-color: var(--c-background);
   width: 100%;
   position: relative;
   z-index: 1000;
-  padding: 0 2.5rem;
+  padding: 0;
+  @include calc-value-min("padding-left", 2.5, 10, 390, 1440);
+  @include calc-value-min("padding-right", 2.5, 10, 390, 1440);
   opacity: 1;
   transition: opacity .3s;
   transition-delay: .8s;
@@ -40,9 +43,7 @@
     display: none;
   }
 
-  @media screen and ($mediaDesktop) {
-    padding: 0 10rem;
-
+  @media screen and ($mediaTablet) {
     &__wrapper {
       padding: 7rem 0;
 

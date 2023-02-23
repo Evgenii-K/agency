@@ -36,7 +36,7 @@
     align-items: center;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__wrapper {
       flex-direction: row-reverse;
       justify-content: space-between;
@@ -97,7 +97,7 @@
     opacity: 0;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     position: relative;
 
     &__image:first-child {

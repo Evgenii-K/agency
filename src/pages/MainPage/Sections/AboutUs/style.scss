@@ -49,7 +49,7 @@
     justify-content: space-between;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
 
     &__wrapper {
       padding: 10rem 0;
@@ -67,12 +67,6 @@
       padding-bottom: 2rem;
     }
 
-    &__content {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 6.5rem;
-    }
-
     &__article {
       font-size: 2rem;
       line-height: 3.2rem;
@@ -80,34 +74,47 @@
     }
 
     &__buttons {
-      padding: 0;
       justify-content: flex-start;
       gap: 2.4rem;
+    }
+  }
+
+  @media screen and ($mediaSmallDesktop) {
+    &__content {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 6.5rem;
+    }
+
+    &__buttons {
+      padding: 0;
     }
   }
 }
 
 .about-us-image {
   position: relative;
+  width: fit-content;
+  margin: 0 auto;
 
   & img {
     position: relative;
     z-index: 20;
-    width: 100%;
+    width: 34rem;
   }
 
   &__dots {
     position: absolute;
     z-index: 10;
-    top: -1.6rem;
-    left: 0.2rem;
+    top: -6%;
+    left: 2%;
 
     &--red {
       opacity: 0;
     }
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     & img {
       width: 56.5rem;
     }

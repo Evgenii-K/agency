@@ -71,7 +71,7 @@
     gap: 3.5rem;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__wrapper {
       flex-direction: row;
       align-items: flex-start;

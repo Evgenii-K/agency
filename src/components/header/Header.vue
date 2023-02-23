@@ -1,5 +1,5 @@
 <template>
-  <div :class="['header', {'header--hidden': isHidden}]">
+  <div :class="['header', 'q-page-container', {'header--hidden': isHidden}]">
     <q-toolbar class="header__wrapper">
       <q-avatar class="header__logo">
         <img src="../../assets/img/Logo.png"/>

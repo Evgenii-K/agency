@@ -24,3 +24,17 @@
   }
 };
 
+@mixin calc-value-min($property, $startSize, $endSize, $startWidth, $endWidth) {
+  #{$property}: min((calc(#{$endSize + rem} + 10 * #{$startSize - $endSize}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endSize + rem})
+};
+
+@mixin calc-value-max($property, $startSize, $endSize, $startWidth, $endWidth) {
+  #{$property}: max((calc(#{$endSize + rem} + 10 * #{$startSize - $endSize}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endSize + rem})
+};
+
+// startWidth - ширина с которой начинается уменьшение
+// $endWidth - ширина до которой уменьшается
+// $startSize - начальное значение свойства до уменьшения
+// $endSize - конечное значение свойства
+// $property - имя свойства селектора
+

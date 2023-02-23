@@ -1,5 +1,5 @@
 <template>
-  <section class="start__wrapper">
+  <section ref="wrapper" class="start__wrapper">
     <h1 class="start__header">{{ $t('mainPage.start.title') }}</h1>
     <div class="start__content">
       <span>{{ $t('mainPage.start.contentFirst') }}</span>
@@ -43,6 +43,15 @@
         {{ $t('mainPage.start.ceoComment') }}
       </div>
     </div>
+    <div
+      v-for="point in pointsPosition"
+      :key="point.id"
+      :class="['start__babble', `start__babble--${point.color}`]"
+      :style="{
+        top: `${point.top}px`,
+        right: `${point.right}px`
+      }"
+    />
   </section>
 </template>
 
@@ -52,6 +61,47 @@
   import Dots from 'src/components/ui/dots/Dots.vue'
   import { useStore } from 'src/store'
   import { computed } from '@vue/reactivity'
+  import { onMounted, ref, reactive } from 'vue'
+  import { Particle } from 'src/helpers/particle'
+
+  interface IPointsPosition {
+    id: number,
+    top: number,
+    right: number,
+    color: string,
+    particle: Particle | null
+  }
+
+  const wrapper = ref<HTMLElement>()
+
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const width = entry.contentBoxSize
+        ? entry.contentBoxSize[0].inlineSize
+        : entry.contentRect.width
+      const height = entry.contentBoxSize
+        ? entry.contentBoxSize[0].blockSize
+        : entry.contentRect.height
+
+        pointsPosition.forEach(point => {
+          if (point.particle) {
+            point.particle.nextMax = { height, width }
+          }
+        })
+    }
+  });
+
+  const pointsPosition = reactive<IPointsPosition[]>([
+    {id: 1, top: 0, right: 15, color: 'red', particle: null},
+    {id: 2, top: 80, right: 80, color: 'red', particle: null},
+    {id: 3, top: 30, right: 95, color: 'blue', particle: null},
+    {id: 4, top: 60, right: 30, color: 'blue', particle: null},
+  ])
+
+  const setPointsPositions = (position: number) => {
+    console.log('position: ', position * window.innerWidth / 100);
+    return position * window.innerWidth / 100
+  }
 
   const state = useStore()
 
@@ -63,4 +113,32 @@
   const clickHandler = () => {
     state.commit('general/mutateIsSendOpen', !isSendOpen.value)
   }
+
+  const loop = (): void => {
+    pointsPosition.forEach(point => {
+      if (point.particle) {
+        point.particle.position()
+        const { top, right } = point.particle.currentPosition
+        point.top = top
+        point.right = right
+      }
+    })
+    requestAnimationFrame(loop)
+  }
+
+  onMounted(() => {
+    pointsPosition.forEach(point => {
+      point.particle = new Particle({
+        top: setPointsPositions(point.top),
+        right: setPointsPositions(point.right),
+        height: window.innerWidth,
+        width: window.innerHeight,
+        velocity: 0.1
+      })
+    })
+    if (wrapper.value) {
+      resizeObserver.observe(wrapper.value);
+    }
+    loop()
+  })
 </script>

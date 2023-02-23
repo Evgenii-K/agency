@@ -3,7 +3,7 @@
   &__wrapper {
     padding: 0 2.5rem;
 
-    @media screen and ($mediaDesktop) {
+    @media screen and ($mediaTablet) {
       padding: 0 10rem;
       width: 100%;
     }

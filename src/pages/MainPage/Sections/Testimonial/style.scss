@@ -39,7 +39,7 @@
     box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__wrapper {
       padding: 10rem 0;
     }
@@ -110,7 +110,7 @@
     color: var(--c-font);
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__name {
       font-size: 2rem;
       line-height: 3.4rem;
