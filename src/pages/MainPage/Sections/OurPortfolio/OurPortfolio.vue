@@ -1,4 +1,14 @@
 <template>
+  <PopUp
+    :is-popup-show="isProfileShown"
+    :is-show-button="true"
+    :min-width="'600px'"
+    @close="isProfileShown = false"
+  >
+    <div>
+      'Text'
+    </div>
+  </PopUp>
   <section class="portfolio__wrapper">
     <h3 class="portfolio__subtitle">Our Portfolio</h3>
     <h2 class="portfolio__title">What do we do</h2>
@@ -34,6 +44,8 @@
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import Dots from 'src/components/ui/dots/Dots.vue'
+import PopUp from 'src/components/modal/Modal.vue'
+import { ref } from 'vue'
 
 const works = [
   { text: 'Design Furniture App'},
@@ -41,7 +53,10 @@ const works = [
   { text: 'Design Byte App'},
 ]
 
+const isProfileShown = ref(false)
+
 const clickHandler = () => {
   console.log('Portfolio');
+  isProfileShown.value = true
 }
 </script>

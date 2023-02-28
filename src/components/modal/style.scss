@@ -1,34 +1,76 @@
 @import '/src/css/app.variables.scss';
-.modal {
+.popup {
   position: fixed;
-  background: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
-  z-index: 50000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  align-content: center;
-  &__bg {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: 49900;
-    background: $bgBlack;
-    backdrop-filter: blur(0.2rem);
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all .5s ease 0s;
+  z-index: 10000;
+
+  &__active {
+    opacity: 1;
+    visibility: visible;
   }
-  &__wrapper {
-    background: $cWhite;
-    width: calc(100vw - 3.2rem);
-    padding: 1.6rem;
-    border-radius: 0.8rem;
+
+  &__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    z-index: 10001;
+  }
+
+  &__content {
+    background-color: #fff;
+    color: black;
+    padding: 30px;
     position: relative;
-    z-index: 50000;
+    border-radius: 10px;
+  }
+
+   &__button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
   }
 }
+// .modal {
+//   position: fixed;
+//   background: none;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: calc(var(--vh, 1vh) * 100);
+//   z-index: 50000;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   align-content: center;
+//   &__bg {
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     position: absolute;
+//     z-index: 49900;
+//     background: $bgBlack;
+//     backdrop-filter: blur(0.2rem);
+//   }
+//   &__wrapper {
+//     background: $cWhite;
+//     width: calc(100vw - 3.2rem);
+//     padding: 1.6rem;
+//     border-radius: 0.8rem;
+//     position: relative;
+//     z-index: 50000;
+//   }
+// }
 
