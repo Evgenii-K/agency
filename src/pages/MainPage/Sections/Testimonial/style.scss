@@ -4,31 +4,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Quicksand';
-    font-style: normal;
-    color: #464646;
     padding: 5rem 0;
   }
 
   &__title {
     margin: 0;
-    font-family: 'Nunito';
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3.3rem;
-    letter-spacing: 0.003em;
-    color: var(--c-font);
     text-align: center;
     padding-bottom: 3.5rem;
   }
 
   &__subtitle {
     margin: 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    letter-spacing: 0.01em;
-    color: var(--c-blue);
     text-align: center;
     padding-bottom: 1rem;
   }
@@ -45,14 +31,10 @@
     }
 
     &__title {
-      font-size: 5.5rem;
-      line-height: 7.5rem;
       padding-bottom: 5rem;
     }
 
     &__subtitle {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
       padding-bottom: 2rem;
     }
   }

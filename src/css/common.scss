@@ -1,0 +1,34 @@
+@import 'src/css/mixins.scss';
+
+h1 {
+  font-weight: 800;
+  @include calc-value-min("font-size", 2.8, 6.4, 390, 1280);
+  line-height: 136%;
+  letter-spacing: 0.01em;
+  font-family: 'Quicksand';
+}
+
+h2 {
+  @include calc-value-min("font-size", 2.4, 5.5, 390, 1280);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.003em;
+  line-height: 137.5%;
+  font-family: 'Nunito';
+  color: var(--c-font);
+}
+
+h3 {
+  @include calc-value-min("font-size", 1.4, 2.4, 390, 1280);
+  @include calc-value-min("line-height", 1.8, 2.4, 390, 1280);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--c-blue);
+  font-family: 'Quicksand';
+}
+
+section {
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: var(--c-content);
+}

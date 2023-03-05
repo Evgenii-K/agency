@@ -1,5 +1,5 @@
 @import 'src/css/app.variables.scss';
-@import 'src/css/mixns.scss';
+@import 'src/css/mixins.scss';
 
 .start {
   font-family: 'Nunito';
@@ -14,19 +14,13 @@
 
   &__header {
     margin: 0;
-    font-family: 'Nunito';
-    font-weight: 800;
-    @include calc-value-min("font-size", 2.8, 6.4, 390, 1440);
-    line-height: 136%;
-    letter-spacing: 0.01em;
-    color: var(--c-font);
     text-align: center;
   }
 
   &__content {
     font-weight: 400;
-    @include calc-value-min("font-size", 1.4, 2.0, 390, 1440);
-    @include calc-value-min("line-height", 2.4, 3.0, 390, 1440);
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    @include calc-value-min("line-height", 2.4, 3.0, 390, 1280);
     text-align: center;
     letter-spacing: 0.01em;
     color: var(--c-content);
@@ -150,8 +144,8 @@
     padding: 10rem 0;
 
     & img {
-      width: 73.9rem;
-      max-width: 73.9rem;
+      width: 56.5rem;
+      max-width: 56.5rem;
     }
 
     &__done {
@@ -170,12 +164,26 @@
 
     &__dots {
       &--red {
-        top: 54.4rem;
+        top: 42.4rem;
         left: 14rem;
       }
 
       &--blue {
         top: 8.6rem;
+        left: 14rem;
+      }
+    }
+  }
+
+  @media screen and ($mediaSmallDesktop) {
+    & img {
+      width: 73.9rem;
+      max-width: 73.9rem;
+    }
+
+    &__dots {
+      &--red {
+        top: 54.4rem;
         left: 14rem;
       }
     }

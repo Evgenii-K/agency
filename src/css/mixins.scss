@@ -38,3 +38,9 @@
 // $endSize - конечное значение свойства
 // $property - имя свойства селектора
 
+@mixin transformTranslate($startX, $endX, $startY, $endY, $startWidth, $endWidth) {
+  transform: translate(
+    max((calc(#{$endX + rem} + 10 * #{$startX - $endX}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endX + rem}),
+    max((calc(#{$endY + rem} + 10 * #{$startY - $endY}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endY + rem}),
+  )
+};
