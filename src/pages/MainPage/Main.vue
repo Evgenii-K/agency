@@ -20,6 +20,9 @@ import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
 import Testimonial from './Sections/Testimonial/Testimonial.vue'
 import Collaboration from './Sections/Collaboration/Collaboration.vue'
 import { defineEmits, onMounted } from 'vue'
+import { useStore } from 'src/store'
+
+const state = useStore()
 
 const emit = defineEmits(['on-send-click'])
 
@@ -48,6 +51,8 @@ onMounted(() => {
     section.style.transition = 'opacity 1s'
     observer.observe(section)
   })
+
+  void state.dispatch('general/loadReviews')
 })
 
 </script>

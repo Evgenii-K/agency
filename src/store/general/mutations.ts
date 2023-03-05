@@ -6,7 +6,6 @@ const mutation: MutationTree<GeneralStateInterface> = {
     state.isGeneralLoading = payload
   },
   mutateIsSendOpen (state: GeneralStateInterface, payload: boolean): void {
-
     if (payload) {
       document.body.classList.add('__hidden')
       state.isSendOpen = payload
@@ -27,8 +26,10 @@ const mutation: MutationTree<GeneralStateInterface> = {
       state.isMenuOpen = calcPayload
       state.isSendOpen = calcPayload
     }
+  },
+  mutateReviews (state: GeneralStateInterface, payload: []): void {
+    state.reviews = payload
   }
-
 }
 
 export default mutation

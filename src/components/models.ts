@@ -37,3 +37,15 @@ export enum EventButton {
   SEND = 'send',
 }
 
+
+export interface IReview {
+  name: string,
+  specialty: string,
+  text: string
+}
+
+export interface IReviews {
+  id: string,
+  ru: IReview,
+  en: IReview
+}
