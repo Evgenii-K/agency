@@ -1,9 +1,14 @@
 <template>
   <div :class="['header', 'q-page-container', {'header--hidden': isHidden}]">
     <q-toolbar class="header__wrapper">
-      <q-avatar class="header__logo">
-        <img src="../../assets/img/Logo.png"/>
-      </q-avatar>
+      <div class="header__label">
+        <q-avatar class="header__logo">
+          <img src="../../assets/img/header_logo.png"/>
+        </q-avatar>
+        <div class="header__name">
+          Agency<span>Creative</span>
+        </div>
+      </div>
       <div class="header__nav">
         <nav-block />
       </div>
