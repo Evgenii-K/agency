@@ -39,13 +39,32 @@ export enum EventButton {
 
 
 export interface IReview {
+  id: string,
   name: string,
   specialty: string,
-  text: string
+  text: string,
+  avatar: any,
+  index: number,
 }
 
 export interface IReviews {
   id: string,
   ru: IReview,
   en: IReview
+}
+
+export interface MouseEventOffset {
+  x: number,
+  y: number,
+}
+export interface QuasarMouseEvent {
+  isFinal: boolean,
+  isFirst: boolean,
+  offset: MouseEventOffset
+}
+
+export interface ISliderBreakPoints {
+  maxWidth: number,
+  count: number,
+  gap: number,
 }
