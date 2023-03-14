@@ -61,13 +61,13 @@ const clickOutside = (event: MouseEvent) => {
 const scrollBarHidden = () => {
   if (body.value) {
     body.value.style.paddingRight = scrollBarWidth.value
-    body.value.style.overflow = 'hidden';
+    body.value.style.overflowY = 'hidden';
   }
 }
 const scrollBarShow = () => {
   if (body.value) {
     body.value.style.paddingRight = '0px'
-    body.value.style.overflow = 'auto'
+    body.value.style.overflowY = 'auto'
   }
 }
 

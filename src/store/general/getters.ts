@@ -10,6 +10,9 @@ const getters: GetterTree<GeneralStateInterface, StateInterface> = {
   getIsMenuOpen (state): boolean {
     return state.isMenuOpen
   },
+  getIsSendOpen (state): boolean {
+    return state.isSendUsOpen
+  },
   getReviews (state): IReviews[] {
     return state.reviews
   }

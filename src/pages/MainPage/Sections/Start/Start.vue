@@ -1,5 +1,4 @@
 <template>
-  <send-us :is-open="isSendUsShown" @close="isSendUsShown = false" />
   <section ref="wrapper" class="start__wrapper">
     <h1 class="start__header">{{ $t('mainPage.start.title') }}</h1>
     <div class="start__content">
@@ -47,8 +46,7 @@
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import Dots from 'src/components/ui/dots/Dots.vue'
-import SendUs from 'src/components/sendUs/SendUs.vue';
-import { onMounted, ref, reactive } from 'vue'
+import { onMounted, ref, reactive, defineEmits } from 'vue'
 import { Particle } from 'src/helpers/particle'
 
 interface IPointsPosition {
@@ -89,10 +87,10 @@ const setPointsPositions = (position: number) => {
   return position * window.innerWidth / 100
 }
 
-const isSendUsShown = ref(false)
+const emit = defineEmits(['onSendOpen'])
 
 const clickHandler = () => {
-  isSendUsShown.value = true
+  emit('onSendOpen')
 }
 
 const loop = (): void => {

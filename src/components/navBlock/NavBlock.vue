@@ -14,15 +14,13 @@
     </div>
   </div>
   <base-button class="nav-block__button" :click-handler="clickHandler" :text="$t('nav.contactUs')" outline />
-  <send-us :is-open="isSendUsShown" @close="isSendUsShown = false" />
 </template>
 
 <script setup lang="ts">
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-import SendUs from 'src/components/sendUs/SendUs.vue';
 import { useStore } from 'src/store'
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n({ useScope: 'global' })
@@ -34,8 +32,6 @@ const languages = reactive([
   { id: 1, name: 'ru', selected: false },
 ])
 
-const isSendUsShown = ref(false)
-
 const transitionDelay = 500
 const mediaTablet = 768
 
@@ -45,7 +41,8 @@ const clickHandler = () => {
   const isMobile = window.innerWidth < mediaTablet
   const currentDelay = isMobile ? transitionDelay : 0
   setTimeout(() => {
-    isSendUsShown.value = true
+    // eslint-disable-next-line
+    state.dispatch('general/switchSendOpen', true)
   }, currentDelay)
 }
 

@@ -204,7 +204,6 @@ const form: UseForm = useForm({
 })
 
 const contactUs = () => {
-  console.log('on contact us click');
   emit('close')
 }
 </script>

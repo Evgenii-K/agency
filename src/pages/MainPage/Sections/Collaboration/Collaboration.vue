@@ -17,22 +17,20 @@
       <base-button :click-handler="clickHandler" text="Get Started" />
     </div>
   </section>
-  <send-us :is-open="isSendUsShown" @close="isSendUsShown = false" />
 </template>
 
 <script setup lang="ts">
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import Dots from 'src/components/ui/dots/Dots.vue'
-import SendUs from 'src/components/sendUs/SendUs.vue';
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref, defineEmits } from 'vue'
 
 const dotColor = ref('#377DFF')
 
-const isSendUsShown = ref(false)
+const emit = defineEmits(['onSendOpen'])
 
 const clickHandler = () => {
-  isSendUsShown.value = true
+  emit('onSendOpen')
 }
 
 onBeforeMount(() => {

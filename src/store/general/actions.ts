@@ -28,6 +28,9 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
   },
   switchMenu ({ commit }, payload): void {
     commit('mutateIsMenuOpen', payload)
+  },
+  switchSendOpen ({ commit }, payload): void {
+    commit('mutateIsSendOpen', payload)
   }
 }
 

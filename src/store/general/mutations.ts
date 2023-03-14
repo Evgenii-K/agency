@@ -2,7 +2,7 @@ import { MutationTree } from 'vuex'
 import { GeneralStateInterface } from './state'
 
 const mutation: MutationTree<GeneralStateInterface> = {
-  mutateIsMenuOpen (state: GeneralStateInterface, payload: boolean): void {
+  mutateIsMenuOpen (state, payload: boolean): void {
     const calcPayload = state.isMenuOpen ? false : payload
 
     if (calcPayload) {
@@ -12,7 +12,10 @@ const mutation: MutationTree<GeneralStateInterface> = {
     }
     state.isMenuOpen = calcPayload
   },
-  mutateReviews (state: GeneralStateInterface, payload: []): void {
+  mutateIsSendOpen (state, payload: boolean): void {
+    state.isSendUsOpen = payload
+  },
+  mutateReviews (state, payload: []): void {
     state.reviews = payload
   }
 }

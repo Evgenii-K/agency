@@ -1,12 +1,12 @@
 <template>
   <q-page class="row">
     <div class="main__wrapper">
-      <start />
+      <start @on-send-open="onSendOpen" />
       <about-us />
       <our-services />
       <our-portfolio />
       <testimonial />
-      <collaboration />
+      <collaboration @on-send-open="onSendOpen" />
     </div>
   </q-page>
 </template>
@@ -23,6 +23,11 @@ import { onMounted } from 'vue'
 import { useStore } from 'src/store'
 
 const state = useStore()
+
+const onSendOpen = () => {
+  // eslint-disable-next-line
+  state.dispatch('general/switchSendOpen', true)
+}
 
 const options = {
   rootMargin: '0px 0px -200px 0px',
