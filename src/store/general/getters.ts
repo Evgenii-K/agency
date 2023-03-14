@@ -15,7 +15,10 @@ const getters: GetterTree<GeneralStateInterface, StateInterface> = {
   },
   getReviews (state): IReviews[] {
     return state.reviews
-  }
+  },
+  getIsLoaderHidden (state): boolean {
+    return state.isLoaderHidden
+  },
 }
 
 export default getters

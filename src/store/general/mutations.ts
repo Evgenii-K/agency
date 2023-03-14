@@ -17,6 +17,9 @@ const mutation: MutationTree<GeneralStateInterface> = {
   },
   mutateReviews (state, payload: []): void {
     state.reviews = payload
+  },
+  mutateIsLoader (state, payload: boolean): void {
+    state.isLoaderHidden = payload
   }
 }
 

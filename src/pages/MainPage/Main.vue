@@ -50,8 +50,6 @@ onMounted(() => {
     section.style.transition = 'opacity 1s'
     observer.observe(section)
   })
-
-  void state.dispatch('general/loadReviews')
 })
 
 </script>

@@ -18,19 +18,27 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
   async loadGeneralInfo (context): Promise<void> {
     await context.dispatch('loadMenuList')
   },
-  loadReviews (context): void {
+  async loadReviews (context): Promise<void> {
     if (loadReviewTimeOut) {
       clearTimeout(loadReviewTimeOut)
     }
-    loadReviewTimeOut = setTimeout(() => {
-      context.commit('mutateReviews', reviewsJSON.reviews)
-    }, 1000)
+    return await new Promise<void>((resolve) => {
+      loadReviewTimeOut = setTimeout(() => {
+        context.commit('mutateReviews', reviewsJSON.reviews)
+        clearTimeout(loadReviewTimeOut)
+        console.log('resolve');
+        resolve()
+      }, 3500)
+    })
   },
   switchMenu ({ commit }, payload): void {
     commit('mutateIsMenuOpen', payload)
   },
   switchSendOpen ({ commit }, payload): void {
     commit('mutateIsSendOpen', payload)
+  },
+  switchLoader ({ commit }, payload): void {
+    commit('mutateIsLoader', payload)
   }
 }
 
