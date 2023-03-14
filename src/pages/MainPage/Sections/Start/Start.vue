@@ -1,4 +1,5 @@
 <template>
+  <send-us :is-open="isSendUsShown" @close="isSendUsShown = false" />
   <section ref="wrapper" class="start__wrapper">
     <h1 class="start__header">{{ $t('mainPage.start.title') }}</h1>
     <div class="start__content">
@@ -46,8 +47,7 @@
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import Dots from 'src/components/ui/dots/Dots.vue'
-import { useStore } from 'src/store'
-import { computed } from '@vue/reactivity'
+import SendUs from 'src/components/sendUs/SendUs.vue';
 import { onMounted, ref, reactive } from 'vue'
 import { Particle } from 'src/helpers/particle'
 
@@ -89,15 +89,10 @@ const setPointsPositions = (position: number) => {
   return position * window.innerWidth / 100
 }
 
-const state = useStore()
-
-const isSendOpen = computed(() => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  return (state.getters['general/getIsSendOpen'] as boolean)
-})
+const isSendUsShown = ref(false)
 
 const clickHandler = () => {
-  state.commit('general/mutateIsSendOpen', !isSendOpen.value)
+  isSendUsShown.value = true
 }
 
 const loop = (): void => {

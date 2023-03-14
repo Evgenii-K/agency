@@ -26,7 +26,9 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
       context.commit('mutateReviews', reviewsJSON.reviews)
     }, 1000)
   },
-
+  switchMenu ({ commit }, payload): void {
+    commit('mutateIsMenuOpen', payload)
+  }
 }
 
 export default actions

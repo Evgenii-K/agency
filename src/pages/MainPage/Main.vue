@@ -1,12 +1,12 @@
 <template>
   <q-page class="row">
     <div class="main__wrapper">
-      <start @on-send-click="clickHandler"/>
+      <start />
       <about-us />
       <our-services />
       <our-portfolio />
       <testimonial />
-      <collaboration @on-send-click="clickHandler"/>
+      <collaboration />
     </div>
   </q-page>
 </template>
@@ -19,16 +19,10 @@ import OurServices from './Sections/OurServices/OurServices.vue'
 import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
 import Testimonial from './Sections/Testimonial/Testimonial.vue'
 import Collaboration from './Sections/Collaboration/Collaboration.vue'
-import { defineEmits, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useStore } from 'src/store'
 
 const state = useStore()
-
-const emit = defineEmits(['on-send-click'])
-
-const clickHandler = () => {
-  emit('on-send-click')
-}
 
 const options = {
   rootMargin: '0px 0px -200px 0px',

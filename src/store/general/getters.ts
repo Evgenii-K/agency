@@ -7,9 +7,6 @@ const getters: GetterTree<GeneralStateInterface, StateInterface> = {
   getIsGeneralLoading (state): boolean {
     return state.isGeneralLoading
   },
-  getIsSendOpen (state): boolean {
-    return state.isSendOpen
-  },
   getIsMenuOpen (state): boolean {
     return state.isMenuOpen
   },

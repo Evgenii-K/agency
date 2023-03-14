@@ -1,5 +1,32 @@
 <template>
-  <div :class="['send-us', {'send-us--open': isOpen}]">
+  <pop-up :is-popup-show="isOpen" :min-width="'600px'" @close="clickHandler">
+    <div class="send-us__content-wrapper">
+      <div class="send-us__content">
+        <h2 class="send-us__title">Send us a message</h2>
+        <div class="send-us__article">
+          We move with make a Creative Strategy for help your business goal
+        </div>
+      </div>
+      <div class="send-us__fields">
+        <base-field v-model="form.name.value" placeholder="Your name"
+          :is-errored="!!(!form.name.valid && form.name.value.length)" unique-id="name" error-message="Введите имя"
+          full-size />
+        <base-field v-model="form.email.value" placeholder="Email" :is-errored="!form.email.valid" unique-id="email"
+          error-message="Введите email" full-size />
+        <base-field v-model="form.message.value" class="send-us__textarea" placeholder="Your Message"
+          :is-errored="!!(!form.message.valid && form.email.value.length)" unique-id="message"
+          error-message="Добавьте сообщение" full-size :is-textarea="true" />
+      </div>
+      <div class="send-us__file">
+        <q-icon name="eva-attach-outline" style="font-size: 1.8rem;" />
+        <span>Attach file</span>
+      </div>
+      <div class="send-us__button-block">
+        <base-button class="send-us__button" :click-handler="contactUs" text="Send message" />
+      </div>
+    </div>
+  </pop-up>
+  <!-- <div :class="['send-us', {'send-us--open': isOpen}]">
     <div class="send-us__header">
       <burger-button @click="clickHandler" />
     </div>
@@ -128,62 +155,56 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
-  import { defineProps } from 'vue'
-  import './style.scss'
-  import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-  import BaseField from 'src/components/ui/baseField/BaseField.vue'
-  import BurgerButton from 'src/components/ui/burgerButton/BurgerButton.vue';
-  import { UseForm } from 'src/components/models'
-  import { useForm } from 'src/hooks/form/form'
-  import checkIsRequired from 'src/helpers/validators/checkIsRequired'
-  import checkMinLength from 'src/helpers/validators/checkMinLength'
-  import { useStore } from 'src/store'
-  import { computed } from '@vue/reactivity'
+import { defineProps, defineEmits } from 'vue'
+import './style.scss'
+import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+import BaseField from 'src/components/ui/baseField/BaseField.vue'
+import { UseForm } from 'src/components/models'
+import { useForm } from 'src/hooks/form/form'
+import checkIsRequired from 'src/helpers/validators/checkIsRequired'
+import checkMinLength from 'src/helpers/validators/checkMinLength'
+import PopUp from 'src/components/modal/Modal.vue'
 
-  const state = useStore()
+const emit = defineEmits(['close'])
 
-  const isSendOpen = computed(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return (state.getters['general/getIsSendOpen'] as boolean)
-  })
+const clickHandler = () => {
+  emit('close')
+}
 
-  const clickHandler = () => {
-    state.commit('general/mutateIsMenuOpen', !isSendOpen.value)
-  }
+defineProps({
+  isOpen: { type: Boolean, required: true },
+})
 
-  const NAME_MIN_LENGTH = 2
+const NAME_MIN_LENGTH = 2
 
-  const form: UseForm = useForm({
-    email: {
-      value: '',
-      validators: {
-        checkIsRequired,
-      },
+const form: UseForm = useForm({
+  email: {
+    value: '',
+    validators: {
+      checkIsRequired,
     },
-    name: {
-      value: '',
-      validators: {
-        checkIsRequired,
-        minLength: checkMinLength(NAME_MIN_LENGTH),
-      },
+  },
+  name: {
+    value: '',
+    validators: {
+      checkIsRequired,
+      minLength: checkMinLength(NAME_MIN_LENGTH),
     },
-    message: {
-      value: '',
-      validators: {
-        checkIsRequired,
-      },
+  },
+  message: {
+    value: '',
+    validators: {
+      checkIsRequired,
     },
-  })
+  },
+})
 
-  defineProps({
-    isOpen: { type: Boolean, required: true },
-  })
-
-  const contactUs = () => {
-    console.log('on contact us click');
-  }
+const contactUs = () => {
+  console.log('on contact us click');
+  emit('close')
+}
 </script>

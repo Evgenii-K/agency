@@ -1,9 +1,13 @@
 <template>
   <div :class="['popup', { 'popup__active': isPopupShow }]" @click="clickOutside">
     <div class="popup__body">
-      <div class="popup__content" :style="{ minWidth: minWidth }">
-        <slot />
-        <base-button v-if="isShowButton" class="popup__button" :click-handler="popupClose" text="Закрыть" />
+      <div class="popup__wrapper" :style="{ minWidth: minWidth }">
+        <div class="popup__header">
+          <burger-button @click="popupClose" />
+        </div>
+        <div class="popup__content">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
@@ -12,13 +16,13 @@
 <script setup lang="ts">
 import './style.scss'
 import { onMounted, ref, defineProps, defineEmits, onBeforeUnmount, computed, watch } from 'vue'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+import BurgerButton from 'src/components/ui/burgerButton/BurgerButton.vue';
 
 const emit = defineEmits(['close'])
+const mainWrapper = '#q-app'
 
 const props = defineProps({
   isPopupShow: { type: Boolean, default: false },
-  isShowButton: { type: Boolean, default: false },
   minWidth: { type: String, default: '800px' },
 })
 
@@ -38,8 +42,8 @@ const onKeyDown = (event: KeyboardEvent) => {
 }
 
 const scrollBarWidth = computed(() => {
-  if (document.querySelector('#q-app')) {
-    return `${window.innerWidth - (document.querySelector('#q-app') as HTMLElement)?.offsetWidth}px`
+  if (document.querySelector(mainWrapper)) {
+    return `${window.innerWidth - (document.querySelector(mainWrapper) as HTMLElement)?.offsetWidth}px`
   }
   return '0px'
 })
