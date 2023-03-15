@@ -32,19 +32,11 @@ const isLoaderHidden = computed(() => {
   return state.getters['general/getIsLoaderHidden'] as boolean
 })
 
-const initApp = async () => {
-  void state.dispatch('general/switchLoader', false)
-  await state.dispatch('general/loadReviews')
-  void state.dispatch('general/switchLoader', true)
-}
-
-onMounted(async () => {
+onMounted(() => {
   if (window.matchMedia('(prefers-color-scheme)').media !== 'not all' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.dataset.theme = 'dark'
   } else {
     document.body.dataset.theme = ''
   }
-
-  await initApp()
 })
 </script>
