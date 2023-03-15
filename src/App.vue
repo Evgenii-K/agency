@@ -13,37 +13,38 @@ import Header from 'src/components/header/Header.vue'
 import Footer from 'src/components/footer/Footer.vue'
 import Loader from 'src/components/loader/Loader.vue'
 import SendUs from './components/sendUs/SendUs.vue';
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useStore } from 'src/store'
 
 const state = useStore()
 
-const loaderTimeout = ref<typeof setTimeout | undefined>()
-const isLoaderHidden = ref(false)
-
 const isSendUsShown = computed(() => {
-  // eslint-disable-next-line
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   return state.getters['general/getIsSendOpen'] as boolean
 })
 
 const isSendUsClose = () => {
-  // eslint-disable-next-line
-  state.dispatch('general/switchSendOpen', false)
+  void state.dispatch('general/switchSendOpen', false)
 }
 
-onMounted(() => {
-  if (loaderTimeout.value) {
-    clearTimeout(loaderTimeout.value)
-  }
+const isLoaderHidden = computed(() => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  return state.getters['general/getIsLoaderHidden'] as boolean
+})
 
-  loaderTimeout.value = setTimeout(() => {
-    isLoaderHidden.value = true
-  }, 1000)
+const initApp = async () => {
+  void state.dispatch('general/switchLoader', false)
+  await state.dispatch('general/loadReviews')
+  void state.dispatch('general/switchLoader', true)
+}
 
+onMounted(async () => {
   if (window.matchMedia('(prefers-color-scheme)').media !== 'not all' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.dataset.theme = 'dark'
   } else {
     document.body.dataset.theme = ''
   }
+
+  await initApp()
 })
 </script>
