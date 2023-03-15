@@ -61,7 +61,7 @@
 
 .feedback {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
   top: 0;
   left: 0;
@@ -125,6 +125,9 @@
     line-height: 2.4rem;
     opacity: 0.8;
     color: var(--c-font);
+    max-height: 29rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @media screen and ($mediaDesktop) {

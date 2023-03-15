@@ -20,7 +20,7 @@ const state = useStore()
 
 const breakPoints = [
   { maxWidth: 768, count: 1, gap: 25 },
-  { maxWidth: 1440, count: 2, gap: 30 },
+  { maxWidth: 1280, count: 2, gap: 30 },
 ]
 
 const feedbacks = computed(() => {

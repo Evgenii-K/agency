@@ -145,11 +145,6 @@
       // overflow-y: unset;
     }
 
-    &__content-wrapper {
-      overflow: scroll;
-      height: 100%;
-    }
-
     &__title {
       font-size: 5.5rem;
       line-height: 7.5rem;
@@ -181,6 +176,10 @@
       position: absolute;
       top: 4rem;
       right: 4rem;
+    }
+
+    &__content-wrapper {
+      width: 64rem;
     }
   }
 }

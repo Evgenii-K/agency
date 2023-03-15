@@ -34,6 +34,8 @@
     background-color: $cWhite;
     color: black;
     padding: 1.6rem;
+    @include calc-value-min("padding-left", 0.8, 8.4, 390, 1440);
+    @include calc-value-min("padding-right", 0.8, 8.4, 390, 1440);
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -45,14 +47,32 @@
     justify-content: flex-end;
     text-align: center;
     width: 100%;
-    padding: 5rem 2.5rem 1.8rem;
-    @include calc-value-min("padding-left", 2.5, 10, 390, 1440);
-    @include calc-value-min("padding-right", 2.5, 10, 390, 1440);
+    padding: 2.4rem 1.6rem 0.8rem;
+  }
+
+  &__button {
+    fill: var(--c-font);
+    background-image: url('../../assets/img/close.svg');
+    width: 2.9rem;
+    height: 2.5rem;
+    cursor: pointer;
   }
 
   &__content {
-    overflow-x: auto;
-    height: calc(100vh - 100px);
+    overflow-x: hidden;
+    height: calc(100vh - 10rem);
+    padding: 1.6rem;
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: var(--c-border-color);
+      border-radius: 5px;
+      height: 200px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--c-blue);
+      border-radius: 5px;
+    }
   }
 
   @media screen and ($mediaTablet) {
@@ -63,41 +83,22 @@
     &__wrapper {
       padding: 3.6rem;
       border-radius: 10px;
-      width: calc(100vw - 9rem);
-      height: calc(100vh - 9rem);
+      width: auto;
+      max-width: calc(100% - 9rem);
+      max-height: calc(100vh - 9rem);
+    }
+
+    &__header {
+      padding-top: 0;
+    }
+
+    &__content {
+      height: calc(100vh - 21.3rem);
+    }
+
+    &__button {
+      cursor: pointer;
     }
   }
 }
-// .modal {
-//   position: fixed;
-//   background: none;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: calc(var(--vh, 1vh) * 100);
-//   z-index: 50000;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   align-content: center;
-//   &__bg {
-//     width: 100%;
-//     height: 100%;
-//     top: 0;
-//     left: 0;
-//     position: absolute;
-//     z-index: 49900;
-//     background: $bgBlack;
-//     backdrop-filter: blur(0.2rem);
-//   }
-//   &__wrapper {
-//     background: $cWhite;
-//     width: calc(100vw - 3.2rem);
-//     padding: 1.6rem;
-//     border-radius: 0.8rem;
-//     position: relative;
-//     z-index: 50000;
-//   }
-// }
 

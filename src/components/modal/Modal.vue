@@ -1,9 +1,9 @@
 <template>
   <div :class="['popup', { 'popup__active': isPopupShow }]" @click="clickOutside">
     <div class="popup__body">
-      <div class="popup__wrapper" :style="{ minWidth: minWidth }">
+      <div class="popup__wrapper">
         <div class="popup__header">
-          <burger-button @click="popupClose" />
+          <div class="popup__button" @click="popupClose" />
         </div>
         <div class="popup__content">
           <slot />
@@ -16,14 +16,12 @@
 <script setup lang="ts">
 import './style.scss'
 import { onMounted, ref, defineProps, defineEmits, onBeforeUnmount, computed, watch } from 'vue'
-import BurgerButton from 'src/components/ui/burgerButton/BurgerButton.vue';
 
 const emit = defineEmits(['close'])
 const mainWrapper = '#q-app'
 
 const props = defineProps({
   isPopupShow: { type: Boolean, default: false },
-  minWidth: { type: String, default: '800px' },
 })
 
 const body = ref<HTMLElement | null>(null)
