@@ -2,6 +2,7 @@
   <div
     ref="slidesWrapper"
     class="feedback__wrapper"
+    :style="computedWrapperStyle"
   >
     <div
       v-touch-pan.prevent.mouse="mouseMove"
@@ -12,7 +13,7 @@
         v-for="feedback in visibleSlides"
         :key="feedback.index"
         class="feedback__card"
-        :style="{ ...computedCardStyle }"
+        :style="computedCardStyle"
       >
         <div class="feedback__title">
           <img
@@ -43,6 +44,7 @@
     PropType,
     onBeforeMount,
     watch,
+    nextTick,
   } from 'vue'
   import './style.scss'
   import {
@@ -50,6 +52,7 @@
     ISliderBreakPoints,
     IReview,
   } from 'src/components/models'
+  import { MAIN_WRAPPER } from 'src/helpers/constant'
 
   const props = defineProps({
     slideItems: { type: Array as PropType<IReview[]>, default: null },
@@ -58,6 +61,7 @@
       required: false,
       default: [],
     },
+    autoplay: { type: Boolean, default: false },
   })
 
   const feedbacks = reactive<IReview[]>([])
@@ -86,8 +90,10 @@
   const windowWidth = ref(window.innerWidth) // ширина окна браузера
   const currentCount = ref(3) // количество слайдов на странице
   const minVisibleSlides = ref(9) // общее минимальное количество слайдов, currentCount * 3
+  const nodesHeight = ref<number[]>([]) // массив высот карточек слайдера
 
   let slideMoveTimeout: ReturnType<typeof setTimeout> | undefined
+  let slideAutoplayTimeout: ReturnType<typeof setTimeout> | undefined
 
   /**
    * Отслеживаем ширину блока со слайдером
@@ -97,9 +103,9 @@
 
     padding.value = (window.innerWidth - e[0].borderBoxSize[0].inlineSize) / 2
 
-    scrollBarWidth.value = document.querySelector('#q-app')
+    scrollBarWidth.value = document.querySelector(MAIN_WRAPPER)
       ? window.innerWidth -
-        (document.querySelector('#q-app') as HTMLElement)?.offsetWidth
+        (document.querySelector(MAIN_WRAPPER) as HTMLElement)?.offsetWidth
       : 0
 
     calculateSlideWidth()
@@ -138,13 +144,6 @@
   }
 
   /**
-   * Стили одного слайда
-   */
-  const computedCardStyle = computed(() => {
-    return { minWidth: `${slideWidth.value}px` }
-  })
-
-  /**
    * Рассчитываем массив слайдов
    */
   const visibleSlides = computed(() => {
@@ -177,7 +176,42 @@
         i = 0
       }
     }
+
+    void nextTick(() => {
+      const slideNodes = document.querySelectorAll('.feedback__card')
+      nodesHeight.value = []
+      slideNodes.forEach((slide) =>
+        nodesHeight.value.push((slide as HTMLElement).clientHeight)
+      )
+    })
+
     return slides
+  })
+
+  /**
+   * Максимальная высота одной карточки
+   */
+  const maxHeight = computed(() => {
+    return Math.max.apply(null, nodesHeight.value)
+  })
+
+  /**
+   * Стили враппера слайдера
+   */
+  const computedWrapperStyle = computed(() => {
+    return {
+      height: `${maxHeight.value}px`,
+    }
+  })
+
+  /**
+   * Стили одного слайда
+   */
+  const computedCardStyle = computed(() => {
+    return {
+      minWidth: `${slideWidth.value}px`,
+      minHeight: `${maxHeight.value}px`,
+    }
   })
 
   /**
@@ -228,6 +262,7 @@
 
     if (isFirst.value) {
       currentMargin.value = currentOffset
+      if (slideAutoplayTimeout) clearInterval(slideAutoplayTimeout)
     }
 
     feedbackStyle.marginLeft = `${currentMargin.value + x}px`
@@ -236,14 +271,49 @@
       const count = Math.abs(
         Math.round((currentOffset + padding.value) / slideWidth.value)
       )
+      nextSlide(count)
+      runAutoplay()
+    }
+  }
+
+  /**
+   * Функция переключения слайда
+   * @param count на какое количество слайдов двигаем
+   */
+  const nextSlide = (count: number) => {
+    const moveTo = +setMargin(count).slice(0, -2)
+    let currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
+
+    if (currentPosition > moveTo && props.autoplay) {
+      const speed = 25
+      let timer: ReturnType<typeof setInterval> | null = null
+      timer = setInterval(() => {
+        feedbackStyle.marginLeft = `${currentPosition}px`
+        currentPosition =
+          currentPosition - speed > moveTo ? currentPosition - speed : moveTo
+        if (timer && currentPosition <= moveTo) {
+          clearInterval(timer)
+          timer = null
+        }
+      }, 10)
+    } else {
       feedbackStyle.marginLeft = setMargin(count)
-      const slideMove = () => {
-        currentIndex.value = currentIndex.value + (count - 3)
-        isFinal.value = false
-        feedbackStyle.marginLeft = setMargin(3)
-      }
-      if (slideMoveTimeout) clearTimeout(slideMoveTimeout)
-      slideMoveTimeout = setTimeout(slideMove, slideDelay * 1000)
+    }
+
+    const slideMove = () => {
+      currentIndex.value = currentIndex.value + (count - 3)
+      isFinal.value = false
+      feedbackStyle.marginLeft = setMargin(3)
+    }
+    if (slideMoveTimeout) clearTimeout(slideMoveTimeout)
+    slideMoveTimeout = setTimeout(slideMove, slideDelay * 1000)
+  }
+
+  const runAutoplay = () => {
+    if (props.autoplay) {
+      slideAutoplayTimeout = setInterval(() => {
+        nextSlide(4)
+      }, 3000)
     }
   }
 
@@ -254,6 +324,7 @@
   onMounted(() => {
     // eslint-disable-next-line @typescript-eslint/unbound-method
     if (slidesWrapper.value) resizeWrapperObserver.observe(slidesWrapper.value)
+    runAutoplay()
   })
 
   onBeforeUnmount(() => {

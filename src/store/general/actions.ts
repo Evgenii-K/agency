@@ -26,7 +26,6 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
       loadReviewTimeOut = setTimeout(() => {
         context.commit('mutateReviews', reviewsJSON.reviews)
         clearTimeout(loadReviewTimeOut)
-        console.log('resolve');
         resolve()
       }, 3500)
     })

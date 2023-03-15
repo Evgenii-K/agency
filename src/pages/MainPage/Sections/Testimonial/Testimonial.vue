@@ -5,6 +5,7 @@
     <custom-slider
       :slide-items="feedbacks"
       :break-points="breakPoints"
+      :autoplay="true"
     />
   </section>
 </template>
