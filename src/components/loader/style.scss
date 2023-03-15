@@ -57,20 +57,12 @@
       top: auto;
       left: auto;
     }
-
-    // &--boll {
-    //   transform: translateY(400px);
-    //   animation: bounce 3s ease-in;
-    //   // transform-origin: 400px;
-    // }
   }
 
   &__title-block {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    // gap: 2.2rem;
-    // overflow: hidden;
   }
 
   &__title {
@@ -86,10 +78,6 @@
     color: var(--c-font);
     overflow: hidden;
     padding-right: 2.2rem;
-    // width: 0;
-    // transform: translateX(0%)
-    // width: 100%;
-    // transform: translateX(0%);
 
     & > span {
       padding-bottom: 1.4rem;
@@ -150,8 +138,7 @@
     &__subtitle {
       font-size: 3.2rem;
       line-height: 3.2rem;
-      padding-top: 4rem;
-      padding-left: 3.7rem;
+      padding: 4rem 0 1rem 3.7rem;
       animation: typing 1s linear 2s 1 normal both;
     }
 

@@ -14,7 +14,6 @@
     @include calc-value-min("padding-bottom", 9, 7.6, 390, 1280);
     @include calc-value-min("padding-left", 2.5, 10.3, 390, 1280);
     @include calc-value-min("padding-right", 3.4, 10.3, 390, 1280);
-    // padding: 4.5rem 3.4rem 9rem 2.5rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
