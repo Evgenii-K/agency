@@ -38,5 +38,9 @@ onMounted(() => {
   } else {
     document.body.dataset.theme = ''
   }
+  
+  const userLang = navigator.language || navigator.language
+
+  console.log('userLang: ', userLang);
 })
 </script>

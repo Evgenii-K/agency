@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex'
 import { StateInterface } from '../index'
 import { GeneralStateInterface } from './state'
-import { IReviews } from 'components/models'
+import { IReviews, ILanguage } from 'components/models'
 
 const getters: GetterTree<GeneralStateInterface, StateInterface> = {
   getIsGeneralLoading (state): boolean {
@@ -19,6 +19,9 @@ const getters: GetterTree<GeneralStateInterface, StateInterface> = {
   getIsLoaderHidden (state): boolean {
     return state.isLoaderHidden
   },
+  getLanguages (state): ILanguage[] {
+    return state.languages
+  }
 }
 
 export default getters

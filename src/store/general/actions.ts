@@ -15,16 +15,16 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
         console.log('RESULT!', result)
       })
   },
-  async loadGeneralInfo (context): Promise<void> {
-    await context.dispatch('loadMenuList')
+  async loadGeneralInfo ({ dispatch }): Promise<void> {
+    await dispatch('loadMenuList')
   },
-  async loadReviews (context): Promise<void> {
+  async loadReviews ({ commit }): Promise<void> {
     if (loadReviewTimeOut) {
       clearTimeout(loadReviewTimeOut)
     }
     return await new Promise<void>((resolve) => {
       loadReviewTimeOut = setTimeout(() => {
-        context.commit('mutateReviews', reviewsJSON.reviews)
+        commit('mutateReviews', reviewsJSON.reviews)
         clearTimeout(loadReviewTimeOut)
         resolve()
       }, 3500)
@@ -38,6 +38,9 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
   },
   switchLoader ({ commit }, payload): void {
     commit('mutateIsLoader', payload)
+  },
+  switchLanguage ({ commit }, payload): void {
+    commit('mutateLanguages', payload)
   }
 }
 

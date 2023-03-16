@@ -17,27 +17,26 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import './style.scss'
 import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
 import { useStore } from 'src/store'
-import { reactive } from 'vue'
+import { ILanguage } from 'components/models'
 import { useI18n } from 'vue-i18n'
-
 const { locale } = useI18n({ useScope: 'global' })
 
 const state = useStore()
 
-const languages = reactive([
-  { id: 0, name: 'en', selected: true },
-  { id: 1, name: 'ru', selected: false },
-])
+const languages = computed(() => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  return state.getters['general/getLanguages'] as ILanguage[]
+})
 
 const transitionDelay = 500
 const mediaTablet = 768
 
 const clickHandler = () => {
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  state.dispatch('general/switchMenu', false)
+  void state.dispatch('general/switchMenu', false)
   const isMobile = window.innerWidth < mediaTablet
   const currentDelay = isMobile ? transitionDelay : 0
   setTimeout(() => {
@@ -47,13 +46,9 @@ const clickHandler = () => {
 }
 
 const onLangClick = (id: number) => {
-  languages.map(lang => {
-    lang.selected = false
-    if (lang.id === id) {
-      lang.selected = true
-      locale.value = lang.name
-    }
-    return lang
-  })
+  void state.dispatch('general/switchLanguage', id)
+  const currentSelected = languages.value.find(lang => lang.selected)?.name
+  if (!currentSelected) return
+  locale.value = currentSelected
 }
 </script>

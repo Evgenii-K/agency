@@ -1,4 +1,4 @@
-import { IReviews } from 'components/models'
+import { IReviews, ILanguage, ELanguageName } from 'components/models'
 
 export interface GeneralStateInterface {
   isGeneralLoading: boolean;
@@ -6,6 +6,7 @@ export interface GeneralStateInterface {
   isSendUsOpen: boolean;
   reviews: IReviews[];
   isLoaderHidden: boolean;
+  languages: ILanguage[];
 }
 
 const state: GeneralStateInterface = {
@@ -14,6 +15,10 @@ const state: GeneralStateInterface = {
   isSendUsOpen: false,
   reviews: [],
   isLoaderHidden: false,
+  languages: [
+    { id: 0, name: ELanguageName.EN, selected: true },
+    { id: 1, name: ELanguageName.RU, selected: false },
+  ]
 }
 
 export default state
