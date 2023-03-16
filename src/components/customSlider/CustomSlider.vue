@@ -281,21 +281,11 @@
    * @param count на какое количество слайдов двигаем
    */
   const nextSlide = (count: number) => {
-    const moveTo = +setMargin(count).slice(0, -2)
-    let currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
+    const nextPosition = +setMargin(count).slice(0, -2) - scrollBarWidth.value
+    const currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
 
-    if (currentPosition > moveTo && props.autoplay) {
-      const speed = 25
-      let timer: ReturnType<typeof setInterval> | null = null
-      timer = setInterval(() => {
-        feedbackStyle.marginLeft = `${currentPosition}px`
-        currentPosition =
-          currentPosition - speed > moveTo ? currentPosition - speed : moveTo
-        if (timer && currentPosition <= moveTo) {
-          clearInterval(timer)
-          timer = null
-        }
-      }, 10)
+    if (currentPosition > nextPosition && props.autoplay) {
+      smoothScroll(currentPosition, nextPosition)
     } else {
       feedbackStyle.marginLeft = setMargin(count)
     }
@@ -309,6 +299,30 @@
     slideMoveTimeout = setTimeout(slideMove, slideDelay * 1000)
   }
 
+  /**
+   * Плавное изменение положения слайдера
+   * @param currentPosition следующая позиция слайдера
+   * @param nextPosition текущая позиция слайдера
+   */
+  const smoothScroll = (currentPosition: number, nextPosition: number) => {
+    const speed = 25
+    let timer: ReturnType<typeof setInterval> | null = null
+    timer = setInterval(() => {
+      feedbackStyle.marginLeft = `${currentPosition}px`
+      currentPosition =
+        currentPosition - speed > nextPosition
+          ? currentPosition - speed
+          : nextPosition
+      if (timer && currentPosition <= nextPosition) {
+        clearInterval(timer)
+        timer = null
+      }
+    }, 10)
+  }
+
+  /**
+   * Запуск автопрокрутки слайдера
+   */
   const runAutoplay = () => {
     if (props.autoplay) {
       slideAutoplayTimeout = setInterval(() => {
