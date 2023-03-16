@@ -1,4 +1,5 @@
 @import '/src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
 
 .nav-block {
   &__links {
@@ -15,6 +16,7 @@
 
   &__button {
     width: 100%;
+    max-width: 50rem;
   }
 
   &__nav {
@@ -56,11 +58,13 @@
     }
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     &__links {
       display: flex;
       justify-content: space-between;
-      padding: 0 8rem;
+      padding: 0;
+      @include calc-value-min("padding-left", 2, 8, 768, 1440);
+      @include calc-value-min("padding-right", 2, 8, 768, 1440);
     }
 
     &__button {
@@ -69,7 +73,7 @@
 
     &__nav {
       flex-direction: row;
-      gap: 5rem;
+      @include calc-value-min("gap", 0.5, 5, 768, 1440);
     }
 
     &__languages {

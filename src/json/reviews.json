@@ -8,63 +8,63 @@
         "specialty": "Креативный директор",
         "text": "Крутые ребята, работать вместе очень комфортно. Сотрудничаем на протяжении нескольких лет."
       },
-      "en ": {
+      "en": {
         "name": "Angel Rose",
-        "specialty": "Креативный директор",
-        "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look . "
-      }      
+        "specialty": "Creative director",
+        "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look .There are many variations passages of Lorem Ipsum majority some by words which don't look . There are many variations passages of Lorem Ipsum majority some by words which don't look . There are many variations passages of Lorem Ipsum majority some by words which don't look . There are many variations passages of Lorem Ipsum majority some by words which don't look ."
+      }
     },
     {
       "id": "ghfdgfdgfdg4545",
       "ru": {
-        "name": "Ангелина Кан",
+        "name": "Громова Милана",
         "specialty": "Креативный директор",
         "text": "Крутые ребята, работать вместе очень комфортно. Сотрудничаем на протяжении нескольких лет."
       },
-      "en ": {
-        "name": "Angel Rose",
-        "specialty": "Креативный директор",
+      "en": {
+        "name": "Gromova Milana",
+        "specialty": "Creative director",
         "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look . "
-      }      
+      }
     },
     {
       "id": "4545rfervff",
       "ru": {
-        "name": "Ангелина Кан",
+        "name": "Балашов Владислав",
         "specialty": "Креативный директор",
         "text": "Крутые ребята, работать вместе очень комфортно. Сотрудничаем на протяжении нескольких лет."
       },
-      "en ": {
-        "name": "Angel Rose",
-        "specialty": "Креативный директор",
+      "en": {
+        "name": "Balashov Vladislav",
+        "specialty": "Creative director",
         "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look . "
-      }      
+      }
     },
     {
       "id": "fdf454fddd",
       "ru": {
-        "name": "Ангелина Кан",
+        "name": "Афанасьев Иван",
         "specialty": "Креативный директор",
         "text": "Крутые ребята, работать вместе очень комфортно. Сотрудничаем на протяжении нескольких лет."
       },
-      "en ": {
-        "name": "Angel Rose",
-        "specialty": "Креативный директор",
+      "en": {
+        "name": "Afanasiev Ivan",
+        "specialty": "Creative director",
         "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look . "
-      }      
+      }
     },
     {
-      "id": "dsds0021511",
+      "id": "dsds00215110",
       "ru": {
-        "name": "Ангелина Кан",
+        "name": "Александрова Елена",
         "specialty": "Креативный директор",
         "text": "Крутые ребята, работать вместе очень комфортно. Сотрудничаем на протяжении нескольких лет."
       },
-      "en ": {
-        "name": "Angel Rose",
-        "specialty": "Креативный директор",
+      "en": {
+        "name": "Aleksandrova Elena",
+        "specialty": "Creative director",
         "text": "There are many variations passages of Lorem Ipsum majority some by words which don't look . "
-      }      
-    }            
+      }
+    }
   ]
 }

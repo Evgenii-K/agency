@@ -1,12 +1,12 @@
 <template>
   <q-page class="row">
     <div class="main__wrapper">
-      <start @on-send-click="clickHandler"/>
+      <start @on-send-open="onSendOpen" />
       <about-us />
       <our-services />
       <our-portfolio />
       <testimonial />
-      <collaboration @on-send-click="clickHandler"/>
+      <collaboration @on-send-open="onSendOpen" />
     </div>
   </q-page>
 </template>
@@ -19,12 +19,14 @@ import OurServices from './Sections/OurServices/OurServices.vue'
 import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
 import Testimonial from './Sections/Testimonial/Testimonial.vue'
 import Collaboration from './Sections/Collaboration/Collaboration.vue'
-import { defineEmits, onMounted } from 'vue'
+import { onMounted } from 'vue'
+import { useStore } from 'src/store'
 
-const emit = defineEmits(['on-send-click'])
+const state = useStore()
 
-const clickHandler = () => {
-  emit('on-send-click')
+const onSendOpen = () => {
+  // eslint-disable-next-line
+  state.dispatch('general/switchSendOpen', true)
 }
 
 const options = {

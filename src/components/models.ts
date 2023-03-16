@@ -37,3 +37,47 @@ export enum EventButton {
   SEND = 'send',
 }
 
+
+export interface IReview {
+  id: string,
+  name: string,
+  specialty: string,
+  text: string,
+  avatar: any,
+  index: number,
+}
+
+export interface IReviews {
+  id: string,
+  ru: IReview,
+  en: IReview
+}
+
+export interface MouseEventOffset {
+  x: number,
+  y: number,
+}
+export interface QuasarMouseEvent {
+  isFinal: boolean,
+  isFirst: boolean,
+  offset: MouseEventOffset
+}
+
+export interface ISliderBreakPoints {
+  maxWidth: number,
+  count: number,
+  gap: number,
+}
+
+export enum ELanguageName {
+  // eslint-disable-next-line no-unused-vars
+  EN = 'en',
+  // eslint-disable-next-line no-unused-vars
+  RU = 'ru',
+}
+
+export interface ILanguage {
+  id: number,
+  name: ELanguageName,
+  selected: boolean
+}

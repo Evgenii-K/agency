@@ -1,22 +1,17 @@
 @import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
 .services {
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Quicksand';
-    font-style: normal;
-    color: #464646;
     padding: 5rem 0 2.6rem;
   }
 
   &__title {
     margin: 0;
     font-family: 'Nunito';
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3.3rem;
-    letter-spacing: 0.003em;
     color: var(--c-font);
     text-align: center;
     padding-bottom: 3.5rem;
@@ -24,10 +19,6 @@
 
   &__subtitle {
     margin: 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    letter-spacing: 0.01em;
     color: var(--c-blue);
     text-align: center;
     padding-bottom: 1rem;
@@ -35,8 +26,8 @@
 
   &__article {
     font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    @include calc-value-min("line-height", 2.4, 3.0, 390, 1280);
     letter-spacing: 0.01em;
     text-align: center;
     color: var(--c-content);
@@ -47,8 +38,8 @@
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    @include calc-value-min("line-height", 1.8, 3.4, 390, 1280);
     letter-spacing: 0.01em;
     color: var(--c-blue);
     padding: 0.4rem 0 2.3rem 0;
@@ -71,7 +62,15 @@
     gap: 3.5rem;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
+    &__buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  @media screen and ($mediaSmallDesktop) {
     &__wrapper {
       flex-direction: row;
       align-items: flex-start;
@@ -84,34 +83,22 @@
     }
 
     &__title {
-      font-size: 5.5rem;
-      line-height: 130%;
       padding-bottom: 3.2rem;
       text-align: start;
     }
 
     &__subtitle {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
       padding-bottom: 1.8rem;
       text-align: start;
     }
 
     &__article {
-      font-size: 2rem;
-      line-height: 3.2rem;
       padding-bottom: 3.6rem;
       text-align: start;
     }
 
     &__more {
       text-align: end;
-    }
-
-    &__buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
     }
   }
 }

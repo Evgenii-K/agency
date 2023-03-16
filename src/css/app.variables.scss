@@ -47,10 +47,12 @@ $bgModal: rgba(0, 0, 0, 0.6);
 /*  BREAKPOINTS */
 $mobileBreakpoint: 390;
 $tabletBreakpoint: 768;
+$smallDesktopBreakpoint: 1280;
 $desktopBreakpoint: 1440;
 $wideDesktopBreakpoint: 1920;
 
 $mediaTablet: 'min-width: #{ $tabletBreakpoint }px';
+$mediaSmallDesktop: 'min-width: #{ $smallDesktopBreakpoint }px';
 $mediaDesktop: 'min-width: #{ $desktopBreakpoint }px';
 $mediaWideDesktop: 'min-width: #{ $wideDesktopBreakpoint }px';
 

@@ -1,0 +1,46 @@
+@import "app.variables";
+
+@mixin minMediaMobile {
+  @media (min-width: '#{$mobileBreakpoint} + px') {
+    @content
+  }
+};
+
+@mixin minMediaTablet {
+  @media (min-width: '#{$tabletBreakpoint} + px') {
+    @content
+  }
+};
+
+@mixin minMediaDesktop {
+  @media (min-width: '#{$desktopBreakpoint} + px') {
+    @content
+  }
+};
+
+@mixin minMediaMaxDesktop {
+  @media (min-width: '#{$wideDesktopBreakpoint} + px') {
+    @content
+  }
+};
+
+@mixin calc-value-min($property, $startSize, $endSize, $startWidth, $endWidth) {
+  #{$property}: min((calc(#{$endSize + rem} + 10 * #{$startSize - $endSize}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endSize + rem})
+};
+
+@mixin calc-value-max($property, $startSize, $endSize, $startWidth, $endWidth) {
+  #{$property}: max((calc(#{$endSize + rem} + 10 * #{$startSize - $endSize}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endSize + rem})
+};
+
+// startWidth - ширина с которой начинается уменьшение
+// $endWidth - ширина до которой уменьшается
+// $startSize - начальное значение свойства до уменьшения
+// $endSize - конечное значение свойства
+// $property - имя свойства селектора
+
+@mixin transformTranslate($startX, $endX, $startY, $endY, $startWidth, $endWidth) {
+  transform: translate(
+    max((calc(#{$endX + rem} + 10 * #{$startX - $endX}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endX + rem}),
+    max((calc(#{$endY + rem} + 10 * #{$startY - $endY}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endY + rem}),
+  )
+};

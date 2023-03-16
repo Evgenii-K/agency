@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="footer__wrapper">
+    <div class="footer__wrapper q-page-container">
       <div class="footer__main">
         <div class="footer__logo-wrapper">
           <img

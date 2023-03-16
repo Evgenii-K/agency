@@ -1,11 +1,14 @@
 @import '/src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
 
 .header {
   background-color: var(--c-background);
   width: 100%;
   position: relative;
   z-index: 1000;
-  padding: 0 2.5rem;
+  padding: 0;
+  @include calc-value-min("padding-left", 2.5, 10, 390, 1440);
+  @include calc-value-min("padding-right", 2.5, 10, 390, 1440);
   opacity: 1;
   transition: opacity .3s;
   transition-delay: .8s;
@@ -13,16 +16,39 @@
   &__wrapper {
     padding: 4rem 0;
     justify-content: space-between;
+    display: flex;
 
     & > .form-btn {
       width: 100%;
     }
   }
 
+  &__label {
+    display: flex;
+    align-items: center;
+    @include calc-value-min("gap", 0.8, 1, 390, 1280);
+  }
+
   &__logo {
-    width: 9.1rem;
+    width: 3.2rem;
     height: 3.3rem;
     border-radius: unset;
+  }
+
+  &__name {
+    color: var(--c-font);
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    letter-spacing: 0.01em;
+    line-height: 120%;
+  }
+
+  &__name > span {
+    font-weight: 400;
+    @include calc-value-min("font-size", 1.2, 1.6, 390, 1280);
+    display: block;
   }
 
   & > .q-layout__shadow {
@@ -40,9 +66,7 @@
     display: none;
   }
 
-  @media screen and ($mediaDesktop) {
-    padding: 0 10rem;
-
+  @media screen and ($mediaTablet) {
     &__wrapper {
       padding: 7rem 0;
 
@@ -52,7 +76,7 @@
     }
 
     &__logo {
-      width: 13.6rem;
+      width: 5.3rem;
       height: 5rem;
     }
 
