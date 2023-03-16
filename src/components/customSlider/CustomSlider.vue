@@ -281,7 +281,7 @@
    * @param count на какое количество слайдов двигаем
    */
   const nextSlide = (count: number) => {
-    const nextPosition = +setMargin(count).slice(0, -2) - scrollBarWidth.value
+    const nextPosition = +setMargin(count).slice(0, -2)
     const currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
 
     if (currentPosition > nextPosition && props.autoplay) {
@@ -305,14 +305,14 @@
    * @param nextPosition текущая позиция слайдера
    */
   const smoothScroll = (currentPosition: number, nextPosition: number) => {
-    const speed = 25
+    const speed = 15
     let timer: ReturnType<typeof setInterval> | null = null
     timer = setInterval(() => {
-      feedbackStyle.marginLeft = `${currentPosition}px`
       currentPosition =
         currentPosition - speed > nextPosition
           ? currentPosition - speed
           : nextPosition
+      feedbackStyle.marginLeft = `${currentPosition}px`
       if (timer && currentPosition <= nextPosition) {
         clearInterval(timer)
         timer = null

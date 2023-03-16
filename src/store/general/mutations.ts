@@ -21,10 +21,10 @@ const mutation: MutationTree<GeneralStateInterface> = {
   mutateIsLoader (state, payload: boolean): void {
     state.isLoaderHidden = payload
   },
-  mutateLanguages (state, payload: number): void {
-    state.languages.map(lang => {
+  mutateLanguages (state, payload: string): void {
+    state.languages?.map(lang => {
       lang.selected = false
-      if (lang.id === payload) {
+      if (lang.name === payload) {
         lang.selected = true
       }
       return lang
