@@ -34,14 +34,10 @@
     padding: 5rem 2.5rem 1.8rem;
     @include calc-value-min("padding-left", 2.5, 10, 390, 1440);
     @include calc-value-min("padding-right", 2.5, 10, 390, 1440);
-    // max-width: 50rem;
   }
 
   &__wrapper {
     padding: 0 2.5rem 8.5rem;
-    // overflow-y: scroll;
-    // -ms-overflow-style: none;  /* IE и Edge */
-    // scrollbar-width: none;  /* Firefox */
   }
 
   &__wrapper::-webkit-scrollbar {
@@ -105,9 +101,18 @@
       padding-left: 0.6rem;
     }
 
+    & > label {
+      cursor: pointer;
+    }
+
     &:hover {
       color: $cLightBlue;
     }
+  }
+
+  &__file-input {
+    width: 0;
+    height: 0;
   }
 
   &__button {
@@ -142,7 +147,6 @@
       padding-top: 6.5rem;
       border-radius: 3rem;
       max-height: 90vh;
-      // overflow-y: unset;
     }
 
     &__title {

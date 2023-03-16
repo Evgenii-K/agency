@@ -23,22 +23,18 @@
   import './style.scss'
   import {
     onMounted,
-    ref,
     defineProps,
     defineEmits,
     onBeforeUnmount,
-    computed,
     watch,
   } from 'vue'
-  import { MAIN_WRAPPER } from 'src/helpers/constant'
+  import { scrollBarShow, scrollBarHidden } from 'src/features/scrollBar'
 
   const emit = defineEmits(['close'])
 
   const props = defineProps({
     isPopupShow: { type: Boolean, default: false },
   })
-
-  const body = ref<HTMLElement | null>(null)
 
   watch(
     () => props.isPopupShow,
@@ -56,16 +52,6 @@
     if (event.key === '27') emit('close')
   }
 
-  const scrollBarWidth = computed(() => {
-    if (document.querySelector(MAIN_WRAPPER)) {
-      return `${
-        window.innerWidth -
-        (document.querySelector(MAIN_WRAPPER) as HTMLElement)?.offsetWidth
-      }px`
-    }
-    return '0px'
-  })
-
   const popupClose = () => {
     emit('close')
   }
@@ -80,21 +66,7 @@
     }
   }
 
-  const scrollBarHidden = () => {
-    if (body.value) {
-      body.value.style.paddingRight = scrollBarWidth.value
-      body.value.style.overflowY = 'hidden'
-    }
-  }
-  const scrollBarShow = () => {
-    if (body.value) {
-      body.value.style.paddingRight = '0px'
-      body.value.style.overflowY = 'auto'
-    }
-  }
-
   onMounted(() => {
-    body.value = document.querySelector('body')
     document.addEventListener('keydown', onKeyDown)
   })
 

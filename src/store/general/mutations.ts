@@ -1,5 +1,6 @@
 import { MutationTree } from 'vuex'
 import { GeneralStateInterface } from './state'
+import { scrollBarShow, scrollBarHidden } from 'src/features/scrollBar'
 
 const mutation: MutationTree<GeneralStateInterface> = {
   mutateIsMenuOpen (state, payload: boolean): void {
@@ -19,6 +20,14 @@ const mutation: MutationTree<GeneralStateInterface> = {
     state.reviews = payload
   },
   mutateIsLoader (state, payload: boolean): void {
+    if (payload) {
+      state.isLoaderHidden = payload
+      setTimeout(() => {
+        scrollBarShow()
+      }, 1000)
+      return
+    }
+    scrollBarHidden()
     state.isLoaderHidden = payload
   },
   mutateLanguages (state, payload: string): void {
