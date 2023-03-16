@@ -68,3 +68,16 @@ export interface ISliderBreakPoints {
   count: number,
   gap: number,
 }
+
+export enum ELanguageName {
+  // eslint-disable-next-line no-unused-vars
+  EN = 'en',
+  // eslint-disable-next-line no-unused-vars
+  RU = 'ru',
+}
+
+export interface ILanguage {
+  id: number,
+  name: ELanguageName,
+  selected: boolean
+}
