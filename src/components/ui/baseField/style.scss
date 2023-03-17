@@ -6,7 +6,7 @@
   padding-bottom: 2.2rem;
 
   &__error-message {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
     font-size: 1.2rem;
@@ -24,7 +24,7 @@
 }
 
 .form-input {
-  font-family: 'Quicksand';
+  font-family: $Quicksand;
   font-style: normal;
   font-weight: 700;
   font-size: $fFieldFontSize;
@@ -54,7 +54,7 @@
 }
 
 .form-placeholder {
-  font-family: 'Quicksand';
+  font-family: $Quicksand;
   font-style: normal;
   font-weight: 700;
   font-size: $fFieldFontSize;;

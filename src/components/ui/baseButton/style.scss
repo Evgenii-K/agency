@@ -2,7 +2,7 @@
 @import 'src/css/mixins.scss';
 
 .form-btn {
-  font-family: 'Quicksand';
+  font-family: $Quicksand;
   font-style: normal;
   font-weight: 700;
   @include calc-value-min("font-size", 1.2, 1.6, 390, 1440);

@@ -3,7 +3,7 @@
 
 .nav-block {
   &__links {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 1.8rem;
@@ -28,6 +28,7 @@
 
   &__nav-item {
     cursor: pointer;
+    color: var(--c-font);
 
     &:hover {
       color: $cLightBlue;

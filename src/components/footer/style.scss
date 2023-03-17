@@ -35,7 +35,7 @@
   }
 
   &__contact {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
     font-size: 1.8rem;
@@ -62,7 +62,7 @@
   }
 
   &__copyright {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 1.4rem;

@@ -2,7 +2,6 @@
 @import 'src/css/mixins.scss';
 
 .start {
-  font-family: 'Nunito';
   font-style: normal;
 
   &__wrapper {
@@ -26,7 +25,7 @@
     color: var(--c-content);
     opacity: 0.6;
     padding: 2rem 0;
-    font-family: 'Nunito';
+    font-family: $Nunito;
   }
 
   &__babble {
@@ -95,7 +94,7 @@
       text-align: center;
 
       & li {
-        font-family: 'Quicksand';
+        font-family: $Quicksand;
         font-weight: 700;
         @include calc-value-min("font-size", 0.6, 1.2, 390, 1440);
         line-height: 130%;
@@ -106,7 +105,7 @@
       }
 
       & li:last-child {
-        font-family: 'Nunito';
+        font-family: $Nunito;
         @include calc-value-min("font-size", 1.2, 2.4, 390, 1440);
         text-transform: none;
         padding-bottom: 0;
@@ -201,7 +200,7 @@
   box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.15);
   border-radius: 0.6rem;
   @include calc-value-min("width", 8, 16.6, 390, 1440);
-  font-family: 'Nunito';
+  font-family: $Nunito;
   font-style: normal;
   font-weight: 400;
   @include calc-value-min("font-size", 0.5, 1, 390, 1440);
@@ -221,7 +220,7 @@
   }
 
   &__title {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 600;
     @include calc-value-min("font-size", 0.5, 1, 390, 1440);

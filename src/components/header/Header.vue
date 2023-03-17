@@ -38,6 +38,6 @@
   })
 
   const clickHandler = () => {
-    state.commit('general/mutateIsMenuOpen', !isMenuOpen.value)
+    void state.dispatch('general/switchMenu', !isMenuOpen.value)
   }
 </script>

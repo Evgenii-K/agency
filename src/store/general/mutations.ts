@@ -7,11 +7,16 @@ const mutation: MutationTree<GeneralStateInterface> = {
     const calcPayload = state.isMenuOpen ? false : payload
 
     if (calcPayload) {
-      document.body.classList.add('__hidden')
+      scrollBarHidden()
+      state.isMenuOpen = calcPayload
+      // document.body.classList.add('__hidden')
     } else {
-      document.body.classList.remove('__hidden')
+      // document.body.classList.remove('__hidden')
+      state.isMenuOpen = calcPayload
+      setTimeout(() => {
+        scrollBarShow()
+      }, 500)
     }
-    state.isMenuOpen = calcPayload
   },
   mutateIsSendOpen (state, payload: boolean): void {
     state.isSendUsOpen = payload

@@ -37,7 +37,7 @@
 
   &__name {
     color: var(--c-font);
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
     @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
