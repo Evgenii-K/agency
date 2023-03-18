@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-block__links">
+  <div class="nav-block">
     <nav class="nav-block__nav">
       <router-link
         to="/"

@@ -5,18 +5,19 @@
   font-family: $Quicksand;
   font-style: normal;
   font-weight: 700;
-  @include calc-value-min("font-size", 1.2, 1.6, 390, 1440);
+  @include calc-value-min('font-size', 1.2, 1.6, 390, 1280);
   line-height: 150%;
   letter-spacing: 0.01em;
   border: 0.1rem solid var(--c-blue);
   color: var(--c-background);
   background: var(--c-blue);
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
-  @include calc-value-min("padding-left", 3.5, 5, 390, 1440);
-  @include calc-value-min("padding-right", 3.5, 5, 390, 1440);
+  @include calc-value-min('padding-top', 0.9, 1.1, 390, 1280);
+  @include calc-value-min('padding-bottom', 0.9, 1.1, 390, 1280);
+  @include calc-value-min('padding-left', 3.5, 5, 390, 1280);
+  @include calc-value-min('padding-right', 3.5, 5, 390, 1280);
   border-radius: 2.4rem;
   box-shadow: 0 0.4rem 0.8rem var(--c-shadow);
+  box-sizing: border-box;
 
   &--reverse {
     & > .q-btn__content {
@@ -26,12 +27,15 @@
   & > .q-btn__content {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
   }
 
-  &:hover {
-    border: 0.1rem solid $cLightBlue;
-    background: $cLightBlue;
+  @media (hover: hover) {
+    &:hover {
+      border: 0.1rem solid $cLightBlue;
+      background: $cLightBlue;
+    }
   }
 
   &--outline {
@@ -39,13 +43,15 @@
     color: var(--c-blue);
     box-shadow: none;
 
-    &:hover {
-      border: 0.1rem solid $cLightBlue;
-      background: rgba(255, 255, 255, 0);
-      color: $cLightBlue;
+    @media (hover: hover) {
+      &:hover {
+        border: 0.1rem solid $cLightBlue;
+        background: rgba(255, 255, 255, 0);
+        color: $cLightBlue;
 
-      & > .q-focus-helper {
-        background: none !important;
+        & > .q-focus-helper {
+          background: none !important;
+        }
       }
     }
   }

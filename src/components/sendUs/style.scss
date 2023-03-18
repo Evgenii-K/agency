@@ -32,8 +32,8 @@
     text-align: center;
     width: 100vw;
     padding: 5rem 2.5rem 1.8rem;
-    @include calc-value-min("padding-left", 2.5, 10, 390, 1440);
-    @include calc-value-min("padding-right", 2.5, 10, 390, 1440);
+    @include calc-value-min('padding-left', 2.5, 10, 390, 1440);
+    @include calc-value-min('padding-right', 2.5, 10, 390, 1440);
   }
 
   &__wrapper {
@@ -105,8 +105,10 @@
       cursor: pointer;
     }
 
-    &:hover {
-      color: $cLightBlue;
+    @media (hover: hover) {
+      &:hover {
+        color: $cLightBlue;
+      }
     }
   }
 
