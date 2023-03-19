@@ -1,12 +1,30 @@
 <template>
-  <div class="nav-block__links">
+  <div class="nav-block">
     <nav class="nav-block__nav">
-      <div class="nav-block__nav-item nav-block__nav-item--select">
+      <router-link
+        to="/"
+        class="nav-block__nav-item nav-block__nav-item--select"
+      >
         {{ $t('nav.home') }}
-      </div>
-      <div class="nav-block__nav-item">{{ $t('nav.about') }}</div>
-      <div class="nav-block__nav-item">{{ $t('nav.services') }}</div>
-      <div class="nav-block__nav-item">{{ $t('nav.projects') }}</div>
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.about') }}
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.services') }}
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.projects') }}
+      </router-link>
     </nav>
     <div class="nav-block__languages">
       <div
@@ -48,8 +66,8 @@
   const mediaTablet = 768
 
   const clickHandler = () => {
-    void state.dispatch('general/switchMenu', false)
     const isMobile = window.innerWidth < mediaTablet
+    if (isMobile) void state.dispatch('general/switchMenu', false)
     const currentDelay = isMobile ? transitionDelay : 0
     setTimeout(() => {
       // eslint-disable-next-line

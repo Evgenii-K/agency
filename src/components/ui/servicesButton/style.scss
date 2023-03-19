@@ -1,4 +1,6 @@
 @import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
 .services-button {
   box-sizing: border-box;
   border: 0.1rem solid var(--c-border-color);
@@ -13,8 +15,10 @@
   cursor: pointer;
   padding: 3.5rem;
 
-  &:hover {
-    box-shadow: 0.4rem 0.4rem 3rem var(--c-border-color);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0.4rem 0.4rem 3rem var(--c-border-color);
+    }
   }
 
   &__round {
@@ -25,14 +29,15 @@
     align-items: center;
     justify-content: center;
     color: $cWhite;
+    font-size: 4rem;
   }
 
   &__text {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    @include calc-value-min('font-size', 1.6, 2.4, 390, 1280);
+    @include calc-value-min('line-height', 2.4, 3.4, 390, 1280);
     text-align: center;
     letter-spacing: 0.01em;
     color: var(--c-font);

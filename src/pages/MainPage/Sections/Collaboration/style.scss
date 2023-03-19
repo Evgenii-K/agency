@@ -15,7 +15,7 @@
   }
 
   &__content {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);

@@ -19,9 +19,21 @@
         </div>
         <div class="footer__contact">
           <div class="footer__contact-title">Company</div>
-          <router-link to="/" class="footer__contact-content">Home</router-link>
-          <router-link to="/" class="footer__contact-content">About Us</router-link>
-          <router-link to="/" class="footer__contact-content">Contact Us</router-link>
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >{{ $t('nav.home') }}</router-link
+          >
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >{{ $t('nav.about') }}</router-link
+          >
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >Contact Us</router-link
+          >
         </div>
         <div class="footer__contact">
           <div class="footer__contact-title">Contact</div>
@@ -34,8 +46,12 @@
         </div>
         <div class="footer__contact">
           <div class="footer__contact-title">Location</div>
-          <div class="footer__contact-content">PT Osiris Real Estate Internasional</div>
-          <div class="footer__contact-content">Jl. KH. Wahid Hasyim Kel No.10D</div>
+          <div class="footer__contact-content">
+            PT Osiris Real Estate Internasional
+          </div>
+          <div class="footer__contact-content">
+            Jl. KH. Wahid Hasyim Kel No.10D
+          </div>
           <div class="footer__contact-content">Jakarta, Indonesia</div>
           <div class="footer__contact-content">team@OsirisRealEstate.com</div>
         </div>

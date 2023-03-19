@@ -6,12 +6,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 0 2.6rem;
+    padding: 4.4rem 0 2.6rem;
   }
 
   &__title {
     margin: 0;
-    font-family: 'Nunito';
     color: var(--c-font);
     text-align: center;
     padding-bottom: 3.5rem;
@@ -26,28 +25,32 @@
 
   &__article {
     font-weight: 400;
-    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
-    @include calc-value-min("line-height", 2.4, 3.0, 390, 1280);
+    @include calc-value-min('font-size', 1.4, 2, 390, 1280);
+    @include calc-value-min('line-height', 2.4, 3, 390, 1280);
     letter-spacing: 0.01em;
     text-align: center;
     color: var(--c-content);
   }
 
   &__more {
-    cursor: pointer;
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
-    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
-    @include calc-value-min("line-height", 1.8, 3.4, 390, 1280);
+    @include calc-value-min('font-size', 1.4, 2, 390, 1280);
+    @include calc-value-min('line-height', 1.8, 3.4, 390, 1280);
     letter-spacing: 0.01em;
-    color: var(--c-blue);
     padding: 0.4rem 0 2.3rem 0;
     margin: 0;
     align-self: flex-start;
 
-    &:hover {
-      color: $cLightBlue;
+    & a {
+      cursor: pointer;
+      color: var(--c-blue);
+      @media (hover: hover) {
+        &:hover {
+          color: $cLightBlue;
+        }
+      }
     }
 
     & .q-icon {

@@ -13,8 +13,10 @@
   &__icon {
     color: $cFooter;
 
-    &:hover {
-      color: $cLightBlue;
+    @media (hover: hover) {
+      &:hover {
+        color: $cLightBlue;
+      }
     }
   }
 }
