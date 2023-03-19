@@ -281,14 +281,7 @@
    * @param count на какое количество слайдов двигаем
    */
   const nextSlide = (count: number) => {
-    const nextPosition = +setMargin(count).slice(0, -2)
-    const currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
-
-    if (currentPosition > nextPosition && props.autoplay) {
-      smoothScroll(currentPosition, nextPosition)
-    } else {
-      feedbackStyle.marginLeft = setMargin(count)
-    }
+    feedbackStyle.marginLeft = setMargin(count)
 
     const slideMove = () => {
       currentIndex.value = currentIndex.value + (count - 3)
@@ -300,32 +293,12 @@
   }
 
   /**
-   * Плавное изменение положения слайдера
-   * @param currentPosition следующая позиция слайдера
-   * @param nextPosition текущая позиция слайдера
-   */
-  const smoothScroll = (currentPosition: number, nextPosition: number) => {
-    const speed = 15
-    let timer: ReturnType<typeof setInterval> | null = null
-    timer = setInterval(() => {
-      currentPosition =
-        currentPosition - speed > nextPosition
-          ? currentPosition - speed
-          : nextPosition
-      feedbackStyle.marginLeft = `${currentPosition}px`
-      if (timer && currentPosition <= nextPosition) {
-        clearInterval(timer)
-        timer = null
-      }
-    }, 10)
-  }
-
-  /**
    * Запуск автопрокрутки слайдера
    */
   const runAutoplay = () => {
     if (props.autoplay) {
       slideAutoplayTimeout = setInterval(() => {
+        isFinal.value = true
         nextSlide(4)
       }, 3000)
     }
