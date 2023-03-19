@@ -1,149 +1,16 @@
 @import 'src/css/app.variables.scss';
 
 .custom-slider {
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: $Quicksand;
-    font-style: normal;
-    color: #464646;
-    padding: 5rem 0;
-    position: relative;
-  }
-
-  &__title {
-    margin: 0;
-    font-family: $Nunito;
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3.3rem;
-    letter-spacing: 0.003em;
-    color: var(--c-font);
-    text-align: center;
-    padding-bottom: 3.5rem;
-  }
-
-  &__subtitle {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    letter-spacing: 0.01em;
-    color: var(--c-blue);
-    text-align: center;
-    padding-bottom: 1rem;
-  }
-
-  &__feedbacks {
-    height: 100%;
-    border-radius: 2rem;
-    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
-  }
-
-  @media screen and ($mediaDesktop) {
-    &__wrapper {
-      padding: 10rem 0;
-    }
-
-    &__title {
-      font-size: 5.5rem;
-      line-height: 7.5rem;
-      padding-bottom: 5rem;
-    }
-
-    &__subtitle {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
-      padding-bottom: 2rem;
-    }
-  }
-}
-
-.feedback {
-  display: flex;
-  align-items: flex-start;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 0px;
   width: 100%;
-
-  &__wrapper {
-    width: 100%;
-    position: relative;
-  }
-
-  &__card {
-    background: var(--c-card-background);
-    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
-    border-radius: 2rem;
-    padding: 4rem;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 3.5rem;
-    font-family: $Quicksand;
-    font-style: normal;
-    font-weight: 400;
-    color: $fActiveColor;
-    letter-spacing: 0.01em;
-    min-width: 440px;
-    min-height: 257px;
-  }
-
-  &__title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  &__avatar {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: #464646;
-  }
-
-  &__name {
-    font-weight: 600;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-    color: var(--c-blue);
-    opacity: 1;
-  }
-
-  &__role {
-    font-size: 1.1rem;
-    line-height: 1.4rem;
-    opacity: 0.5;
-    color: var(--c-font);
-  }
+  position: relative;
 
   &__content {
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-    opacity: 0.8;
-    color: var(--c-font);
-    max-height: 29rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  @media screen and ($mediaDesktop) {
-    &__name {
-      font-size: 2rem;
-      line-height: 3.4rem;
-    }
-
-    &__role {
-      font-size: 1.1rem;
-      line-height: 3.4rem;
-    }
-
-    &__content {
-      font-size: 1.8rem;
-      line-height: 2.8rem;
-    }
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 0px;
+    width: 100%;
   }
 }

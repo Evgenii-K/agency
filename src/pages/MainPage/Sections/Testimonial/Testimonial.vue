@@ -3,10 +3,30 @@
     <h3 class="testimonial__subtitle">Testimonial</h3>
     <h2 class="testimonial__title">People Talk about us</h2>
     <custom-slider
-      :slide-items="feedbacks"
       :break-points="breakPoints"
       :autoplay="true"
-    />
+      tag-name="feedback__card"
+    >
+      <div
+        v-for="feedback in feedbacks"
+        :key="feedback.index"
+        class="feedback__card"
+      >
+        <div class="feedback__title">
+          <img
+            class="feedback__avatar"
+            :src="feedback.avatar"
+          />
+          <div class="feedback__contacts">
+            <div class="feedback__name">{{ feedback.name }}</div>
+            <div class="feedback__role">{{ feedback.specialty }}</div>
+          </div>
+        </div>
+        <div class="feedback__content">
+          {{ feedback.text }}
+        </div>
+      </div>
+    </custom-slider>
   </section>
 </template>
 
@@ -15,8 +35,8 @@
   import { computed } from 'vue'
   import { useStore } from 'src/store'
   import { useI18n } from 'vue-i18n'
-  import { IReviews } from 'src/components/models'
-  import CustomSlider from 'src/components/CustomSlider/CustomSlider.vue'
+  import { IReviews, ELanguageName } from 'components/models'
+  import CustomSlider from 'components/customSlider/CustomSlider.vue'
 
   const { locale } = useI18n({ useScope: 'global' })
 
@@ -38,7 +58,7 @@
         avatar: require('src/assets/img/MainPage/avatar.png'),
         index: index + 1,
       }
-      if (locale.value === 'ru') return { ...newItem, ...review.ru }
+      if (locale.value === ELanguageName.RU) return { ...newItem, ...review.ru }
 
       return { ...newItem, ...review.en }
     })
