@@ -4,9 +4,9 @@ const useController = () => {
   const state = useStore()
 
   const onMountedCallback = async () => {
-    void state.dispatch('general/switchLoader', false)
+    void state.dispatch('general/updateLoader', false)
     await state.dispatch('general/loadReviews')
-    void state.dispatch('general/switchLoader', true)
+    void state.dispatch('general/updateLoader', true)
   }
 
   return {

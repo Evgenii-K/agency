@@ -73,6 +73,9 @@
   import checkIsRequired from 'src/helpers/validators/checkIsRequired'
   import checkMinLength from 'src/helpers/validators/checkMinLength'
   import PopUp from 'src/components/modal/Modal.vue'
+  import { useStore } from 'src/store'
+
+  const state = useStore()
 
   const emit = defineEmits(['close'])
 
@@ -109,6 +112,10 @@
   })
 
   const contactUs = () => {
+    const formDate = Object.entries(form).map(([key, input]) => ({
+      [key]: input.value,
+    }))
+    void state.dispatch('general/updateReview', formDate)
     emit('close')
   }
 </script>

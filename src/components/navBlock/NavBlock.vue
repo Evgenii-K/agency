@@ -67,15 +67,15 @@
 
   const clickHandler = () => {
     const isMobile = window.innerWidth < mediaTablet
-    if (isMobile) void state.dispatch('general/switchMenu', false)
+    if (isMobile) void state.dispatch('general/updateMenu', false)
     const currentDelay = isMobile ? transitionDelay : 0
     setTimeout(() => {
       // eslint-disable-next-line
-      state.dispatch('general/switchSendOpen', true)
+      state.dispatch('general/updateSendOpen', true)
     }, currentDelay)
   }
 
   const onLangClick = (name: string) => {
-    void state.dispatch('general/switchLanguage', name)
+    void state.dispatch('general/updateLanguage', name)
   }
 </script>

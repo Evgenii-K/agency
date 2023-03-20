@@ -38,6 +38,6 @@
   })
 
   const clickHandler = () => {
-    void state.dispatch('general/switchMenu', !isMenuOpen.value)
+    void state.dispatch('general/updateMenu', !isMenuOpen.value)
   }
 </script>
