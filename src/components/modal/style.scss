@@ -84,7 +84,7 @@
       padding: 3.6rem;
       border-radius: 10px;
       width: auto;
-      height: auto;
+      height: max-content;
       max-width: calc(100% - 9rem);
       max-height: calc(100vh - 9rem);
     }
@@ -94,7 +94,10 @@
     }
 
     &__content {
-      height: calc(100vh - 21.3rem);
+      height: 100%;
+      max-height: calc(100vh - 21.3rem);
+      // max-height: min-content;
+      // overflow-y: auto;
     }
 
     &__button {
