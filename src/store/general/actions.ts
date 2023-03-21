@@ -30,16 +30,25 @@ const actions: ActionTree<GeneralStateInterface, StateInterface> = {
       }, 3500)
     })
   },
-  switchMenu ({ commit }, payload): void {
+  updateReview (_, payload): void {
+    const text = JSON.stringify(payload)
+    const b = new Blob([text], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(b);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sendmessage.json';
+    a.click()
+  },
+  updateMenu ({ commit }, payload): void {
     commit('mutateIsMenuOpen', payload)
   },
-  switchSendOpen ({ commit }, payload): void {
+  updateSendOpen ({ commit }, payload): void {
     commit('mutateIsSendOpen', payload)
   },
-  switchLoader ({ commit }, payload): void {
+  updateLoader ({ commit }, payload): void {
     commit('mutateIsLoader', payload)
   },
-  switchLanguage ({ commit }, payload): void {
+  updateLanguage ({ commit }, payload): void {
     commit('mutateLanguages', payload)
   }
 }

@@ -1,35 +1,30 @@
 <template>
   <div
     ref="slidesWrapper"
-    class="feedback__wrapper"
+    class="custom-slider"
     :style="computedWrapperStyle"
   >
     <div
       v-touch-pan.prevent.mouse="mouseMove"
-      class="slider__feedback feedback"
-      :style="computedFeedbackStyle"
+      class="custom-slider__content"
+      :style="computedContentStyle"
     >
+      <!-- eslint-disable vue/no-v-html -->
       <div
-        v-for="feedback in visibleSlides"
-        :key="feedback.index"
-        class="feedback__card"
+        v-for="slide in visibleSlides"
+        :key="slide.index"
+        :class="tagName"
         :style="computedCardStyle"
-      >
-        <div class="feedback__title">
-          <img
-            class="feedback__avatar"
-            :src="feedback.avatar"
-          />
-          <div class="feedback__contacts">
-            <div class="feedback__name">{{ feedback.name }}</div>
-            <div class="feedback__role">{{ feedback.specialty }}</div>
-          </div>
-        </div>
-        <div class="feedback__content">
-          {{ feedback.text }}
-        </div>
-      </div>
+        v-html="slide.node.innerHTML"
+      />
+      <!--eslint-enable-->
     </div>
+  </div>
+  <div
+    ref="slotWrapper"
+    :style="{ display: 'none' }"
+  >
+    <slot />
   </div>
 </template>
 
@@ -43,41 +38,31 @@
     defineProps,
     PropType,
     onBeforeMount,
-    watch,
     nextTick,
   } from 'vue'
   import './style.scss'
   import {
     QuasarMouseEvent,
     ISliderBreakPoints,
-    IReview,
+    INodeList,
   } from 'src/components/models'
   import { MAIN_WRAPPER } from 'src/helpers/constant'
 
   const props = defineProps({
-    slideItems: { type: Array as PropType<IReview[]>, default: null },
     breakPoints: {
       type: (Array as PropType<ISliderBreakPoints[]>) || [],
       required: false,
       default: [],
     },
     autoplay: { type: Boolean, default: false },
+    tagName: { type: String, required: true },
   })
-
-  const feedbacks = reactive<IReview[]>([])
-
-  watch(
-    () => props.slideItems,
-    (review) => {
-      review.forEach((item) => {
-        feedbacks.push(item)
-      })
-    }
-  )
 
   const breakPoints = ref<ISliderBreakPoints[]>([])
 
   const slidesWrapper = ref<HTMLElement>() // ref на wrapper слайдера
+  const slotWrapper = ref<HTMLElement>() // ref
+  const slotNodes = ref<INodeList[]>([])
   const slideWidth = ref(350) // ширина одного слайда
   const currentMargin = ref(0) // текущее значение margin слайдера
   const isFirst = ref(false) // флаг начала взаимодействия пользователя со слайдером
@@ -130,7 +115,7 @@
     if (findBreakPoint) {
       currentCount.value = findBreakPoint.count
       gap.value = findBreakPoint.gap
-      feedbackStyle.gap = `${findBreakPoint.gap}px`
+      slideStyle.gap = `${findBreakPoint.gap}px`
     } else {
       currentCount.value = 3
     }
@@ -140,17 +125,18 @@
         scrollBarWidth.value -
         currentCount.value * gap.value) /
       currentCount.value
-    feedbackStyle.marginLeft = setMargin(currentIndex.value)
+    slideStyle.marginLeft = setMargin(currentIndex.value)
   }
 
   /**
    * Рассчитываем массив слайдов
    */
   const visibleSlides = computed(() => {
-    const length = feedbacks.length
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const length = slotNodes.value ? slotNodes.value.length : 0
     if (length === 0) return []
 
-    const slides: IReview[] = []
+    const slides: INodeList[] = []
     let maxId
     let i =
       currentIndex.value > 0
@@ -158,7 +144,7 @@
         : length - Math.abs(currentIndex.value % length) - 1
     while (slides.length < minVisibleSlides.value) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const slide: IReview = feedbacks[i % length]
+      const slide: INodeList = slotNodes.value[i % length]
       if (slides.find((item) => item.index === slide.index)) {
         maxId = Math.max.apply(
           null,
@@ -167,8 +153,8 @@
         slide.index = maxId + 1
       }
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const nextSlide: IReview = JSON.parse(JSON.stringify(slide))
-      slides.push(nextSlide)
+      const nextSlide: INodeList = JSON.parse(JSON.stringify(slide))
+      slides.push({ ...nextSlide, node: slide.node })
 
       i++
 
@@ -178,7 +164,7 @@
     }
 
     void nextTick(() => {
-      const slideNodes = document.querySelectorAll('.feedback__card')
+      const slideNodes = document.querySelectorAll(`.${props.tagName}`)
       nodesHeight.value = []
       slideNodes.forEach((slide) =>
         nodesHeight.value.push((slide as HTMLElement).clientHeight)
@@ -196,7 +182,7 @@
   })
 
   /**
-   * Стили враппера слайдера
+   * Стили wrapper слайдера
    */
   const computedWrapperStyle = computed(() => {
     return {
@@ -210,7 +196,7 @@
   const computedCardStyle = computed(() => {
     return {
       minWidth: `${slideWidth.value}px`,
-      minHeight: `${maxHeight.value}px`,
+      height: `${maxHeight.value}px`,
     }
   })
 
@@ -233,7 +219,7 @@
   /**
    * Стили блока слайдера
    */
-  const feedbackStyle = reactive({
+  const slideStyle = reactive({
     marginLeft: setMargin(currentIndex.value),
     gap: `${gap.value}px`,
   })
@@ -241,9 +227,9 @@
   /**
    * Добавляем к стилям блока слайда transition в зависимости от действий пользователя
    */
-  const computedFeedbackStyle = computed(() => {
+  const computedContentStyle = computed(() => {
     return {
-      ...feedbackStyle,
+      ...slideStyle,
       transition: isFinal.value
         ? `margin-left ${slideDelay}s`
         : 'margin-left 0s',
@@ -258,14 +244,14 @@
     const x = event.offset.x
     isFirst.value = event.isFirst
     isFinal.value = event.isFinal
-    const currentOffset = +feedbackStyle.marginLeft.slice(0, -2)
+    const currentOffset = +slideStyle.marginLeft.slice(0, -2)
 
     if (isFirst.value) {
       currentMargin.value = currentOffset
       if (slideAutoplayTimeout) clearInterval(slideAutoplayTimeout)
     }
 
-    feedbackStyle.marginLeft = `${currentMargin.value + x}px`
+    slideStyle.marginLeft = `${currentMargin.value + x}px`
 
     if (isFinal.value) {
       const count = Math.abs(
@@ -281,43 +267,15 @@
    * @param count на какое количество слайдов двигаем
    */
   const nextSlide = (count: number) => {
-    const nextPosition = +setMargin(count).slice(0, -2)
-    const currentPosition = +feedbackStyle.marginLeft.slice(0, -2)
-
-    if (currentPosition > nextPosition && props.autoplay) {
-      smoothScroll(currentPosition, nextPosition)
-    } else {
-      feedbackStyle.marginLeft = setMargin(count)
-    }
+    slideStyle.marginLeft = setMargin(count)
 
     const slideMove = () => {
       currentIndex.value = currentIndex.value + (count - 3)
       isFinal.value = false
-      feedbackStyle.marginLeft = setMargin(3)
+      slideStyle.marginLeft = setMargin(3)
     }
     if (slideMoveTimeout) clearTimeout(slideMoveTimeout)
     slideMoveTimeout = setTimeout(slideMove, slideDelay * 1000)
-  }
-
-  /**
-   * Плавное изменение положения слайдера
-   * @param currentPosition следующая позиция слайдера
-   * @param nextPosition текущая позиция слайдера
-   */
-  const smoothScroll = (currentPosition: number, nextPosition: number) => {
-    const speed = 15
-    let timer: ReturnType<typeof setInterval> | null = null
-    timer = setInterval(() => {
-      currentPosition =
-        currentPosition - speed > nextPosition
-          ? currentPosition - speed
-          : nextPosition
-      feedbackStyle.marginLeft = `${currentPosition}px`
-      if (timer && currentPosition <= nextPosition) {
-        clearInterval(timer)
-        timer = null
-      }
-    }, 10)
   }
 
   /**
@@ -326,10 +284,21 @@
   const runAutoplay = () => {
     if (props.autoplay) {
       slideAutoplayTimeout = setInterval(() => {
+        isFinal.value = true
         nextSlide(4)
       }, 3000)
     }
   }
+
+  const slotObserver = new MutationObserver(() => {
+    slotNodes.value = []
+    slotWrapper.value
+      ?.querySelectorAll(`.${props.tagName}`)
+      .forEach((node, index) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        slotNodes.value.push({ node, index: index + 1 })
+      })
+  })
 
   onBeforeMount(() => {
     if (props.breakPoints) breakPoints.value = props.breakPoints
@@ -339,10 +308,16 @@
     // eslint-disable-next-line @typescript-eslint/unbound-method
     if (slidesWrapper.value) resizeWrapperObserver.observe(slidesWrapper.value)
     runAutoplay()
+    if (slotWrapper.value)
+      slotObserver.observe(slotWrapper.value, {
+        childList: true,
+        subtree: true,
+      })
   })
 
   onBeforeUnmount(() => {
     if (slidesWrapper.value)
       resizeWrapperObserver.unobserve(slidesWrapper.value)
+    if (slotObserver) slotObserver.disconnect()
   })
 </script>

@@ -14,7 +14,7 @@
     />
     <div class="start__image start-image">
       <img
-        src="../../../../assets/img/MainPage/Start.png"
+        :src="imageSrc"
         alt="Start project"
       />
       <div class="start-image__done">
@@ -33,13 +33,13 @@
       </div>
       <dots
         class="start-image__dots start-image__dots--red"
-        color="#FF5C00"
+        :color="dotColors"
       />
       <dots class="start-image__dots start-image__dots--blue" />
       <div class="start-image__review start-review">
         <div class="start-review__header">
           <img
-            src="../../../../assets/img/MainPage/Bill.png"
+            :src="reviewSrc"
             class="review__logo"
           />
           <div class="start-review__title">
@@ -78,6 +78,12 @@
     color: string
     particle: Particle | null
   }
+
+  const dotColors = '#FF5C00'
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
+  const imageSrc = require('src/assets/img/MainPage/Start.png')
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
+  const reviewSrc = require('src/assets/img/MainPage/Bill.png')
 
   const wrapper = ref<HTMLElement>()
 

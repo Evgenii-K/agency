@@ -30,7 +30,7 @@
   })
 
   const isSendUsClose = () => {
-    void state.dispatch('general/switchSendOpen', false)
+    void state.dispatch('general/updateSendOpen', false)
   }
 
   const isLoaderHidden = computed(() => {
@@ -72,7 +72,7 @@
     if (userLang && typeof userLang === 'string') {
       const currentLangName = userLang.slice(0, 2)
 
-      void state.dispatch('general/switchLanguage', currentLangName)
+      void state.dispatch('general/updateLanguage', currentLangName)
       changeLanguage()
     }
   })

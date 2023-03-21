@@ -1,38 +1,57 @@
 <template>
   <section class="about-us__wrapper">
-    <h3 class="about-us__subtitle">About Us</h3>
-    <h2 class="about-us__title">Our Teammate</h2>
+    <h3 class="about-us__subtitle">{{ $t('mainPage.aboutUs.subtitle') }}</h3>
+    <h2 class="about-us__title">{{ $t('mainPage.aboutUs.title') }}</h2>
     <div class="about-us__content">
       <div class="about-us__articles">
         <div class="about-us__article">
-          We move with make a Creative Strategy for help your business goal, we help to improve your income by a services
-          we have. make your content look interesting and make people look for your business2
+          {{ $t('mainPage.aboutUs.article') }}
         </div>
         <div class="about-us__article">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque tempor at ut auctor maecenas,Lorem ipsum d
+          {{ $t('mainPage.aboutUs.article') }}
         </div>
         <div class="about-us__buttons">
-          <base-button :click-handler="clickHandler" text="About Us" />
-          <base-button :click-handler="clickHandler" text="About Us" outline>
+          <base-button
+            :click-handler="clickHandler"
+            :text="$t('mainPage.aboutUs.subtitle')"
+          />
+          <base-button
+            :click-handler="clickHandler"
+            :text="$t('mainPage.aboutUs.buttonStory')"
+            outline
+          >
             <q-icon name="play_circle_outline" />
           </base-button>
         </div>
       </div>
       <div class="about-us__image about-us-image">
-        <img src="../../../../assets/img/MainPage/AboutUs.png" alt="about-us project" />
-        <dots class="about-us-image__dots about-us-image__dots--pink" color="#EB00FF" />
-        <dots class="about-us-image__dots about-us-image__dots--red" color="#FF5C00" />
+        <img
+          :src="imageSrc"
+          alt="about-us project"
+        />
+        <dots
+          class="about-us-image__dots about-us-image__dots--pink"
+          :color="dotColors[0]"
+        />
+        <dots
+          class="about-us-image__dots about-us-image__dots--red"
+          :color="dotColors[1]"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import './style.scss'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-import Dots from 'src/components/ui/dots/Dots.vue'
+  import './style.scss'
+  import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+  import Dots from 'src/components/ui/dots/Dots.vue'
 
-const clickHandler = () => {
-  console.log('About-us');
-}
+  const dotColors = ['#EB00FF', '#FF5C00']
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
+  const imageSrc = require('src/assets/img/MainPage/AboutUs.png')
+
+  const clickHandler = () => {
+    console.log('About-us')
+  }
 </script>

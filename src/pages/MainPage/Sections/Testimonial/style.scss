@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     padding: 5rem 0;
+    position: relative;
   }
 
   &__title {
@@ -19,10 +20,9 @@
     padding-bottom: 1rem;
   }
 
-  &__feedbacks {
-    height: 100%;
-    border-radius: 2rem;
-    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
+   &__dots {
+    position: absolute;
+    opacity: 0;
   }
 
   @media screen and ($mediaTablet) {
@@ -37,6 +37,97 @@
     &__subtitle {
       padding-bottom: 2rem;
     }
+
+    &__dots {
+      opacity: 1;
+      z-index: 0;
+
+      &--first {
+        right: -1.4%;
+        bottom: 10%;
+        transform: rotate(16deg);
+      }
+
+      &--second {
+        top: 9%;
+        left: 9%;
+        transform: rotate(15deg);
+      }
+    }
   }
 }
 
+.feedback {
+  &__card {
+    background: var(--c-card-background);
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
+    border-radius: 2rem;
+    padding: 4rem;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    font-family: $Quicksand;
+    font-style: normal;
+    font-weight: 400;
+    color: $fActiveColor;
+    letter-spacing: 0.01em;
+    min-width: 44rem;
+    min-height: 25.7rem;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &__avatar {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: #464646;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: var(--c-blue);
+    opacity: 1;
+  }
+
+  &__role {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    opacity: 0.5;
+    color: var(--c-font);
+  }
+
+  &__content {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    opacity: 0.8;
+    color: var(--c-font);
+    max-height: 29rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and ($mediaDesktop) {
+    &__name {
+      font-size: 2rem;
+      line-height: 3.4rem;
+    }
+
+    &__role {
+      font-size: 1.1rem;
+      line-height: 3.4rem;
+    }
+
+    &__content {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
+  }
+}

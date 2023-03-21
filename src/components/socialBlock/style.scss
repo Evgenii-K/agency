@@ -7,4 +7,11 @@
     justify-content: center;
     padding: 0 0 2rem;
   }
+
+  @media screen and ($mediaTablet) {
+    &__wrapper {
+      gap: 4rem;
+      padding: 0 0 1.7rem;
+    }
+  }
 }
