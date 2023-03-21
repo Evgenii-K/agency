@@ -1,0 +1,17 @@
+@import 'src/css/app.variables.scss';
+
+.custom-slider {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 0px;
+    width: 100%;
+  }
+}

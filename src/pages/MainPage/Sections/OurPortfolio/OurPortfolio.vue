@@ -1,9 +1,9 @@
 <template>
   <section class="portfolio__wrapper">
-    <h3 class="portfolio__subtitle">Our Portfolio</h3>
-    <h2 class="portfolio__title">What do we do</h2>
+    <h3 class="portfolio__subtitle">{{ $t('mainPage.portfolio.subtitle') }}</h3>
+    <h2 class="portfolio__title">{{ $t('mainPage.portfolio.title') }}</h2>
     <div class="portfolio__article">
-      all projects that we have already done , proven can help to use more comfortable, then can used by client from our business
+      {{ $t('mainPage.portfolio.article') }}
     </div>
     <div class="portfolio__works">
       <div
@@ -17,31 +17,35 @@
     <base-button
       :click-handler="clickHandler"
       outline
-      text="See All Portfolio"
+      :text="$t('mainPage.portfolio.button')"
     />
     <dots
       class="portfolio__dots portfolio__dots--first"
-      color="#EB00FF"
+      :color="dotsColor"
     />
     <dots
       class="portfolio__dots portfolio__dots--second"
-      color="#EB00FF"
+      :color="dotsColor"
     />
   </section>
 </template>
 
 <script setup lang="ts">
-import './style.scss'
-import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
-import Dots from 'src/components/ui/dots/Dots.vue'
+  import './style.scss'
+  import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
+  import Dots from 'src/components/ui/dots/Dots.vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-const works = [
-  { text: 'Design Furniture App'},
-  { text: 'Cloud App'},
-  { text: 'Design Byte App'},
-]
+  const dotsColor = '#EB00FF'
 
-const clickHandler = () => {
-  console.log('Portfolio');
-}
+  const works = [
+    { text: t('mainPage.portfolio.workFirst') },
+    { text: t('mainPage.portfolio.workSecond') },
+    { text: t('mainPage.portfolio.workThird') },
+  ]
+
+  const clickHandler = () => {
+    console.log('isPortfolioClick')
+  }
 </script>

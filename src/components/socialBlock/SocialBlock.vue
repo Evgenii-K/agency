@@ -2,14 +2,10 @@
   <div class="social-block">
     <div class="social-block__wrapper">
       <social-icon
-        v-for="icon, idx in icons"
+        v-for="(icon, idx) in icons"
         :key="idx"
-      >
-        <q-icon
-          :name="icon"
-          style="font-size: 2.4rem;"
-        />
-      </social-icon>
+        :name="icon"
+      />
     </div>
   </div>
 </template>
@@ -18,5 +14,11 @@
   import './style.scss'
   import SocialIcon from 'src/components/ui/social/Social.vue'
 
-  const icons = ['eva-facebook-outline', 'fa-brands fa-instagram', 'eva-linkedin-outline', 'eva-email-outline','eva-twitter-outline']
+  const icons = [
+    'eva-facebook-outline',
+    'fa-brands fa-instagram',
+    'eva-linkedin-outline',
+    'eva-email-outline',
+    'eva-twitter-outline',
+  ]
 </script>

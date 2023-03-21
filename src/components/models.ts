@@ -1,7 +1,7 @@
-import { Ref } from 'vue';
+import { Ref } from 'vue'
 
 export interface ResponseType {
-  [k: string]: any; //eslint-disable-line
+  [k: string]: any //eslint-disable-line
 }
 
 export interface ErrorForm {
@@ -9,11 +9,11 @@ export interface ErrorForm {
 }
 
 export interface FieldForm {
-  value: string;
+  value: string
   validators: {
-    [k: string]: (val: string) => boolean;
-  };
-  errors?: ErrorForm;
+    [k: string]: (val: string) => boolean
+  }
+  errors?: ErrorForm
 }
 
 export interface Form {
@@ -21,9 +21,9 @@ export interface Form {
 }
 
 export interface UseField {
-  value: Ref<string>,
-  valid: Ref<boolean>,
-  errors: ErrorForm,
+  value: Ref<string>
+  valid: Ref<boolean>
+  errors: ErrorForm
 }
 
 export interface UseForm {
@@ -37,3 +37,51 @@ export enum EventButton {
   SEND = 'send',
 }
 
+export interface IReview {
+  id: string
+  name: string
+  specialty: string
+  text: string
+  avatar: any
+  index: number
+}
+
+export interface IReviews {
+  id: string
+  ru: IReview
+  en: IReview
+}
+
+export interface INodeList {
+  node: Element
+  index: number
+}
+
+export interface MouseEventOffset {
+  x: number
+  y: number
+}
+export interface QuasarMouseEvent {
+  isFinal: boolean
+  isFirst: boolean
+  offset: MouseEventOffset
+}
+
+export interface ISliderBreakPoints {
+  maxWidth: number
+  count: number
+  gap: number
+}
+
+export enum ELanguageName {
+  // eslint-disable-next-line no-unused-vars
+  EN = 'en',
+  // eslint-disable-next-line no-unused-vars
+  RU = 'ru',
+}
+
+export interface ILanguage {
+  id: number
+  name: ELanguageName
+  selected: boolean
+}

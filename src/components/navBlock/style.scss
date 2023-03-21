@@ -1,20 +1,20 @@
 @import '/src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
 
 .nav-block {
-  &__links {
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-    letter-spacing: 0.01em;
-    text-transform: capitalize;
-    width: 100%;
-    color: var(--c-font);
-  }
+  font-family: $Quicksand;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  width: 100%;
+  color: var(--c-font);
 
   &__button {
     width: 100%;
+    max-width: 50rem;
   }
 
   &__nav {
@@ -26,9 +26,12 @@
 
   &__nav-item {
     cursor: pointer;
+    color: var(--c-font);
 
-    &:hover {
-      color: $cLightBlue;
+    @media (hover: hover) {
+      &:hover {
+        color: $cLightBlue;
+      }
     }
 
     &--select {
@@ -47,8 +50,10 @@
     cursor: pointer;
     text-transform: uppercase;
 
-    &:hover {
-      color: $cLightBlue;
+    @media (hover: hover) {
+      &:hover {
+        color: $cLightBlue;
+      }
     }
 
     &--select {
@@ -56,12 +61,12 @@
     }
   }
 
-  @media screen and ($mediaDesktop) {
-    &__links {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 8rem;
-    }
+  @media screen and ($mediaTablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    @include calc-value-min('padding-left', 2, 8, 768, 1440);
+    @include calc-value-min('padding-right', 2, 8, 768, 1440);
 
     &__button {
       width: auto;
@@ -69,7 +74,7 @@
 
     &__nav {
       flex-direction: row;
-      gap: 5rem;
+      @include calc-value-min('gap', 0.5, 5, 768, 1440);
     }
 
     &__languages {

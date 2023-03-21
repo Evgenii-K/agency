@@ -1,12 +1,9 @@
 <template>
-  <div :class="['send-us', {'send-us--open': isOpen}]">
-    <div class="send-us__header">
-      <burger-button @click="clickHandler" />
-    </div>
-    <div class="send-us__wrapper">
-      <div class="send-us__close-button">
-        <burger-button @click="clickHandler" />
-      </div>
+  <pop-up
+    :is-popup-show="isOpen"
+    @close="clickHandler"
+  >
+    <div class="send-us__content-wrapper">
       <div class="send-us__content">
         <h2 class="send-us__title">Send us a message</h2>
         <div class="send-us__article">
@@ -34,7 +31,7 @@
           v-model="form.message.value"
           class="send-us__textarea"
           placeholder="Your Message"
-          :is-errored="!!(!form.message.valid  && form.email.value.length)"
+          :is-errored="!!(!form.message.valid && form.email.value.length)"
           unique-id="message"
           error-message="Добавьте сообщение"
           full-size
@@ -44,9 +41,16 @@
       <div class="send-us__file">
         <q-icon
           name="eva-attach-outline"
-          style="font-size: 1.8rem;"
+          style="font-size: 1.8rem"
         />
-        <span>Attach file</span>
+        <input
+          id="file"
+          type="file"
+          class="send-us__file-input"
+        />
+        <label for="file">
+          <span> Attach file </span>
+        </label>
       </div>
       <div class="send-us__button-block">
         <base-button
@@ -56,32 +60,32 @@
         />
       </div>
     </div>
-  </div>
+  </pop-up>
 </template>
 
 <script setup lang="ts">
-  import { defineProps } from 'vue'
+  import { defineProps, defineEmits } from 'vue'
   import './style.scss'
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import BaseField from 'src/components/ui/baseField/BaseField.vue'
-  import BurgerButton from 'src/components/ui/burgerButton/BurgerButton.vue';
   import { UseForm } from 'src/components/models'
   import { useForm } from 'src/hooks/form/form'
   import checkIsRequired from 'src/helpers/validators/checkIsRequired'
   import checkMinLength from 'src/helpers/validators/checkMinLength'
+  import PopUp from 'src/components/modal/Modal.vue'
   import { useStore } from 'src/store'
-  import { computed } from '@vue/reactivity'
 
   const state = useStore()
 
-  const isSendOpen = computed(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return (state.getters['general/getIsSendOpen'] as boolean)
-  })
+  const emit = defineEmits(['close'])
 
   const clickHandler = () => {
-    state.commit('general/mutateIsMenuOpen', !isSendOpen.value)
+    emit('close')
   }
+
+  defineProps({
+    isOpen: { type: Boolean, required: true },
+  })
 
   const NAME_MIN_LENGTH = 2
 
@@ -107,11 +111,11 @@
     },
   })
 
-  defineProps({
-    isOpen: { type: Boolean, required: true },
-  })
-
   const contactUs = () => {
-    console.log('on contact us click');
+    const formDate = Object.entries(form).map(([key, input]) => ({
+      [key]: input.value,
+    }))
+    void state.dispatch('general/updateReview', formDate)
+    emit('close')
   }
 </script>

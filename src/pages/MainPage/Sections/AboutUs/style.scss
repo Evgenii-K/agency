@@ -1,42 +1,30 @@
 @import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
 .about-us {
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Quicksand';
-    font-style: normal;
-    color: #464646;
-    padding: 5rem 0;
+    padding: 4.8rem 0;
   }
 
   &__title {
     margin: 0;
-    font-family: 'Nunito';
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3.3rem;
-    letter-spacing: 0.003em;
-    color: var(--c-font);
     text-align: center;
     padding-bottom: 3.5rem;
   }
 
   &__subtitle {
     margin: 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    letter-spacing: 0.01em;
-    color: var(--c-blue);
     text-align: center;
     padding-bottom: 1rem;
   }
 
   &__article {
     font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
+    @include calc-value-min('font-size', 1.4, 2, 390, 1280);
+    @include calc-value-min('line-height', 2.4, 3, 390, 1280);
     letter-spacing: 0.01em;
     padding-bottom: 1rem;
     color: var(--c-content);
@@ -44,70 +32,70 @@
 
   &__buttons {
     width: 100%;
-    padding: 2.5rem 1.5rem 6rem;
+    padding: 2.4rem 1.5rem 6.5rem;
     display: flex;
     justify-content: space-between;
   }
 
-  @media screen and ($mediaDesktop) {
-
+  @media screen and ($mediaTablet) {
     &__wrapper {
       padding: 10rem 0;
     }
 
     &__title {
-      font-size: 5.5rem;
-      line-height: 7.5rem;
       padding-bottom: 2rem;
     }
 
     &__subtitle {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
       padding-bottom: 2rem;
     }
 
+    &__article {
+      padding-bottom: 2.4rem;
+    }
+
+    &__buttons {
+      justify-content: flex-start;
+      gap: 2.4rem;
+    }
+  }
+
+  @media screen and ($mediaSmallDesktop) {
     &__content {
       display: flex;
       flex-direction: row-reverse;
       gap: 6.5rem;
     }
 
-    &__article {
-      font-size: 2rem;
-      line-height: 3.2rem;
-      padding-bottom: 2.4rem;
-    }
-
     &__buttons {
       padding: 0;
-      justify-content: flex-start;
-      gap: 2.4rem;
     }
   }
 }
 
 .about-us-image {
   position: relative;
+  width: fit-content;
+  margin: 0 auto;
 
   & img {
     position: relative;
     z-index: 20;
-    width: auto;
+    width: 34rem;
   }
 
   &__dots {
     position: absolute;
     z-index: 10;
-    top: -1.6rem;
-    left: 0.2rem;
+    top: -6.1%;
+    left: 0.3%;
 
     &--red {
       opacity: 0;
     }
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
     & img {
       width: 56.5rem;
     }

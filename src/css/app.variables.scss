@@ -4,7 +4,8 @@ $minContentWidth: 32rem;
 /*   Font variables   */
 $fontpostfix: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 $Roboto: $fontpostfix;
-$Rub: 'Rub', $fontpostfix;
+$Nunito: 'Nunito', $fontpostfix;
+$Quicksand: 'Quicksand', $fontpostfix;
 
 /*   Mobile variables   */
 $footer: 5.6rem;
@@ -47,10 +48,12 @@ $bgModal: rgba(0, 0, 0, 0.6);
 /*  BREAKPOINTS */
 $mobileBreakpoint: 390;
 $tabletBreakpoint: 768;
+$smallDesktopBreakpoint: 1280;
 $desktopBreakpoint: 1440;
 $wideDesktopBreakpoint: 1920;
 
 $mediaTablet: 'min-width: #{ $tabletBreakpoint }px';
+$mediaSmallDesktop: 'min-width: #{ $smallDesktopBreakpoint }px';
 $mediaDesktop: 'min-width: #{ $desktopBreakpoint }px';
 $mediaWideDesktop: 'min-width: #{ $wideDesktopBreakpoint }px';
 

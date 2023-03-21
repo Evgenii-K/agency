@@ -12,21 +12,23 @@
       />
       <dots
         class="photo-block__dots photo-block__dots--red-first"
-        color="#FF5C00"
+        :color="dotStaticColor"
       />
       <dots
         class="photo-block__dots photo-block__dots--red-second"
-        color="#FF5C00"
+        :color="dotStaticColor"
       />
     </div>
     <div class="collaboration__content-block">
-      <h2 class="collaboration__header">Interesting Collaboration With Us?</h2>
+      <h2 class="collaboration__header">
+        {{ $t('mainPage.collaboration.header') }}
+      </h2>
       <div class="collaboration__content">
-        Help you to reach your business goal
+        {{ $t('mainPage.collaboration.content') }}
       </div>
       <base-button
         :click-handler="clickHandler"
-        text="Get Started"
+        :text="$t('mainPage.collaboration.button')"
       />
     </div>
   </section>
@@ -36,21 +38,15 @@
   import './style.scss'
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import Dots from 'src/components/ui/dots/Dots.vue'
-  import { useStore } from 'src/store'
-  import { computed, ref } from '@vue/reactivity'
-  import { onBeforeMount } from 'vue'
+  import { onBeforeMount, ref, defineEmits } from 'vue'
 
   const dotColor = ref('#377DFF')
+  const dotStaticColor = '#FF5C00'
 
-  const state = useStore()
-
-  const isSendOpen = computed(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return (state.getters['general/getIsSendOpen'] as boolean)
-  })
+  const emit = defineEmits(['onSendOpen'])
 
   const clickHandler = () => {
-    state.commit('general/mutateIsSendOpen', !isSendOpen.value)
+    emit('onSendOpen')
   }
 
   onBeforeMount(() => {

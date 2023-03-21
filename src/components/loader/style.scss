@@ -34,6 +34,13 @@
       box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.05);
     }
 
+    &:first-child {
+      right: 6.4rem;
+      top: 8.8rem;
+      left: auto;
+      bottom: auto;
+    }
+
     &:nth-child(even) {
       left: 5.9rem;
       top: 18.8rem;
@@ -42,13 +49,6 @@
     &:nth-child(odd) {
       left: -0.8rem;
       bottom: 14.2rem;
-    }
-
-    &:first-child {
-      right: 6.4rem;
-      top: 8.8rem;
-      left: auto;
-      bottom: auto;
     }
 
     &:last-child {
@@ -61,24 +61,26 @@
 
   &__title-block {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2.2rem;
   }
 
   &__title {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 3.2rem;
     line-height: 4rem;
     letter-spacing: 0.01em;
     color: var(--c-font);
+    overflow: hidden;
+    padding-right: 2.2rem;
 
     & > span {
+      padding-bottom: 1.4rem;
       font-weight: 700;
       font-size: 4rem;
       line-height: 4.8rem;
@@ -87,18 +89,178 @@
 
   &__logo {
     height: 10.1rem;
+    background-color: var(--c-background);
+    z-index: 1;
   }
 
   &__subtitle {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 1.8rem;
+    width: 100%;
+    white-space: nowrap;
     line-height: 1.9rem;
     letter-spacing: 0.01em;
     color: $tContent;
     padding-top: 2.3rem;
+    padding-left: 3.7rem;
+    overflow: hidden;
+  }
+
+  @media screen and ($mediaTablet) {
+    &__title-block {
+      margin-left: -10rem;
+    }
+
+    &__logo {
+      height: 17.5rem;
+      padding-left: 10rem;
+      overflow: auto;
+      position: relative;
+      left: 50%;
+      transform: scale(2) translateX(-25%);
+      animation: logo-bust 1s linear 0s 1 normal both;
+    }
+
+    &__title {
+      font-size: 5.5rem;
+      line-height: 7rem;
+      padding-left: 3.8rem;
+      animation: shown .5s linear 1s 1 normal both;
+
+      & > span {
+        font-size: 6.9rem;
+        line-height: 8.4rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 3.2rem;
+      line-height: 3.2rem;
+      padding: 4rem 0 1rem 3.7rem;
+      animation: typing 1s linear 2s 1 normal both;
+    }
+
+    &__babble {
+      width: 3.1rem;
+      height: 3.1rem;
+
+      &:nth-child(1) {
+        left: 50%;
+        top: 50%;
+        animation: bubble-first .5s ease-out 1.5s 1 normal both;
+      }
+
+      &:nth-child(2) {
+        left: 50%;
+        top: 50%;
+        animation: bubble-second .5s ease-out 1.5s 1 normal both;
+      }
+
+      &:nth-child(3) {
+        left: 50%;
+        top: 50%;
+        animation: bubble-third .5s ease-out 1.5s 1 normal both;
+      }
+
+      &:nth-child(4) {
+        left: 50%;
+        top: 50%;
+        animation: bubble-fourth .5s ease-out 1.5s 1 normal both;
+      }
+    }
   }
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 
+@keyframes shown {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes logo-bust {
+  0% {
+    transform: scale(0) translateX(-35%);
+    left: 50%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(2) translateX(-25%);
+    left: 50%;
+  }
+
+  100% {
+    transform: scale(1) translateX(0%);
+    left: 0;
+  }
+}
+
+@keyframes bubble-first {
+  from {
+    transform: translate(0rem, 0rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(53.3rem, -29.4rem);
+    opacity: 1;
+  }
+}
+
+@keyframes bubble-second {
+  from {
+    transform: translate(0rem, 0rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-64.1rem, -4.6rem);
+    opacity: 1;
+  }
+}
+
+@keyframes bubble-third {
+  from {
+    transform: translate(0rem, 0rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-40.8rem, 28rem);
+    opacity: 1;
+  }
+}
+
+@keyframes bubble-fourth {
+  from {
+    transform: translate(0rem, 0rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(50.2rem, 17.5rem);
+    opacity: 1;
+  }
+}

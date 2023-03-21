@@ -8,7 +8,32 @@
 
   &__hamburger {
     fill: var(--c-font);
+    width: 2.5rem;
   }
+}
+
+.burger-button .top {
+  x: 0.09rem;
+  y: 0.16rem;
+  rx: 0.05rem;
+  width: 0.8rem;
+  height: 0.1rem;
+}
+
+.burger-button .middle {
+  x: 0.21rem;
+  y: 0.44rem;
+  rx: 0.05rem;
+  width: 0.6rem;
+  height: 0.1rem;
+}
+
+.burger-button .bottom {
+  x: 0.09rem;
+  y: 0.72rem;
+  rx: 0.05rem;
+  width: 0.8rem;
+  height: 0.1rem;
 }
 
 .burger-button .line {
@@ -21,8 +46,8 @@
 }
 
 .burger-button[aria-expanded="true"] :is(.top, .bottom) {
-  y: 4.5;
-  x: 0.9;
+  y: 0.45rem;
+  x: 0.09rem;
 }
 
 .burger-button[aria-expanded="true"] .top {

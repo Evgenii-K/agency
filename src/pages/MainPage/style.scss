@@ -1,10 +1,12 @@
 @import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
 .main {
   &__wrapper {
-    padding: 0 2.5rem;
+    @include calc-value-min("padding-left", 2.5, 10.0, 390, 1280);
+    @include calc-value-min("padding-right", 2.5, 10.0, 390, 1280);
 
-    @media screen and ($mediaDesktop) {
-      padding: 0 10rem;
+    @media screen and ($mediaTablet) {
       width: 100%;
     }
   }

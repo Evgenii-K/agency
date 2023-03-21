@@ -1,17 +1,40 @@
 <template>
-  <div class="nav-block__links">
+  <div class="nav-block">
     <nav class="nav-block__nav">
-      <div class="nav-block__nav-item nav-block__nav-item--select">{{ $t('nav.home') }}</div>
-      <div class="nav-block__nav-item">{{ $t('nav.about') }}</div>
-      <div class="nav-block__nav-item">{{ $t('nav.services') }}</div>
-      <div class="nav-block__nav-item">{{ $t('nav.projects') }}</div>
+      <router-link
+        to="/"
+        class="nav-block__nav-item nav-block__nav-item--select"
+      >
+        {{ $t('nav.home') }}
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.about') }}
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.services') }}
+      </router-link>
+      <router-link
+        to="/"
+        class="nav-block__nav-item"
+      >
+        {{ $t('nav.projects') }}
+      </router-link>
     </nav>
     <div class="nav-block__languages">
       <div
         v-for="lang in languages"
         :key="lang.id"
-        :class="['nav-block__language', {'nav-block__language--select': lang.selected }]"
-        @click="onLangClick(lang.id)"
+        :class="[
+          'nav-block__language',
+          { 'nav-block__language--select': lang.selected },
+        ]"
+        @click="onLangClick(lang.name)"
       >
         {{ lang.name }}
       </div>
@@ -26,39 +49,33 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue'
   import './style.scss'
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import { useStore } from 'src/store'
-  import { computed } from '@vue/reactivity'
-  import { reactive } from 'vue'
-  import { useI18n } from 'vue-i18n'
-
-  const { locale } = useI18n({ useScope: 'global' })
+  import { ILanguage } from 'components/models'
 
   const state = useStore()
 
-  const languages = reactive([
-    { id: 0, name: 'en', selected: true },
-    { id: 1, name: 'ru', selected: false },
-  ])
-
-  const isSendOpen = computed(() => {
+  const languages = computed(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return (state.getters['general/getIsSendOpen'] as boolean)
+    return state.getters['general/getLanguages'] as ILanguage[]
   })
 
+  const transitionDelay = 500
+  const mediaTablet = 768
+
   const clickHandler = () => {
-    state.commit('general/mutateIsSendOpen', !isSendOpen.value)
+    const isMobile = window.innerWidth < mediaTablet
+    if (isMobile) void state.dispatch('general/updateMenu', false)
+    const currentDelay = isMobile ? transitionDelay : 0
+    setTimeout(() => {
+      // eslint-disable-next-line
+      state.dispatch('general/updateSendOpen', true)
+    }, currentDelay)
   }
 
-  const onLangClick = (id: number) => {
-    languages.map(lang => {
-      lang.selected = false
-      if (lang.id === id) {
-        lang.selected = true
-        locale.value = lang.name
-      }
-      return lang
-    })
+  const onLangClick = (name: string) => {
+    void state.dispatch('general/updateLanguage', name)
   }
 </script>

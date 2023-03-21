@@ -1,4 +1,5 @@
 @import '/src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
 
 .footer {
   background-color: $cFooter;
@@ -9,7 +10,10 @@
   }
 
   &__main {
-    padding: 4.5rem 3.4rem 9rem 2.5rem;
+    @include calc-value-min("padding-top", 4.5, 13.2, 390, 1280);
+    @include calc-value-min("padding-bottom", 9, 7.6, 390, 1280);
+    @include calc-value-min("padding-left", 2.5, 10.3, 390, 1280);
+    @include calc-value-min("padding-right", 3.4, 10.3, 390, 1280);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -22,6 +26,7 @@
     background-color: var(--c-logo);
     display: inline-flex;
     margin-bottom: 3.5rem;
+    height: fit-content;
   }
 
   &__logo {
@@ -30,7 +35,7 @@
   }
 
   &__contact {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 700;
     font-size: 1.8rem;
@@ -57,7 +62,7 @@
   }
 
   &__copyright {
-    font-family: 'Quicksand';
+    font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 1.4rem;
@@ -68,7 +73,15 @@
     text-align: center;
   }
 
-  @media screen and ($mediaDesktop) {
+  @media screen and ($mediaTablet) {
+    &__wrapper {
+      padding: 0 0 3.3rem;
+    }
+
+    &__contact {
+      gap: 2.6rem;
+    }
+
     &__logo-wrapper {
       height: 8.8rem;
     }
@@ -81,6 +94,8 @@
 
     &__copyright {
       width: 50rem;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
     }
   }
 }

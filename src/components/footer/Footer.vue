@@ -1,30 +1,42 @@
 <template>
   <div class="footer">
-    <div class="footer__wrapper">
+    <div class="footer__wrapper q-page-container">
       <div class="footer__main">
         <div class="footer__logo-wrapper">
           <img
             class="footer__logo"
-            src="../../assets/img/Logo.png"
+            :src="imageSrc"
           />
         </div>
         <div class="footer__contact">
-          <div class="footer__contact-title">Terms & policies</div>
+          <div class="footer__contact-title">{{ $t('footer.term') }}</div>
           <div class="footer__contact-content">
-            <a href="#">Terms of Service</a>
+            <a href="#">{{ $t('footer.service') }}</a>
           </div>
           <div class="footer__contact-content">
-            <a href="#">Privacy Policy</a>
+            <a href="#">{{ $t('footer.privacy') }}</a>
           </div>
         </div>
         <div class="footer__contact">
-          <div class="footer__contact-title">Company</div>
-          <router-link to="/" class="footer__contact-content">Home</router-link>
-          <router-link to="/" class="footer__contact-content">About Us</router-link>
-          <router-link to="/" class="footer__contact-content">Contact Us</router-link>
+          <div class="footer__contact-title">{{ $t('footer.company') }}</div>
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >{{ $t('nav.home') }}</router-link
+          >
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >{{ $t('nav.about') }}</router-link
+          >
+          <router-link
+            to="/"
+            class="footer__contact-content"
+            >{{ $t('nav.contactUs') }}</router-link
+          >
         </div>
         <div class="footer__contact">
-          <div class="footer__contact-title">Contact</div>
+          <div class="footer__contact-title">{{ $t('footer.contact') }}</div>
           <div class="footer__contact-content">
             <a href="tel:(+62) 893912392190">(+62) 893912392190</a>
           </div>
@@ -33,9 +45,13 @@
           </div>
         </div>
         <div class="footer__contact">
-          <div class="footer__contact-title">Location</div>
-          <div class="footer__contact-content">PT Osiris Real Estate Internasional</div>
-          <div class="footer__contact-content">Jl. KH. Wahid Hasyim Kel No.10D</div>
+          <div class="footer__contact-title">{{ $t('footer.location') }}</div>
+          <div class="footer__contact-content">
+            PT Osiris Real Estate Internasional
+          </div>
+          <div class="footer__contact-content">
+            Jl. KH. Wahid Hasyim Kel No.10D
+          </div>
           <div class="footer__contact-content">Jakarta, Indonesia</div>
           <div class="footer__contact-content">team@OsirisRealEstate.com</div>
         </div>
@@ -55,4 +71,7 @@
   import SocialBlock from 'src/components/socialBlock/SocialBlock.vue'
 
   const year = new Date().getFullYear()
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
+  const imageSrc = require('src/assets/img/Logo.png')
 </script>
