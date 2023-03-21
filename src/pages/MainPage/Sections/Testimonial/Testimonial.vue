@@ -1,7 +1,9 @@
 <template>
   <section class="testimonial__wrapper">
-    <h3 class="testimonial__subtitle">Testimonial</h3>
-    <h2 class="testimonial__title">People Talk about us</h2>
+    <h3 class="testimonial__subtitle">
+      {{ $t('mainPage.testimonial.subtitle') }}
+    </h3>
+    <h2 class="testimonial__title">{{ $t('mainPage.testimonial.title') }}</h2>
     <custom-slider
       :break-points="breakPoints"
       :autoplay="true"
@@ -27,6 +29,14 @@
         </div>
       </div>
     </custom-slider>
+    <dots
+      class="testimonial__dots testimonial__dots--first"
+      :color="dotsColor"
+    />
+    <dots
+      class="testimonial__dots testimonial__dots--second"
+      :color="dotsColor"
+    />
   </section>
 </template>
 
@@ -37,10 +47,13 @@
   import { useI18n } from 'vue-i18n'
   import { IReviews, ELanguageName } from 'components/models'
   import CustomSlider from 'components/customSlider/CustomSlider.vue'
+  import Dots from 'src/components/ui/dots/Dots.vue'
 
   const { locale } = useI18n({ useScope: 'global' })
 
   const state = useStore()
+
+  const dotsColor = '#0B50FF'
 
   const breakPoints = [
     { maxWidth: 768, count: 1, gap: 25 },

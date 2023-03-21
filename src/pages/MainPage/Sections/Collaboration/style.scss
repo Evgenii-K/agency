@@ -31,15 +31,13 @@
     align-items: center;
   }
 
-  @media screen and ($mediaTablet) {
-
-  }
   @media screen and ($mediaSmallDesktop) {
     &__wrapper {
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: flex-start;
       gap: 0rem;
+      padding: 16rem 0 17.6rem;
     }
 
     &__content-block {
@@ -62,7 +60,7 @@
 .photo-block {
   &__images {
     position: relative;
-    @include calc-value-min("height", 27.4, 37.4, 390, 1280);
+    @include calc-value-min("height", 27.4, 38.2, 390, 1280);
   }
 
   &__image {
@@ -95,9 +93,6 @@
     position: absolute;
   }
 
-  @media screen and ($mediaTablet) {
-
-  }
   @media screen and ($mediaSmallDesktop) {
     position: relative;
 
@@ -108,10 +103,12 @@
     &__image:first-child {
       position: relative;
       left: 0;
+      top: -1rem;
     }
 
     &__image:last-child {
       transform: translate(-26.2rem, 0.5rem);
+      bottom: 1.7rem;
       right: 0;
     }
 
@@ -119,18 +116,18 @@
       opacity: 1;
 
       &--red-first {
-        bottom: 2rem;
-        left: 0;
+        bottom: 3.6rem;
+        left: -0.6rem;
       }
 
       &--red-second {
-        bottom: 2rem;
-        right: 8rem;
+        bottom: 3.6rem;
+        right: 8.2rem;
       }
 
       &--blue {
-        top: 5.6rem;
-        left: -31rem;
+        top: 4.3rem;
+        left: -31.4rem;
       }
     }
   }

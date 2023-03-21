@@ -13,8 +13,9 @@
       <div
         v-for="slide in visibleSlides"
         :key="slide.index"
+        :class="tagName"
         :style="computedCardStyle"
-        v-html="slide.node.outerHTML"
+        v-html="slide.node.innerHTML"
       />
       <!--eslint-enable-->
     </div>
@@ -195,7 +196,7 @@
   const computedCardStyle = computed(() => {
     return {
       minWidth: `${slideWidth.value}px`,
-      minHeight: `${maxHeight.value}px`,
+      height: `${maxHeight.value}px`,
     }
   })
 

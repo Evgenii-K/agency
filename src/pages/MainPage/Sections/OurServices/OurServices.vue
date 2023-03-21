@@ -1,16 +1,14 @@
 <template>
   <section class="services__wrapper">
     <div class="services__content">
-      <h3 class="services__subtitle">Our Services</h3>
-      <h2 class="services__title">Perfect and Fast Movement</h2>
+      <h3 class="services__subtitle">{{ $t('mainPage.services.subtitle') }}</h3>
+      <h2 class="services__title">{{ $t('mainPage.services.title') }}</h2>
       <div class="services__article">
-        We move with make a Creative Strategy for help your business goal, we
-        help to improve your income by a services we have. make your content
-        look interesting and make people look for your business
+        {{ $t('mainPage.services.article') }}
       </div>
       <div class="services__more">
         <a href="#">
-          Read more
+          {{ $t('mainPage.services.link') }}
           <q-icon
             name="arrow_forward"
             class="services__arrow"
@@ -33,20 +31,30 @@
 
 <script setup lang="ts">
   import './style.scss'
-  import ServicesButton from '../../../../components/ui/servicesButton/ServicesButton.vue'
+  import ServicesButton from 'components/ui/servicesButton/ServicesButton.vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
   const buttons = [
     {
-      text: 'Social Media Management',
+      text: t('mainPage.services.buttonFirst'),
       color: '#377DFF',
       iconName: 'desktop_windows',
     },
     {
-      text: 'Search Engine Opimization',
+      text: t('mainPage.services.buttonSecond'),
       color: '#FF2D2D',
       iconName: 'settings',
     },
-    { text: 'Design', color: '#7CE761', iconName: 'fa-solid fa-pen-nib' },
-    { text: 'Ads', color: '#FFA800', iconName: 'live_tv' },
+    {
+      text: t('mainPage.services.buttonThird'),
+      color: '#7CE761',
+      iconName: 'fa-solid fa-pen-nib',
+    },
+    {
+      text: t('mainPage.services.buttonFourth'),
+      color: '#FFA800',
+      iconName: 'live_tv',
+    },
   ]
 </script>
