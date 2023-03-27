@@ -44,3 +44,17 @@
     max((calc(#{$endY + rem} + 10 * #{$startY - $endY}*((100vw - #{$endWidth + px})/#{$startWidth - $endWidth}))), #{$endY + rem}),
   )
 };
+
+@mixin fontFace($fontFamily, $fileName, $weight: null) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url('../assets/fonts/' + $fileName + '.woff') format('woff'),
+    url('../assets/fonts/' + $fileName + '.woff2') format('woff2');
+    font-style: normal;
+    @if $weight == null {
+      font-weight: $weight;
+    } @else {
+      font-weight: normal;
+    }
+  }
+}
