@@ -46,6 +46,7 @@
     & a {
       cursor: pointer;
       color: var(--c-blue);
+      transition: color $baseTransition;
       @media (hover: hover) {
         &:hover {
           color: $cLightBlue;

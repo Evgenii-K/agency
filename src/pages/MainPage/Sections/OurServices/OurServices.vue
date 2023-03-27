@@ -32,28 +32,29 @@
 <script setup lang="ts">
   import './style.scss'
   import ServicesButton from 'components/ui/servicesButton/ServicesButton.vue'
+  import { dotsColor } from 'src/helpers/constant'
   import { useI18n } from 'vue-i18n'
   const { t } = useI18n()
 
   const buttons = [
     {
       text: t('mainPage.services.buttonFirst'),
-      color: '#377DFF',
+      color: dotsColor.blue,
       iconName: 'desktop_windows',
     },
     {
       text: t('mainPage.services.buttonSecond'),
-      color: '#FF2D2D',
+      color: dotsColor.red,
       iconName: 'settings',
     },
     {
       text: t('mainPage.services.buttonThird'),
-      color: '#7CE761',
+      color: dotsColor.green,
       iconName: 'fa-solid fa-pen-nib',
     },
     {
       text: t('mainPage.services.buttonFourth'),
-      color: '#FFA800',
+      color: dotsColor.yellow,
       iconName: 'live_tv',
     },
   ]

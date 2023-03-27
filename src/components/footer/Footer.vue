@@ -73,5 +73,5 @@
   const year = new Date().getFullYear()
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/Logo.png')
+  const imageSrc = require('src/assets/img/logo.png')
 </script>

@@ -6,13 +6,14 @@
       {{ $t('mainPage.portfolio.article') }}
     </div>
     <div class="portfolio__works">
-      <div
+      <a
         v-for="work in works"
         :key="work.text"
         class="portfolio__work"
+        href="#"
       >
         {{ work.text }}
-      </div>
+      </a>
     </div>
     <base-button
       :click-handler="clickHandler"
@@ -21,11 +22,11 @@
     />
     <dots
       class="portfolio__dots portfolio__dots--first"
-      :color="dotsColor"
+      :color="dotsColor.purple"
     />
     <dots
       class="portfolio__dots portfolio__dots--second"
-      :color="dotsColor"
+      :color="dotsColor.purple"
     />
   </section>
 </template>
@@ -34,10 +35,9 @@
   import './style.scss'
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import Dots from 'src/components/ui/dots/Dots.vue'
+  import { dotsColor } from 'src/helpers/constant'
   import { useI18n } from 'vue-i18n'
   const { t } = useI18n()
-
-  const dotsColor = '#EB00FF'
 
   const works = [
     { text: t('mainPage.portfolio.workFirst') },

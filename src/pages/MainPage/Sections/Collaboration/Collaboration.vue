@@ -39,9 +39,10 @@
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import Dots from 'src/components/ui/dots/Dots.vue'
   import { onBeforeMount, ref, defineEmits } from 'vue'
+  import { dotsColor } from 'src/helpers/constant'
 
-  const dotColor = ref('#377DFF')
-  const dotStaticColor = '#FF5C00'
+  const dotColor = ref(dotsColor.blue)
+  const dotStaticColor = dotsColor.orange
 
   const emit = defineEmits(['onSendOpen'])
 
@@ -51,7 +52,7 @@
 
   onBeforeMount(() => {
     if (document.body.dataset.theme === 'dark') {
-      dotColor.value = '#E2E2E2'
+      dotColor.value = dotsColor.gray
     }
   })
 </script>

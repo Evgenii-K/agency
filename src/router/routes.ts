@@ -1,20 +1,9 @@
 import { RouteRecordRaw } from 'vue-router'
 
 import MainLayout from 'src/layouts/mainLayout/MainLayout.vue'
-import Demo from '../pages/Demo.vue'
 import Main from '../pages/MainPage/Main.vue'
 
 const routes: RouteRecordRaw[] = [
-  {
-    path: '/index',
-    component: MainLayout,
-    children: [{ path: '', component: () => import('pages/Index.vue') }]
-  },
-  {
-    path: '/demo',
-    component: MainLayout,
-    children: [{ path: '', component: Demo }]
-  },
   {
     path: '/',
     component: MainLayout,

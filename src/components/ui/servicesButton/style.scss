@@ -14,6 +14,7 @@
   height: 26.9rem;
   cursor: pointer;
   padding: 3.5rem;
+  transition: box-shadow $baseTransition;
 
   @media (hover: hover) {
     &:hover {

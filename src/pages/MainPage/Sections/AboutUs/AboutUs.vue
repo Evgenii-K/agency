@@ -49,7 +49,7 @@
 
   const dotColors = ['#EB00FF', '#FF5C00']
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/MainPage/AboutUs.png')
+  const imageSrc = require('src/assets/img/MainPage/about-us.png')
 
   const clickHandler = () => {
     console.log('About-us')

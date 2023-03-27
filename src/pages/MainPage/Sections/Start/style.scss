@@ -34,6 +34,7 @@
     @include calc-value-min('height', 1.6, 3.1, 390, 1440);
     border-radius: 50%;
     z-index: 10;
+    transition: all 0.5s;
 
     &--blue {
       background: linear-gradient(

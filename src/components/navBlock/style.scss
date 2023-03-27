@@ -27,6 +27,7 @@
   &__nav-item {
     cursor: pointer;
     color: var(--c-font);
+    transition: color $baseTransition;
 
     @media (hover: hover) {
       &:hover {
@@ -49,6 +50,7 @@
   &__language {
     cursor: pointer;
     text-transform: uppercase;
+    transition: color $baseTransition;
 
     @media (hover: hover) {
       &:hover {

@@ -1,10 +1,13 @@
 <template>
-  <div class="social">
+  <a
+    :href="link"
+    class="social"
+  >
     <q-icon
       :name="name"
       class="social__icon"
     />
-  </div>
+  </a>
 </template>
 
 <script setup lang="ts">
@@ -13,5 +16,6 @@
 
   defineProps({
     name: { type: String, required: true },
+    link: { type: String, required: true },
   })
 </script>

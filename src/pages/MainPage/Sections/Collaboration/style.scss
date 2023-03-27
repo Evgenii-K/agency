@@ -74,7 +74,7 @@
     left: 50%;
     @include calc-value-min("width", 18, 29, 390, 1280);
     @include calc-value-min("height", 17.7, 28.8, 390, 1280);
-    background-image: url('src/assets/img/MainPage/collab_second.png');
+    background-image: url('src/assets/img/MainPage/collab-second.png');
     z-index: 10;
   }
 
@@ -85,7 +85,7 @@
     bottom: 0;
     right: 50%;
     @include transformTranslate(6, 4, 0, 0, 390, 1280);
-    background-image: url('src/assets/img/MainPage/collab_first.png');
+    background-image: url('src/assets/img/MainPage/collab-first.png');
   }
 
   &__dots {

@@ -13,11 +13,12 @@
   &__icon {
     color: $cFooter;
     font-size: 2.4rem;
+    transition: color $baseTransition;
+  }
 
-    @media (hover: hover) {
-      &:hover {
-        color: $cLightBlue;
-      }
+  @media (hover: hover) {
+    &:hover .social__icon {
+      color: $cLightBlue;
     }
   }
 

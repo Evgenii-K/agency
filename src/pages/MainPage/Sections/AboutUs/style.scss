@@ -32,9 +32,9 @@
 
   &__buttons {
     width: 100%;
-    padding: 2.4rem 1.5rem 6.5rem;
+    padding: 2.4rem 0rem 6.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   @media screen and ($mediaTablet) {

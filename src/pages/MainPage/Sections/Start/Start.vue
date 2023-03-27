@@ -33,7 +33,7 @@
       </div>
       <dots
         class="start-image__dots start-image__dots--red"
-        :color="dotColors"
+        :color="dotsColor.orange"
       />
       <dots class="start-image__dots start-image__dots--blue" />
       <div class="start-image__review start-review">
@@ -68,8 +68,9 @@
   import './style.scss'
   import BaseButton from 'src/components/ui/baseButton/BaseButton.vue'
   import Dots from 'src/components/ui/dots/Dots.vue'
-  import { onMounted, ref, reactive, defineEmits } from 'vue'
+  import { onMounted, ref, reactive, defineEmits, onBeforeUnmount } from 'vue'
   import { Particle } from 'src/features/particle'
+  import { dotsColor } from 'src/helpers/constant'
 
   interface IPointsPosition {
     id: number
@@ -78,12 +79,10 @@
     color: string
     particle: Particle | null
   }
-
-  const dotColors = '#FF5C00'
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/MainPage/Start.png')
+  const imageSrc = require('src/assets/img/MainPage/start.png')
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const reviewSrc = require('src/assets/img/MainPage/Bill.png')
+  const reviewSrc = require('src/assets/img/MainPage/bill.png')
 
   const wrapper = ref<HTMLElement>()
 
@@ -130,8 +129,9 @@
         point.right = right
       }
     })
-    requestAnimationFrame(loop)
   }
+
+  let loopInterval: ReturnType<typeof setInterval>
 
   onMounted(() => {
     pointsPosition.forEach((point) => {
@@ -140,12 +140,20 @@
         right: setPointsPositions(point.right),
         height: window.innerWidth,
         width: window.innerHeight,
-        velocity: 0.1,
+        velocity: 2,
       })
     })
     if (wrapper.value) {
       resizeObserver.observe(wrapper.value)
     }
-    loop()
+    loopInterval = setInterval(() => {
+      loop()
+    }, 100)
+  })
+
+  onBeforeUnmount(() => {
+    if (loopInterval) {
+      clearInterval(loopInterval)
+    }
   })
 </script>
