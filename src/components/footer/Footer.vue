@@ -53,7 +53,11 @@
             Jl. KH. Wahid Hasyim Kel No.10D
           </div>
           <div class="footer__contact-content">Jakarta, Indonesia</div>
-          <div class="footer__contact-content">team@OsirisRealEstate.com</div>
+          <div class="footer__contact-content">
+            <a href="mailto:team@OsirisRealEstate.com">
+              team@OsirisRealEstate.com
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer__bottom">

@@ -2,7 +2,7 @@
   "name": "quasar-base-template",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "Agency Creative",
   "author": "Alina <achernyaeva9@gmail.com>",
   "private": true,
   "scripts": {

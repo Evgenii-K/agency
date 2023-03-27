@@ -13,12 +13,12 @@
 
 <script setup lang="ts">
   import './style.scss'
-  import Start from './Sections/Start/Start.vue'
-  import AboutUs from './Sections/AboutUs/AboutUs.vue'
-  import OurServices from './Sections/OurServices/OurServices.vue'
-  import OurPortfolio from './Sections/OurPortfolio/OurPortfolio.vue'
-  import Testimonial from './Sections/Testimonial/Testimonial.vue'
-  import Collaboration from './Sections/Collaboration/Collaboration.vue'
+  import Start from './Modules/Start/Start.vue'
+  import AboutUs from './Modules/AboutUs/AboutUs.vue'
+  import OurServices from './Modules/OurServices/OurServices.vue'
+  import OurPortfolio from './Modules/OurPortfolio/OurPortfolio.vue'
+  import Testimonial from './Modules/Testimonial/Testimonial.vue'
+  import Collaboration from './Modules/Collaboration/Collaboration.vue'
   import { onMounted } from 'vue'
   import { useStore } from 'src/store'
 
