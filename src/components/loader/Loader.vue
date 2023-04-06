@@ -24,7 +24,7 @@
   import { defineProps } from 'vue'
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const logo = require('src/assets/img/mainLabel.png')
+  const logo = require('src/assets/img/main-label.png')
 
   defineProps({
     isHidden: { type: Boolean, default: false },

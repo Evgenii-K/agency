@@ -16,6 +16,7 @@
   import Footer from 'components/footer/Footer.vue'
   import Loader from 'components/loader/Loader.vue'
   import SendUs from 'components/sendUs/SendUs.vue'
+  import initTheme from './features/initTheme'
   import { onMounted, computed, watch } from 'vue'
   import { useStore } from 'src/store'
   import { ILanguage } from 'components/models'
@@ -58,14 +59,7 @@
   }
 
   onMounted(() => {
-    if (
-      window.matchMedia('(prefers-color-scheme)').media !== 'not all' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      document.body.dataset.theme = 'dark'
-    } else {
-      document.body.dataset.theme = ''
-    }
+    initTheme()
 
     const userLang = navigator.language || navigator.language
 

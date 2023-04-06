@@ -4,7 +4,8 @@
       <social-icon
         v-for="(icon, idx) in icons"
         :key="idx"
-        :name="icon"
+        :name="icon.name"
+        :link="icon.link"
       />
     </div>
   </div>
@@ -15,10 +16,10 @@
   import SocialIcon from 'src/components/ui/social/Social.vue'
 
   const icons = [
-    'eva-facebook-outline',
-    'fa-brands fa-instagram',
-    'eva-linkedin-outline',
-    'eva-email-outline',
-    'eva-twitter-outline',
+    { name: 'eva-facebook-outline', link: '/' },
+    { name: 'fa-brands fa-instagram', link: '/' },
+    { name: 'eva-linkedin-outline', link: '/' },
+    { name: 'eva-email-outline', link: '/' },
+    { name: 'eva-twitter-outline', link: '/' },
   ]
 </script>

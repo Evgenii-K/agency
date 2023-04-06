@@ -1,0 +1,134 @@
+@import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
+.collaboration {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 5rem 0 10rem;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__content {
+    font-family: $Quicksand;
+    font-style: normal;
+    font-weight: 400;
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    line-height: 3.4rem;
+    letter-spacing: 0.01em;
+    color: $fActiveColor;
+    padding-bottom: 2.5rem;
+  }
+
+  &__content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and ($mediaSmallDesktop) {
+    &__wrapper {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0rem;
+      padding: 16rem 0 17.6rem;
+    }
+
+    &__content-block {
+      width: 49rem;
+      align-items: flex-start;
+    }
+
+    &__header {
+      text-align: start;
+      margin: 2.5rem 0;
+    }
+
+    &__content {
+      font-size: 2rem;
+      line-height: 3.4rem;
+    }
+  }
+}
+
+.photo-block {
+  &__images {
+    position: relative;
+    @include calc-value-min("height", 27.4, 38.2, 390, 1280);
+  }
+
+  &__image {
+    position: absolute;
+    border-radius: 1.6rem;
+    background-size: cover;
+  }
+
+  &__image:first-child {
+    top: 0;
+    left: 50%;
+    @include calc-value-min("width", 18, 29, 390, 1280);
+    @include calc-value-min("height", 17.7, 28.8, 390, 1280);
+    background-image: url('src/assets/img/MainPage/collab-second.png');
+    z-index: 10;
+  }
+
+  &__image:last-child {
+    z-index: 20;
+    @include calc-value-min("width", 22.1, 32.5, 390, 1280);
+    @include calc-value-min("height", 19.6, 28.8, 390, 1280);
+    bottom: 0;
+    right: 50%;
+    @include transformTranslate(6, 4, 0, 0, 390, 1280);
+    background-image: url('src/assets/img/MainPage/collab-first.png');
+  }
+
+  &__dots {
+    opacity: 0;
+    position: absolute;
+  }
+
+  @media screen and ($mediaSmallDesktop) {
+    position: relative;
+
+    &__images {
+      position: relative;
+    }
+
+    &__image:first-child {
+      position: relative;
+      left: 0;
+      top: -1rem;
+    }
+
+    &__image:last-child {
+      transform: translate(-26.2rem, 0.5rem);
+      bottom: 1.7rem;
+      right: 0;
+    }
+
+    &__dots {
+      opacity: 1;
+
+      &--red-first {
+        bottom: 3.6rem;
+        left: -0.6rem;
+      }
+
+      &--red-second {
+        bottom: 3.6rem;
+        right: 8.2rem;
+      }
+
+      &--blue {
+        top: 4.3rem;
+        left: -31.4rem;
+      }
+    }
+  }
+}

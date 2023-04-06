@@ -1,0 +1,139 @@
+@import 'src/css/app.variables.scss';
+@import 'src/css/mixins.scss';
+
+.portfolio {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  &__title {
+    margin: 0;
+    text-align: center;
+    padding-bottom: 3.5rem;
+  }
+
+  &__subtitle {
+    margin: 0;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  &__article {
+    font-weight: 400;
+    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    @include calc-value-min("line-height", 2.4, 3.0, 390, 1280);
+    letter-spacing: 0.01em;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: var(--c-content);
+  }
+
+  &__works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5.4rem;
+    padding: 3.4rem 0 5rem;
+  }
+
+  &__work {
+    font-family: $Quicksand;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 100%;
+    letter-spacing: 0.003em;
+    color: $cWhite;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 2.4rem;
+    border-radius: 3rem;
+    background-color: #464646;
+    transition: box-shadow $baseTransition;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: 0.4rem 0.4rem 3rem var(--c-content);
+      }
+    }
+  }
+
+  &__work:nth-child(2n+1) {
+    width: 30rem;
+    height: 30rem;
+    background-image: url('src/assets/img/MainPage/work-byte.png');
+    background-size: cover;
+  }
+
+  &__work:first-child {
+    background-image: url('src/assets/img/MainPage/work-furniture.png');
+  }
+
+  &__work:nth-child(2n) {
+    width: 34rem;
+    height: 33.8rem;
+    background-image: url('src/assets/img/MainPage/work-cloud.png');
+    background-size: cover;
+  }
+
+  &__dots {
+    opacity: 0;
+    position: absolute;
+  }
+
+  @media screen and ($mediaSmallDesktop) {
+    &__wrapper {
+      padding: 10rem 0;
+    }
+
+    &__title {
+      padding-bottom: 2.8rem;
+    }
+
+    &__subtitle {
+      padding-bottom: 2rem;
+    }
+
+    &__article {
+      font-size: 2rem;
+      line-height: 3.4rem;
+      padding-bottom: 4.8rem;
+      max-width: 68rem;
+    }
+
+    &__works {
+      flex-direction: row;
+      gap: 6.9rem;
+      z-index: 100;
+    }
+
+    &__work:nth-child(2n+1) {
+      width: 35rem;
+      height: 35rem;
+    }
+
+    &__work:nth-child(2n) {
+      width: 40rem;
+      height: 40rem;
+    }
+
+    &__dots {
+      opacity: 1;
+      z-index: 10;
+
+      &--first {
+        transform: translate(58rem, 20rem) rotate(-20deg);
+      }
+
+      &--second {
+        transform: translate(-18.6rem, 39rem) rotate(20deg);
+      }
+    }
+  }
+}

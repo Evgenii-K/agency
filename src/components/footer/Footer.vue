@@ -53,7 +53,11 @@
             Jl. KH. Wahid Hasyim Kel No.10D
           </div>
           <div class="footer__contact-content">Jakarta, Indonesia</div>
-          <div class="footer__contact-content">team@OsirisRealEstate.com</div>
+          <div class="footer__contact-content">
+            <a href="mailto:team@OsirisRealEstate.com">
+              team@OsirisRealEstate.com
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer__bottom">
@@ -73,5 +77,5 @@
   const year = new Date().getFullYear()
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/Logo.png')
+  const imageSrc = require('src/assets/img/logo.png')
 </script>

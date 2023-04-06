@@ -60,7 +60,7 @@
     if (
       event &&
       event.target &&
-      !(event.target as HTMLElement)?.closest('.popup__content')
+      !(event.target as HTMLElement)?.closest('.popup__wrapper')
     ) {
       emit('close')
     }
