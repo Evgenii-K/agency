@@ -2,8 +2,26 @@
   <section class="collaboration__wrapper">
     <div class="collaboration__photo-block photo-block">
       <div class="photo-block__images">
-        <div class="photo-block__image" />
-        <div class="photo-block__image" />
+        <img
+          class="photo-block__image"
+          :src="require('src/assets/img/MainPage/collab-second.png')"
+          :srcset="
+            require('src/assets/img/MainPage/collab-second.png') +
+            '1, ' +
+            require('src/assets/img/MainPage/collab-second@2x.png') +
+            ' 2x'
+          "
+        />
+        <img
+          class="photo-block__image"
+          :src="require('src/assets/img/MainPage/collab-first.png')"
+          :srcset="
+            require('src/assets/img/MainPage/collab-first.png') +
+            '1x, ' +
+            require('src/assets/img/MainPage/collab-first@2x.png') +
+            ' 2x'
+          "
+        />
       </div>
       <dots
         class="photo-block__dots photo-block__dots--blue"

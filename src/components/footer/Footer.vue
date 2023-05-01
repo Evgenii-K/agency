@@ -5,7 +5,13 @@
         <div class="footer__logo-wrapper">
           <img
             class="footer__logo"
-            :src="imageSrc"
+            :src="require('src/assets/img/logo.png')"
+            :srcset="
+              require('src/assets/img/logo.png') +
+              '1x, ' +
+              require('src/assets/img/logo@2x.png') +
+              ' 2x'
+            "
           />
         </div>
         <div class="footer__contact">
@@ -75,7 +81,4 @@
   import SocialBlock from 'src/components/socialBlock/SocialBlock.vue'
 
   const year = new Date().getFullYear()
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/logo.png')
 </script>
