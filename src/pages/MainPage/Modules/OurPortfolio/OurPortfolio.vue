@@ -46,6 +46,6 @@
   ]
 
   const clickHandler = () => {
-    console.log('isPortfolioClick')
+    console.log('isPortfolioClick') // eslint-disable-line
   }
 </script>

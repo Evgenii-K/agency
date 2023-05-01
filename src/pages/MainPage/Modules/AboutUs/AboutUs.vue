@@ -56,6 +56,6 @@
   const dotColors = ['#EB00FF', '#FF5C00']
 
   const clickHandler = () => {
-    console.log('About-us')
+    console.log('About-us') // eslint-disable-line
   }
 </script>
