@@ -26,7 +26,17 @@
       </div>
       <div class="about-us__image about-us-image">
         <img
+<<<<<<< Updated upstream
           :src="imageSrc"
+=======
+          :src="require('src/assets/img/MainPage/about-us.png')"
+          :srcset="
+            require('src/assets/img/MainPage/about-us.png') +
+            ' 1x, ' +
+            require('src/assets/img/MainPage/about-us@2x.png') +
+            ' 2x'
+          "
+>>>>>>> Stashed changes
           alt="about-us project"
         />
         <dots
@@ -52,6 +62,7 @@
   const imageSrc = require('src/assets/img/MainPage/about-us.png')
 
   const clickHandler = () => {
+    // eslint-disable-next-line
     console.log('About-us')
   }
 </script>

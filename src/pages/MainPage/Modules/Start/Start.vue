@@ -14,7 +14,17 @@
     />
     <div class="start__image start-image">
       <img
+<<<<<<< Updated upstream
         :src="imageSrc"
+=======
+        :src="require('src/assets/img/MainPage/start.png')"
+        :srcset="
+          require('src/assets/img/MainPage/start.png') +
+          ' 1x, ' +
+          require('src/assets/img/MainPage/start@2x.png') +
+          ' 2x'
+        "
+>>>>>>> Stashed changes
         alt="Start project"
       />
       <div class="start-image__done">
@@ -39,7 +49,17 @@
       <div class="start-image__review start-review">
         <div class="start-review__header">
           <img
+<<<<<<< Updated upstream
             :src="reviewSrc"
+=======
+            :src="require('src/assets/img/MainPage/bill.png')"
+            :srcset="
+              require('src/assets/img/MainPage/bill.png') +
+              ' 1x, ' +
+              require('src/assets/img/MainPage/bill@2x.png') +
+              ' 2x'
+            "
+>>>>>>> Stashed changes
             class="review__logo"
           />
           <div class="start-review__title">

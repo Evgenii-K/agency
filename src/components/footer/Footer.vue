@@ -5,7 +5,17 @@
         <div class="footer__logo-wrapper">
           <img
             class="footer__logo"
+<<<<<<< Updated upstream
             :src="imageSrc"
+=======
+            :src="require('src/assets/img/logo.png')"
+            :srcset="
+              require('src/assets/img/logo.png') +
+              ' 1x, ' +
+              require('src/assets/img/logo@2x.png') +
+              ' 2x'
+            "
+>>>>>>> Stashed changes
           />
         </div>
         <div class="footer__contact">
