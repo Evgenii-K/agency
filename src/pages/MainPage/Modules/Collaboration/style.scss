@@ -18,7 +18,7 @@
     font-family: $Quicksand;
     font-style: normal;
     font-weight: 400;
-    @include calc-value-min("font-size", 1.4, 2.0, 390, 1280);
+    @include calc-value-min('font-size', 1.4, 2, 390, 1280);
     line-height: 3.4rem;
     letter-spacing: 0.01em;
     color: $fActiveColor;
@@ -60,7 +60,7 @@
 .photo-block {
   &__images {
     position: relative;
-    @include calc-value-min("height", 27.4, 38.2, 390, 1280);
+    @include calc-value-min('height', 27.4, 38.2, 390, 1280);
   }
 
   &__image {
@@ -72,20 +72,18 @@
   &__image:first-child {
     top: 0;
     left: 50%;
-    @include calc-value-min("width", 18, 29, 390, 1280);
-    @include calc-value-min("height", 17.7, 28.8, 390, 1280);
-    background-image: url('src/assets/img/MainPage/collab-second.png');
+    @include calc-value-min('width', 18, 29, 390, 1280);
+    @include calc-value-min('height', 17.7, 28.8, 390, 1280);
     z-index: 10;
   }
 
   &__image:last-child {
     z-index: 20;
-    @include calc-value-min("width", 22.1, 32.5, 390, 1280);
-    @include calc-value-min("height", 19.6, 28.8, 390, 1280);
+    @include calc-value-min('width', 22.1, 32.5, 390, 1280);
+    @include calc-value-min('height', 19.6, 28.8, 390, 1280);
     bottom: 0;
     right: 50%;
     @include transformTranslate(6, 4, 0, 0, 390, 1280);
-    background-image: url('src/assets/img/MainPage/collab-first.png');
   }
 
   &__dots {

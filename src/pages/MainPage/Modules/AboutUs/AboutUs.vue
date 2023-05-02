@@ -26,9 +26,6 @@
       </div>
       <div class="about-us__image about-us-image">
         <img
-<<<<<<< Updated upstream
-          :src="imageSrc"
-=======
           :src="require('src/assets/img/MainPage/about-us.png')"
           :srcset="
             require('src/assets/img/MainPage/about-us.png') +
@@ -36,7 +33,6 @@
             require('src/assets/img/MainPage/about-us@2x.png') +
             ' 2x'
           "
->>>>>>> Stashed changes
           alt="about-us project"
         />
         <dots
@@ -58,8 +54,6 @@
   import Dots from 'src/components/ui/dots/Dots.vue'
 
   const dotColors = ['#EB00FF', '#FF5C00']
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
-  const imageSrc = require('src/assets/img/MainPage/about-us.png')
 
   const clickHandler = () => {
     // eslint-disable-next-line

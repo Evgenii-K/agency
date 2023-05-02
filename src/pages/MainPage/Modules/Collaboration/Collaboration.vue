@@ -2,10 +2,6 @@
   <section class="collaboration__wrapper">
     <div class="collaboration__photo-block photo-block">
       <div class="photo-block__images">
-<<<<<<< Updated upstream
-        <div class="photo-block__image" />
-        <div class="photo-block__image" />
-=======
         <img
           class="photo-block__image"
           :src="require('src/assets/img/MainPage/collab-second.png')"
@@ -26,7 +22,6 @@
             ' 2x'
           "
         />
->>>>>>> Stashed changes
       </div>
       <dots
         class="photo-block__dots photo-block__dots--blue"
