@@ -46,6 +46,7 @@
   ]
 
   const clickHandler = () => {
+    // eslint-disable-next-line
     console.log('isPortfolioClick')
   }
 </script>

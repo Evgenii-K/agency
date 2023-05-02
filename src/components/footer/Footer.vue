@@ -8,7 +8,7 @@
             :src="require('src/assets/img/logo.png')"
             :srcset="
               require('src/assets/img/logo.png') +
-              '1x, ' +
+              ' 1x, ' +
               require('src/assets/img/logo@2x.png') +
               ' 2x'
             "

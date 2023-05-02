@@ -17,7 +17,7 @@
         :src="require('src/assets/img/MainPage/start.png')"
         :srcset="
           require('src/assets/img/MainPage/start.png') +
-          '1x, ' +
+          ' 1x, ' +
           require('src/assets/img/MainPage/start@2x.png') +
           ' 2x'
         "
@@ -48,7 +48,7 @@
             :src="require('src/assets/img/MainPage/bill.png')"
             :srcset="
               require('src/assets/img/MainPage/bill.png') +
-              '1x, ' +
+              ' 1x, ' +
               require('src/assets/img/MainPage/bill@2x.png') +
               ' 2x'
             "

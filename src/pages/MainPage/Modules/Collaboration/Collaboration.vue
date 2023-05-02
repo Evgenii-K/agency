@@ -7,7 +7,7 @@
           :src="require('src/assets/img/MainPage/collab-second.png')"
           :srcset="
             require('src/assets/img/MainPage/collab-second.png') +
-            '1, ' +
+            ' 1x, ' +
             require('src/assets/img/MainPage/collab-second@2x.png') +
             ' 2x'
           "
@@ -17,7 +17,7 @@
           :src="require('src/assets/img/MainPage/collab-first.png')"
           :srcset="
             require('src/assets/img/MainPage/collab-first.png') +
-            '1x, ' +
+            ' 1x, ' +
             require('src/assets/img/MainPage/collab-first@2x.png') +
             ' 2x'
           "
